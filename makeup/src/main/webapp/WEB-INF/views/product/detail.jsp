@@ -10,21 +10,29 @@
 <style type="text/css">
 .header { width: 1200px; height: 600px;}
 .imagepath { width: 550px; height: 550px; float: left;}
-.infoArea { width: 550px; height: 550px; border: 1px solid; float: right;}
+.infoArea { width: 550px; height: 550px; border-top: 1px solid; float: right;}
 .name { width: 550px; height: 25px; line-height: 15px; font-size: 20px; }
 .price { width: 550px; height: 50px; line-height: 15px; font-size: 15px; font-weight: bold; border-bottom: 1px solid #ececec;}
-
+.explanation { width: 550px; margin-top: 0px; line-height: 20px; }
+.img-box { width: 1200px; height: auto; margin: 20px auto; bottom: 0;}
+.image { width: 1000px; margin: 0 auto;}
 </style>
 </head>
 <body>
-<%-- <input type="hidden" data-name="no" id="no" value="${vo.no }"> --%>
 <div class="header">
 	<div class="imagepath"><img src="${vo.imagepath }" /></div>
 	<div class="infoArea">
 		<p class="name">${vo.name }</p>
 		<p class="price">${vo.price }</p>
+		<div class="explanation">${vo.explanation }</div>
 		<div class="buy-btn">buy now</div>
 	</div>
 </div>
+<div class="img-box">
+	<div><img src="${vo.image1 }" class="image"/></div>
+	<div><img src="${vo.image2 }" class="image"/></div>
+	<div><img src="${vo.image3 }" class="image"/></div>
+</div>
 </body>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </html>

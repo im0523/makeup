@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-p { text-align: center; font-size: 30px; font-weight: bold;}
+.main { text-align: center; font-size: 30px; font-weight: bold;}
 .menu {width: 1000px; height: 50px; margin: 50px auto; }
 .menu li { list-style: none; float: left; color: lightslategray; font-size: 15px; padding: 10px 27px; border: 1px solid #bdbdbd; margin: 0 4px;}
 .item_box { width: 280px; height: 390px; float: left; margin: 20px;}
@@ -19,7 +19,7 @@ p { text-align: center; font-size: 30px; font-weight: bold;}
 </head>
 <body>
 <form method="post" id="list">
-<p>PRODUCT</p>
+<p class="main">PRODUCT</p>
 	<ul class="menu">
 		<li>new</li>
 		<li>best seller</li>
@@ -33,7 +33,7 @@ p { text-align: center; font-size: 30px; font-weight: bold;}
 		<li>acc</li>
 	</ul>
 	
-<p style="font-size: 15px; margin: 0 0 0 1100px;"><a class="btn-fill" onclick="location='new.pd'">상품등록</a></p>
+<p class="main" style="font-size: 15px; margin: 0 0 0 1100px;"><a class="btn-fill" onclick="location='new.pd'">상품등록</a></p>
 	
 	<div class="content">
 		<c:forEach items="${page.list }" var="vo">
@@ -44,7 +44,7 @@ p { text-align: center; font-size: 30px; font-weight: bold;}
 			</div></a>
 		</c:forEach>
 	</div>
-	
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 	<input type="hidden" name="no"/>
 </form>
 <script type="text/javascript">
