@@ -16,6 +16,7 @@
 .explanation { width: 550px; margin-top: 0px; line-height: 20px; }
 .img-box { width: 1200px; height: auto; margin: 20px auto; bottom: 0;}
 .image { width: 1000px; margin: 0 auto;}
+.btn-box { width: 150px;}
 </style>
 </head>
 <body>
@@ -25,7 +26,11 @@
 		<p class="name">${vo.name }</p>
 		<p class="price">${vo.price }</p>
 		<div class="explanation">${vo.explanation }</div>
-		<div class="buy-btn">buy now</div>
+		<a onclick="location='list.pd'" style="cursor: pointer;"><div class="buy-btn">buy now</div></a>
+		<div class="btn-box">
+			<a class="btn-fill">상품수정</a>
+			<a class="btn-fill" onclick="location='delete.pd'">상품삭제</a>
+		</div>
 	</div>
 </div>
 <div class="img-box">

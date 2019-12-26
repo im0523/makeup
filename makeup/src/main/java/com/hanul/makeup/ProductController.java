@@ -53,4 +53,11 @@ public class ProductController {
 		return "product/detail";
 	}
 	
+	//상품 삭제처리 요청
+	@RequestMapping("/delete.pd")
+	public String delete(int no) {
+		service.product_delete(no);
+		return "redirect:list.pd";
+	}
+	
 }

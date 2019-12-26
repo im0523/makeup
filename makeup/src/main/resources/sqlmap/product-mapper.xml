@@ -19,4 +19,9 @@
 	from product
 	where no=#{no}
 </select>
+
+<delete id="delete">
+	delete from product
+	where no=#{no}
+</delete>
 </mapper>

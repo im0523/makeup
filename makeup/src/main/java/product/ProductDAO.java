@@ -35,7 +35,7 @@ public class ProductDAO implements ProductService {
 
 	@Override
 	public void product_delete(int no) {
-
+		sql.delete("product.mapper.delete", no);
 	}
 
 }

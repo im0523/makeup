@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void product_delete(int no) {
-
+		dao.product_delete(no);
 	}
 
 }
