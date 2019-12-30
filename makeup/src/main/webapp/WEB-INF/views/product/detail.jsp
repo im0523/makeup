@@ -30,7 +30,7 @@
 		<div class="btn-box">
 			<a class="btn-fill">상품수정</a>
 <!-- 			삭제 버튼 눌렀을 때 처리 ★★ -->
-			<a class="btn-fill" onclick="location='delete.pd'">상품삭제</a>
+			<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠어요?') ){ location='delete.pd' }">상품삭제</a>
 		</div>
 	</div>
 </div>
