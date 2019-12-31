@@ -60,4 +60,13 @@ public class ProductController {
 		return "redirect:list.pd";
 	}
 	
+	//상품 수정화면 요청
+	@RequestMapping("/modify.pd")
+	public String modify() {
+//	public String modify(int no, Model model) {
+//		model.addAttribute("vo", service.product_detail(no))
+		return "product/modify";
+	}
+	
+	
 }
