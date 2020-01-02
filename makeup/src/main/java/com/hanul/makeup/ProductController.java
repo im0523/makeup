@@ -62,10 +62,17 @@ public class ProductController {
 	
 	//상품 수정화면 요청
 	@RequestMapping("/modify.pd")
-	public String modify() {
-//	public String modify(int no, Model model) {
-//		model.addAttribute("vo", service.product_detail(no))
+	public String modify(int no, Model model) {
+		model.addAttribute("vo", service.product_detail(no));
 		return "product/modify";
+	}
+	
+	//상품 수정처리 요청
+	@RequestMapping("/update.pd")
+	public String update() {
+//		return "redirect:detail.pd";
+		//return -> detail로 가게 변경할 것
+		return "redirect:list.pd";
 	}
 	
 	

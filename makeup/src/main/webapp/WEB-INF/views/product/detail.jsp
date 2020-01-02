@@ -28,7 +28,7 @@
 		<div class="explanation">${vo.explanation }</div>
 		<a onclick="location='list.pd'" style="cursor: pointer;"><div class="buy-btn">buy now</div></a>
 		<div class="btn-box">
-			<a class="btn-fill" onclick="location='modify.pd'">상품수정</a>
+			<a class="btn-fill" onclick="location='modify.pd?no=${vo.no}'">상품수정</a>
 			<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠어요?') ){ location='delete.pd?no=${vo.no}' }">상품삭제</a>
 		</div>
 	</div>
