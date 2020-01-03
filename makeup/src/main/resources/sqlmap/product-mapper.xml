@@ -24,4 +24,11 @@
 	delete from product
 	where no=#{no}
 </delete>
+
+<update id="update">
+	update product
+	set imagepath=#{imagepath, jdbcType=VARCHAR}, name=#{name}, explanation=#{explanation}, price=#{price}, context=#{context},
+		image1=#{image1, jdbcType=VARCHAR}, image2=#{image2, jdbcType=VARCHAR}, image3=#{image3, jdbcType=VARCHAR}
+	where no=#{no}
+</update>
 </mapper>

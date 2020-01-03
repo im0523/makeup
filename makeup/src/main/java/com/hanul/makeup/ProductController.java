@@ -70,9 +70,7 @@ public class ProductController {
 	//상품 수정처리 요청
 	@RequestMapping("/update.pd")
 	public String update() {
-//		return "redirect:detail.pd";
-		//return -> detail로 가게 변경할 것
-		return "redirect:list.pd";
+		return "product/redirect";
 	}
 	
 	
