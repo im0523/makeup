@@ -30,7 +30,7 @@ public class ProductDAO implements ProductService {
 
 	@Override
 	public void product_update(ProductVO vo) {
-
+		sql.update("product.mapper.update", vo);
 	}
 
 	@Override

@@ -70,23 +70,25 @@ public class ProductController {
 	//상품 수정처리 요청
 	@RequestMapping("/update.pd")
 	public String update(ProductVO vo, MultipartFile image[], HttpSession ss, Model model) {
-		ProductVO old = service.product_detail( vo.getNo() );
-		String uuid = ss.getServletContext().getRealPath("resources") + old.getImagepath();
+//		ProductVO old = service.product_detail( vo.getNo() );
+//		String uuid = ss.getServletContext().getRealPath("resources") + old.getImagepath();
 		for(int i=0; i<image.length; i++) {
 			if( image[i].getSize() > 0) {
 				//파일을 첨부하는 경우
 				switch(i) {
-//				case 0:
-//					vo.getImagepath( common.fileUpload(image[i], ss, "product")); break;
-//				case 1:
-//					vo.getImage1( common.fileUpload(image[i], ss, "product")); break;
-//				case 2:
-//					vo.getImage2( common.fileUpload(image[i], ss, "product")); break;
-//				case 3:
-//					vo.getImage3( common.fileUpload(image[i], ss, "product")); break;
+				case 0:
+					vo.setImagepath( common.fileUpload(image[i], ss, "product")); break;
+				case 1:
+					vo.setImage1( common.fileUpload(image[i], ss, "product")); break;
+				case 2:
+					vo.setImage2( common.fileUpload(image[i], ss, "product")); break;
+				case 3:
+					vo.setImage3( common.fileUpload(image[i], ss, "product")); break;
 				}
 			}
 		}
+		service.product_update(vo);
+		model.addAttribute("no", vo.getNo());
 		return "product/redirect";
 	}
 	

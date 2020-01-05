@@ -24,7 +24,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void product_update(ProductVO vo) {
-
+		dao.product_update(vo);
 	}
 
 	@Override
