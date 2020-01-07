@@ -71,7 +71,7 @@ public class ProductController {
 	
 	//상품 수정처리 요청
 	@RequestMapping("/update.pd")
-	public String update(ProductVO vo, MultipartFile image[], HttpSession ss, Model model) {
+	public String update(ProductVO vo, MultipartFile image[], HttpSession ss, Model model, int delete) {
 		ProductVO old = service.product_detail( vo.getNo() );
 		String uuid = ss.getServletContext().getRealPath("resources") + old.getImagepath();
 		for(int i=0; i<image.length; i++) {
@@ -91,23 +91,23 @@ public class ProductController {
 				File f = new File( uuid );
 				if( f.exists() ) f.delete();
 			} else {
-//				//파일을 첨부하지 않는 경우
-//				if( delete != 1 ){
-//					//1. 원래 첨부된 파일을 그대로 사용하는 경우
-//					switch(i) {
-//					case 0:
-//						vo.setImagepath( old.getImagepath() ); break;
-//					case 1:
-//						vo.setImage1( old.getImage1() ); break;
-//					case 2:
-//						vo.setImage2( old.getImage2() ); break;
-//					case 3:
-//						vo.setImage2( old.getImage3() ); break;
-//					}
-//				}else {
-//					//2. 원래 첨부된 파일을 삭제하는 경우
-//				}
-//				
+				//파일을 첨부하지 않는 경우
+				if( delete != 1 ){
+					//1. 원래 첨부된 파일을 그대로 사용하는 경우
+					switch(i) {
+					case 0:
+						vo.setImagepath( old.getImagepath() ); break;
+					case 1:
+						vo.setImage1( old.getImage1() ); break;
+					case 2:
+						vo.setImage2( old.getImage2() ); break;
+					case 3:
+						vo.setImage3( old.getImage3() ); break;
+					}
+				}else {
+					//2. 원래 첨부된 파일을 삭제하는 경우
+				}
+				
 			}
 		}
 		service.product_update(vo);
