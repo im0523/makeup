@@ -74,6 +74,9 @@ public class ProductController {
 	public String update(ProductVO vo, MultipartFile image[], HttpSession ss, Model model, int delete) {
 		ProductVO old = service.product_detail( vo.getNo() );
 		String uuid = ss.getServletContext().getRealPath("resources") + old.getImagepath();
+		String uuid1 = ss.getServletContext().getRealPath("resources") + old.getImage1();
+		String uuid2 = ss.getServletContext().getRealPath("resources") + old.getImage2();
+		String uuid3 = ss.getServletContext().getRealPath("resources") + old.getImage3();
 		for(int i=0; i<image.length; i++) {
 			if( image[i].getSize() > 0) {
 				//파일을 첨부하는 경우
@@ -89,7 +92,13 @@ public class ProductController {
 				}
 				// 원래 첨부된 파일을 바꿔 첨부하는 경우 - 원래 첨부된 파일을 삭제한다.
 				File f = new File( uuid );
+				File f1 = new File( uuid1 );
+				File f2 = new File( uuid2 );
+				File f3 = new File( uuid3 );
 				if( f.exists() ) f.delete();
+				if( f1.exists() ) f.delete();
+				if( f2.exists() ) f.delete();
+				if( f3.exists() ) f.delete();
 			} else {
 				//파일을 첨부하지 않는 경우
 				if( delete != 1 ){
@@ -106,6 +115,14 @@ public class ProductController {
 					}
 				}else {
 					//2. 원래 첨부된 파일을 삭제하는 경우
+					File f = new File( uuid );
+					File f1 = new File( uuid1 );
+					File f2 = new File( uuid2 );
+					File f3 = new File( uuid3 );
+					if( f.exists() ) f.delete();
+					if( f1.exists() ) f.delete();
+					if( f2.exists() ) f.delete();
+					if( f3.exists() ) f.delete();
 				}
 				
 			}
