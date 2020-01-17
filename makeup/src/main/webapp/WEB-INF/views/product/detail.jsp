@@ -13,7 +13,7 @@
 .infoArea { width: 550px; height: 550px; border-top: 1px solid; float: right;}
 .name { width: 550px; height: 25px; line-height: 15px; font-size: 20px; }
 .price { width: 550px; height: 50px; line-height: 15px; font-size: 15px; font-weight: bold; border-bottom: 1px solid #ececec;}
-/* .explanation { width: 550px; margin-top: 0px; line-height: 20px; } */
+.explanation { width: 550px; margin-top: 0px; line-height: 20px; }
 /* .quantity input { width: 22px; height: 25px; text-align: center; padding: 0 2px 0 3px; line-height: 23px; border: 1px solid #d4d8d9; border-radius: 3px 0 0 3px} */
 .img-box { width: 1200px; height: auto; margin: 20px auto; bottom: 0;}
 .image { width: 1000px; margin: 0 auto;}
@@ -26,7 +26,7 @@
 	<div class="infoArea">
 		<p class="name">${vo.name }</p>
 		<p class="price">${vo.price }</p>
-<%-- 		<div class="explanation">${vo.explanation }</div> --%>
+		<div class="explanation">${vo.explanation }</div>
 <!-- 		<tbody><tr> -->
 <%-- 			<td>${vo.name }</td> --%>
 <!--                 <td> -->
