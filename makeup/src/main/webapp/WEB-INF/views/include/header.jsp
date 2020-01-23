@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +19,8 @@ img { float: left; cursor: pointer;}
 	<div class="position">
 	<ul>
 		<li class="list"><a>BRAND</a></li>
-		<li class="list"><a>PRODUCT</a></li>
-		<li class="list"><a onclick="location='list.pd'" style="cursor: pointer;">STORE</a></li>
+		<li class="list"><a onclick="location='list.pd'" style="cursor: pointer;">PRODUCT</a></li>
+		<li class="list"><a onclick="location='list.st'" style="cursor: pointer;">STORE</a></li>
 		<li class="bar"></li>
 		<li class="list-s">LOGIN</li>
 		<li class="list-s">JOIN</li>
