@@ -77,15 +77,3 @@ textarea {
 	height: 50px;
 	line-height: 50px;
 }
-
-table {
-	margin: 0 auto;
-	width: 80%;
-	border: 1px solid;
-	border-collapse: collapse;
-}
-
-table th, table td {
-	border: 1px solid;
-	padding: 5px 10px;
-}
