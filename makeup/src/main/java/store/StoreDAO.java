@@ -19,7 +19,7 @@ public class StoreDAO implements StoreService {
 
 	@Override
 	public StoreVO store_detail(int id) {
-		return null;
+		return sql.selectOne("store.mapper.detail", id);
 	}
 
 	@Override

@@ -6,12 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-.main { height: 50px; text-align: center; font-size: 30px; font-weight: bold;}
-table {margin: 0 auto; width: 80%; border-top: 1px solid #ececec; border-collapse: collapse;}
-table th, table td { border-bottom: 1px solid #ececec; padding: 10px;}
-table th { font-size: 10px; color: #545454; font-weight: lighter;}
-</style>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -30,7 +24,7 @@ table th { font-size: 10px; color: #545454; font-weight: lighter;}
 	<tr>
 		<td style="text-align: center;">${vo.no }</td>
 		<td style="text-align: center;">일본</td>
-		<td>${vo.title }</td>
+		<td><a style="cursor: pointer;" onclick="location='detail.st?id=${vo.id}'">${vo.title }</a></td>
 		<td style="text-align: center;">${vo.writer }</td>
 		<td style="text-align: center;">${vo.writedate }</td>
 		<td style="text-align: center;">${vo.filename }</td>

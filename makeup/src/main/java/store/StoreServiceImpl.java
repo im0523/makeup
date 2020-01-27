@@ -14,7 +14,7 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public StoreVO store_detail(int id) {
-		return null;
+		return dao.store_detail(id);
 	}
 
 	@Override

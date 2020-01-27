@@ -77,3 +77,28 @@ textarea {
 	height: 50px;
 	line-height: 50px;
 }
+
+.main {
+	height: 50px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+table {
+	margin: 0 auto;
+	width: 80%;
+	border-top: 1px solid #ececec;
+	border-collapse: collapse;
+}
+
+table th, table td {
+	border-bottom: 1px solid #ececec;
+	padding: 10px;
+}
+
+table th {
+	font-size: 10px;
+	color: #545454;
+	font-weight: lighter;
+}

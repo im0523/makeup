@@ -21,4 +21,11 @@ public class StoreController {
 		model.addAttribute("page", service.store_list(page));
 		return "store/list";
 	}
+	
+	//게시글 상세화면 요청
+	@RequestMapping("/detail.st")
+	public String detail(Model model, int id) {
+		model.addAttribute("vo", service.store_detail(id));
+		return "store/detail";
+	}
 }

@@ -7,4 +7,9 @@
 	from store
 </select>
 
+<select id="detail" resultType="store.StoreVO">
+	select id, readcnt, title, content, writer, filename, writedate
+	from store
+	where id=#{id}
+</select>
 </mapper>
