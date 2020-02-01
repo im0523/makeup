@@ -10,7 +10,7 @@
 <body>
 
 <div>
-	<a onclick="location='list.pd'"><img class="main_img" src="img/main.PNG"/></a> 
+	<a onclick="location='list.pd'"><img class="main_img" src="img/main.PNG"/></a>
 </div>
 </body>
 </html>
