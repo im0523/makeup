@@ -28,4 +28,10 @@ public class StoreController {
 		model.addAttribute("vo", service.store_detail(id));
 		return "store/detail";
 	}
+	
+	//게시글 등록화면 요청
+	@RequestMapping("/new.st")
+	public String insert() {
+		return "store/new";
+	}
 }

@@ -18,8 +18,12 @@ table tr th { font-size: 12px;}
 			<td>${vo.title }</td>
 	</tr>
 	<tr>
-		<th style="width: 60px;">내용</th>
+		<th>내용</th>
 			<td>${vo.content }</td>
+	</tr>	
+	<tr>
+		<th>주소</th>
+			<td>${vo.filename }</td>
 	</tr>	
 
 </table>

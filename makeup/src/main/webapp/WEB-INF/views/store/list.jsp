@@ -6,10 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.head { width: 70%; height: 50px; line-height: normal;}
+</style>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <p class="main">STORE</p>
+<div class="head">
+	<p><a class="btn-fill" style="float:right;" onclick="location='new.st'">글쓰기</a></p>
+</div>
 <table>
 	<tr>
 		<th style="width: 60px;">NO</th>
@@ -32,5 +38,7 @@
 </c:forEach>
 
 </table>
+
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>
