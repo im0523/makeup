@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +21,7 @@ table tr th { font-size: 12px;}
 			<td>${vo.content }</td>
 	</tr>	
 	<tr>
-		<th>주소</th>
+		<th>첨부파일</th>
 			<td>${vo.filename }</td>
 	</tr>	
 

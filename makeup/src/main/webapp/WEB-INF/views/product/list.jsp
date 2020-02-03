@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -44,7 +43,6 @@
 			</div></a>
 		</c:forEach>
 	</div>
-<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 	<input type="hidden" name="no"/>
 </form>
 <script type="text/javascript">
