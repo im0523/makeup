@@ -1,13 +1,17 @@
 package com.hanul.makeup;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import common.CommonService;
 import store.StorePageVO;
 import store.StoreServiceImpl;
+import store.StoreVO;
 
 @Controller
 public class StoreController {
@@ -29,9 +33,15 @@ public class StoreController {
 		return "store/detail";
 	}
 	
-	//게시글 등록화면 요청
+	//신규 게시글 작성화면 요청
 	@RequestMapping("/new.st")
-	public String insert() {
+	public String store() {
 		return "store/new";
+	}
+	
+	//신규 게시글 저장처리 요청
+	@RequestMapping("/insert.st")
+	public String insert(StoreVO vo, HttpSession ss, MultipartFile file) {
+		return "redirect:list.st";
 	}
 }
