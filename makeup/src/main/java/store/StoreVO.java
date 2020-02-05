@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class StoreVO {
 	private int id, readcnt, no;
-	private String title, content, writer, filename, filepath;
+	private String title, category, content, writer, filename, filepath;
 	private Date writedate;
 	
 	public int getId() {
@@ -30,6 +30,12 @@ public class StoreVO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public String getContent() {
 		return content;

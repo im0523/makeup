@@ -27,8 +27,8 @@
 
 <c:forEach items="${page.list }" var="vo">
 	<tr>
-		<td style="text-align: center;">${vo.no }</td>
-		<td style="text-align: center;">일본</td>
+		<td style="text-align: center;">${vo.id }</td>
+		<td style="text-align: center;">${vo.category }</td>
 		<td><a style="cursor: pointer;" onclick="location='detail.st?id=${vo.id}'">${vo.title }</a></td>
 		<td style="text-align: center;">${vo.writer }</td>
 		<td style="text-align: center;">${vo.writedate }</td>

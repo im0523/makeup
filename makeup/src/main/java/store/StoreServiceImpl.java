@@ -19,7 +19,7 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public void store_insert(StoreVO vo) {
-
+		dao.store_insert(vo);
 	}
 
 	@Override

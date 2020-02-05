@@ -24,7 +24,7 @@ public class StoreDAO implements StoreService {
 
 	@Override
 	public void store_insert(StoreVO vo) {
-
+		sql.insert("store.mapper.insert", vo);
 	}
 
 	@Override

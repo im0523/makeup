@@ -14,15 +14,28 @@ input, textarea { width: 90%;}
 </head>
 <body>
 <h3>스토어 등록</h3>
-<form action="" method="post">
+<form action="insert.st" method="post" enctype="multipart/form-data">
 <table>
 <tr>
 	<th>제목</th>
 		<td><input type="text" name="title"/></td>
 </tr>
 <tr>
+	<th>작성자</th>
+		<td><input type="text" name="writer"/></td>
+</tr>
+<tr>
+	<th>국가</th>
+		<td>
+			<select name="category">
+				<option>국내</option>
+				<option>해외</option>
+			</select>
+		</td>
+</tr>
+<tr>
 	<th>내용</th>
-		<td><textarea name="context"></textarea></td>
+		<td><textarea name="content"></textarea></td>
 </tr>
 <tr>
 	<th>첨부파일</th>
@@ -39,7 +52,7 @@ input, textarea { width: 90%;}
 </form>
 
 <div style="width: 95px; height: 50px; margin: 0 auto;">
-<a class="btn-fill">등록</a>
+<a class="btn-fill" onclick="$('form').submit()">등록</a>
 <a class="btn-empty" onclick="location='list.st'">취소</a>
 </div>
 

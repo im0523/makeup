@@ -3,13 +3,19 @@
 <mapper namespace="store.mapper">
 
 <select id="list" resultType="store.StoreVO">
-	select id, readcnt, no, title, writer, filename, writedate
+	select id, readcnt, no, title, writer, filename, writedate, category
 	from store
+	order by id desc
 </select>
 
 <select id="detail" resultType="store.StoreVO">
-	select id, readcnt, title, content, writer, filename, writedate
+	select id, readcnt, title, content, writer, filename, writedate, category
 	from store
 	where id=#{id}
 </select>
+
+<insert id="insert">
+	insert into store(id, title, writer, content, filename, filepath)
+	values ( seq_store.nextval, #{title}, #{writer}, #{content}, #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR} )
+</insert>
 </mapper>

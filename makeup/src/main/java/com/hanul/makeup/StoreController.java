@@ -42,6 +42,12 @@ public class StoreController {
 	//신규 게시글 저장처리 요청
 	@RequestMapping("/insert.st")
 	public String insert(StoreVO vo, HttpSession ss, MultipartFile file) {
+		//첨부파일이 있는 경우
+		if( file.getSize() > 0 ) {
+			vo.setFilename( file.getOriginalFilename() );
+			vo.setFilepath( common.fileUpload(file, ss, "store") );
+		}
+		service.store_insert(vo);
 		return "redirect:list.st";
 	}
 }
