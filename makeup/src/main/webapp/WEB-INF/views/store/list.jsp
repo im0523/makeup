@@ -29,10 +29,11 @@
 	<tr>
 		<td style="text-align: center;">${vo.id }</td>
 		<td style="text-align: center;">${vo.category }</td>
-		<td><a style="cursor: pointer;" onclick="location='detail.st?id=${vo.id}'">${vo.title }</a></td>
+		<td><a style="cursor: pointer; float:left;" onclick="location='detail.st?id=${vo.id}'">${vo.title }&nbsp;</a>
+			${empty vo.filename ? '' : '<img src="img/fileimage.gif" style="padding-top: 5px; cursor: default;"/>' }</td>
 		<td style="text-align: center;">${vo.writer }</td>
 		<td style="text-align: center;">${vo.writedate }</td>
-		<td style="text-align: center;">${vo.filename }</td>
+		<td style="text-align: center;">${vo.readcnt }</td>
 	</tr>
 </c:forEach>
 

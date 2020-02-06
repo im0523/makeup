@@ -17,6 +17,10 @@ table tr th { font-size: 12px;}
 			<td>${vo.title }</td>
 	</tr>
 	<tr>
+		<th style="width: 60px;">작성자</th>
+			<td>${vo.writer }</td>
+	</tr>
+	<tr>
 		<th>내용</th>
 			<td>${vo.content }</td>
 	</tr>	

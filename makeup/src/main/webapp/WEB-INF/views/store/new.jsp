@@ -28,8 +28,8 @@ input, textarea { width: 90%;}
 	<th>국가</th>
 		<td>
 			<select name="category">
-				<option>국내</option>
-				<option>해외</option>
+				<option value="국내">국내</option>
+				<option value="해외">해외</option>
 			</select>
 		</td>
 </tr>

@@ -15,7 +15,7 @@
 </select>
 
 <insert id="insert">
-	insert into store(id, title, writer, content, filename, filepath)
-	values ( seq_store.nextval, #{title}, #{writer}, #{content}, #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR} )
+	insert into store(id, title, writer, content, filename, filepath, category)
+	values ( seq_store.nextval, #{title}, #{writer}, #{content}, #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR}, #{category} )
 </insert>
 </mapper>
