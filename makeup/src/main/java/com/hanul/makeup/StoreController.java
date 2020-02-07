@@ -50,4 +50,11 @@ public class StoreController {
 		service.store_insert(vo);
 		return "redirect:list.st";
 	}
+	
+	//게시글 삭제처리
+	@RequestMapping("/delete.st")
+	public String delete(int id) {
+		service.store_delete(id);
+		return "redirect:list.st";
+	}
 }

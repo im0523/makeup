@@ -29,7 +29,7 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public void store_delete(int id) {
-
+		dao.store_delete(id);
 	}
 
 	@Override

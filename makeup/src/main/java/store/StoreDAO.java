@@ -34,7 +34,7 @@ public class StoreDAO implements StoreService {
 
 	@Override
 	public void store_delete(int id) {
-
+		sql.delete("store.mapper.delete", id);
 	}
 
 	@Override

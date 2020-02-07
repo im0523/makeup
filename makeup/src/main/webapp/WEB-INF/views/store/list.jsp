@@ -33,7 +33,7 @@
 			${empty vo.filename ? '' : '<img src="img/fileimage.gif" style="padding-top: 5px; cursor: default;"/>' }</td>
 		<td style="text-align: center;">${vo.writer }</td>
 		<td style="text-align: center;">${vo.writedate }</td>
-		<td style="text-align: center;">${vo.readcnt }</td>
+		<td style="text-align: center;">${vo.readcnt }</td>	
 	</tr>
 </c:forEach>
 

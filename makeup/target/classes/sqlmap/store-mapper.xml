@@ -18,4 +18,9 @@
 	insert into store(id, title, writer, content, filename, filepath, category)
 	values ( seq_store.nextval, #{title}, #{writer}, #{content}, #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR}, #{category} )
 </insert>
+
+<delete id="delete">
+	delete from store
+	where id=#{id}
+</delete>
 </mapper>
