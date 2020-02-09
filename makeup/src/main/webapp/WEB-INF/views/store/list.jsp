@@ -27,7 +27,7 @@
 
 <c:forEach items="${page.list }" var="vo">
 	<tr>
-		<td style="text-align: center;">${vo.id }</td>
+		<td style="text-align: center;">${vo.no }</td>
 		<td style="text-align: center;">${vo.category }</td>
 		<td><a style="cursor: pointer; float:left;" onclick="location='detail.st?id=${vo.id}'">${vo.title }&nbsp;</a>
 			${empty vo.filename ? '' : '<img src="img/fileimage.gif" style="padding-top: 5px; cursor: default;"/>' }</td>

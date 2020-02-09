@@ -52,8 +52,8 @@ input, textarea { width: 90%;}
 </form>
 
 <div style="width: 95px; height: 50px; margin: 0 auto;">
-<a class="btn-fill" onclick="$('form').submit()">등록</a>
-<a class="btn-empty" onclick="location='list.st'">취소</a>
+	<a class="btn-fill" onclick="$('form').submit()">등록</a>
+	<a class="btn-empty" onclick="location='list.st'">취소</a>
 </div>
 
 <script type="text/javascript">

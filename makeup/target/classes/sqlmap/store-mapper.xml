@@ -3,7 +3,7 @@
 <mapper namespace="store.mapper">
 
 <select id="list" resultType="store.StoreVO">
-	select id, readcnt, no, title, writer, filename, writedate, category
+	select row_number() over(order by id asc) no, id, readcnt, no, title, writer, filename, writedate, category
 	from store
 	order by id desc
 </select>

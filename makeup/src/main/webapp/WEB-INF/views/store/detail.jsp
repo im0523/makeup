@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,14 +22,24 @@ table tr th { font-size: 12px;}
 			<td>${vo.writer }</td>
 	</tr>
 	<tr>
+		<th>위치</th>
+			<td>${vo.category }</td>
+	</tr>	
+	<tr>
 		<th>내용</th>
-			<td>${vo.content }</td>
+			<td>${fn: replace(vo.content, crlf, '<br>') }</td>
 	</tr>	
 	<tr>
 		<th>첨부파일</th>
-			<td>${vo.filename }</td>
+			<td><a style="cursor: pointer;">${vo.filename }</a></td>
 	</tr>	
 
 </table>
+
+<div style="width: 150px; height: 50px; margin: 0 auto;">
+	<a class="btn-fill">수정</a>
+	<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.st?id=${vo.id}' }">삭제</a>
+	<a class="btn-fill" onclick="history.back()">목록으로</a>
+</div>
 </body>
 </html>

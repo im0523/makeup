@@ -10,14 +10,13 @@
 .infoArea { width: 930px; height: 200px; float: left;}
 .value, .value1 { width: 830px; height: 30px; line-height: 30px; float: left; margin: 20px 0 0 20px;}
 .value { width: 50px; font-weight: bold;}
-/* table tr th { width: 80px;} */
 /* .name { width: 550px; height: 25px; line-height: 15px; font-size: 20px; } */
 /* .price { width: 550px; height: 50px; line-height: 15px; font-size: 15px; font-weight: bold; border-bottom: 1px solid #ececec;} */
 </style>
 <title>Insert title here</title>
 </head>
 <body>
-<p style="width: 122px; margin: auto; font-weight: bold;">상품구매 페이지</p>
+<h3>상품구매</h3>
 <div class="header">
 	<div class="imagepath"><img style="width: 200px; height: 200px;" src="${vo.imagepath }" /></div>
 		<div class="infoArea">

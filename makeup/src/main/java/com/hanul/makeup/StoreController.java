@@ -30,6 +30,7 @@ public class StoreController {
 	@RequestMapping("/detail.st")
 	public String detail(Model model, int id) {
 		model.addAttribute("vo", service.store_detail(id));
+		model.addAttribute("crlf", "\r\n");
 		return "store/detail";
 	}
 	
