@@ -1,13 +1,19 @@
 package common;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
@@ -51,5 +57,28 @@ public class CommonServiceImpl implements CommonService {
 			dir.mkdirs();	//폴더가 여러개니까 mkdir이 아니라 mkdirs
 		}
 		return folder.toString();
+	}
+	
+	@Override
+	public File fileDownload(String name, String path, HttpSession ss, HttpServletResponse respoonse) {
+		//다운로드 할 파일 생성
+		File file = new File(ss.getServletContext().getRealPath("resources") + File.separator + path);
+		String mime = ss.getServletContext().getMimeType(name);
+		if( mime==null ) {
+			mime="application/octet-stream";
+		}
+		try {
+//			respoonse.setContentType("text/html; charset=utf-8");
+			respoonse.setContentType(mime);
+			
+			//한글이 깨지지 않도록 처리
+			name = URLEncoder.encode(name, "utf-8");
+			respoonse.setHeader("content-disposition", "attachment); filename=" + name);	//header에 지정
+			ServletOutputStream out = respoonse.getOutputStream();
+			FileCopyUtils.copy(new FileInputStream(file), out);	//파일을 복사(in)해서 붙여넣는(out) FileCopyUtils class
+			out.flush();	//바로 내려보내기
+		} catch (Exception e) {
+		}
+		return file;
 	}
 }

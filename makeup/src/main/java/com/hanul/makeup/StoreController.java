@@ -1,11 +1,15 @@
 package com.hanul.makeup;
 
+import java.io.File;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import common.CommonService;
@@ -34,6 +38,14 @@ public class StoreController {
 		return "store/detail";
 	}
 	
+	//첨부파일 다운로드 요청
+	@ResponseBody @RequestMapping("download.st")
+	public File download(int id, HttpSession ss, HttpServletResponse response) {
+		StoreVO vo = service.store_detail(id);
+		return common.fileDownload(vo.getFilename(), vo.getFilepath(), ss, response);
+	}
+	
+	
 	//신규 게시글 작성화면 요청
 	@RequestMapping("/new.st")
 	public String store() {
@@ -58,4 +70,5 @@ public class StoreController {
 		service.store_delete(id);
 		return "redirect:list.st";
 	}
+	
 }

@@ -31,7 +31,7 @@ table tr th { font-size: 12px;}
 	</tr>	
 	<tr>
 		<th>첨부파일</th>
-			<td><a style="cursor: pointer;">${vo.filename }</a></td>
+			<td><a style="cursor: pointer;" onclick="location='download.st?id=${vo.id}'">${vo.filename }</a></td>
 	</tr>	
 
 </table>
