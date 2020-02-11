@@ -39,7 +39,7 @@ public class StoreController {
 	}
 	
 	//첨부파일 다운로드 요청
-	@ResponseBody @RequestMapping("download.st")
+	@ResponseBody @RequestMapping("/download.st")
 	public File download(int id, HttpSession ss, HttpServletResponse response) {
 		StoreVO vo = service.store_detail(id);
 		return common.fileDownload(vo.getFilename(), vo.getFilepath(), ss, response);

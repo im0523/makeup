@@ -60,7 +60,7 @@ public class CommonServiceImpl implements CommonService {
 	}
 	
 	@Override
-	public File fileDownload(String name, String path, HttpSession ss, HttpServletResponse respoonse) {
+	public File fileDownload(String name, String path, HttpSession ss, HttpServletResponse response) {
 		//다운로드 할 파일 생성
 		File file = new File(ss.getServletContext().getRealPath("resources") + File.separator + path);
 		String mime = ss.getServletContext().getMimeType(name);
@@ -68,13 +68,13 @@ public class CommonServiceImpl implements CommonService {
 			mime="application/octet-stream";
 		}
 		try {
-//			respoonse.setContentType("text/html; charset=utf-8");
-			respoonse.setContentType(mime);
+//			response.setContentType("text/html; charset=utf-8");
+			response.setContentType(mime);
 			
 			//한글이 깨지지 않도록 처리
 			name = URLEncoder.encode(name, "utf-8");
-			respoonse.setHeader("content-disposition", "attachment); filename=" + name);	//header에 지정
-			ServletOutputStream out = respoonse.getOutputStream();
+			response.setHeader("content-disposition", "attachment; filename=" + name);	//header에 지정
+			ServletOutputStream out = response.getOutputStream();
 			FileCopyUtils.copy(new FileInputStream(file), out);	//파일을 복사(in)해서 붙여넣는(out) FileCopyUtils class
 			out.flush();	//바로 내려보내기
 		} catch (Exception e) {
