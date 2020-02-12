@@ -11,5 +11,5 @@ public interface CommonService {
 	String fileUpload(MultipartFile file, HttpSession ss, String category);
 	
 	//응답 받는건 파일을 받는 처리 void -> File
-	File fileDownload(String name, String path, HttpSession ss, HttpServletResponse respoonse);
+	File fileDownload(String name, String path, HttpSession ss, HttpServletResponse response);
 }
