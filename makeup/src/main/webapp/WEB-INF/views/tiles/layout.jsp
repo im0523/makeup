@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>DEAR DAHLIA</title>
-<link rel="stylesheet" type="text/css" href="css/common.css?v=<%=new java.util.Date().getTime()%>">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<%-- <link rel="stylesheet" type="text/css" href="css/common.css?v=<%=new java.util.Date().getTime()%>"> --%>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
