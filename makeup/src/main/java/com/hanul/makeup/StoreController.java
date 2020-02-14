@@ -71,4 +71,12 @@ public class StoreController {
 		return "redirect:list.st";
 	}
 	
+	//게시글 수정화면 요청
+	@RequestMapping("/modify.st")
+	public String modify(int id, Model model) {
+		model.addAttribute("vo", service.store_detail(id));
+		return "store/modify";
+	}
+	
+	
 }

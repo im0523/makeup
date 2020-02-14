@@ -37,7 +37,7 @@ table tr th { font-size: 12px;}
 </table>
 
 <div style="width: 150px; height: 50px; margin: 0 auto;">
-	<a class="btn-fill">수정</a>
+	<a class="btn-fill" onclick="location='modify.st?id=${vo.id}'">수정</a>
 	<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.st?id=${vo.id}' }">삭제</a>
 	<a class="btn-fill" onclick="history.back()">목록으로</a>
 </div>
