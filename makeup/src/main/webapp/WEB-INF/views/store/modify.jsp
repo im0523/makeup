@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +29,10 @@ input, textarea { width: 90%;}
 	<th>국가</th>
 		<td>
 			<select name="category" >
-				<option value="국내">국내</option>
-				<option value="해외">해외</option>
+<%-- 				<option value="${vo.category eq '국내' ? selected="selected" : ''}">국내</option> --%>
+<%-- 				<option value="${vo.category eq '해외' ? selected="selected" : ''}">해외</option> --%>
+				<option value="국내" selected="selected">국내</option>
+				<option value="해외" selected="selected">해외</option>
 			</select>
 		</td>
 </tr>
@@ -41,7 +44,7 @@ input, textarea { width: 90%;}
 	<th>첨부파일</th>
 		<td>
 			<img style="display: none;" src="img/cancel.PNG" class="btn-img" id="delete-file">
-			<label id="file-name"></label>
+			<label id="file-name">${vo.filename }</label>
 			<label>
 				<img class="btn-img" src="img/image_add.png" />
 				<input style="display: none;" type="file" name="file" id="attach-file"/>
@@ -67,6 +70,14 @@ $('#delete-file').click(function(){
 	$('#file-name').text('');
 	$('#attach-file').val('');	//file 태그에 대한 data 없애기(보여지는 부분에 대한)
 	$('#delete-file').css('display', 'none');
+})
+
+$(function(){
+	if ( ${!empty vo.filename} ){
+		$('#delete-file').css('display', 'inline-block');
+// 		$('file-name').text( this.files[0].name );
+		$('#file-name').css('padding-right', '20px');
+	}
 })
 </script>
 </body>
