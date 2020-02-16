@@ -29,7 +29,7 @@ public class StoreDAO implements StoreService {
 
 	@Override
 	public void store_update(StoreVO vo) {
-
+		sql.update("store.mapper.update", vo);
 	}
 
 	@Override

@@ -23,4 +23,10 @@
 	delete from store
 	where id=#{id}
 </delete>
+
+<update id="update">
+	update store
+	set title, context, category, filename=#{filename, jdbcType=VARCHAR} filepath=#{filepath, jdbcType=VARCHAR}
+	where id=#{id}
+</update>
 </mapper>

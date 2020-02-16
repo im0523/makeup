@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<form method="post" id="list">
 <p class="main">STORE</p>
 <div class="head">
 	<p><a class="btn-fill" style="float:right;" onclick="location='new.st'">글쓰기</a></p>
@@ -29,7 +30,7 @@
 	<tr>
 		<td style="text-align: center;">${vo.no }</td>
 		<td style="text-align: center;">${vo.category }</td>
-		<td><a style="cursor: pointer; float:left;" onclick="location='detail.st?id=${vo.id}'">${vo.title }&nbsp;</a>
+		<td><a style="cursor: pointer; float:left;" onclick="go_detail(${vo.id})">${vo.title }&nbsp;</a>
 			${empty vo.filename ? '' : '<img src="img/fileimage.gif" style="padding-top: 5px; cursor: default;"/>' }</td>
 		<td style="text-align: center;">${vo.writer }</td>
 		<td style="text-align: center;">${vo.writedate }</td>
@@ -38,6 +39,14 @@
 </c:forEach>
 
 </table>
-
+<input name="id" type="hidden"/>
+</form>
+<script type="text/javascript">
+function go_detail(id){
+	$('[name=id]').val(id);
+	$('#list').attr('action', 'detail.st');
+	$('#list').submit();
+}
+</script>
 </body>
 </html>

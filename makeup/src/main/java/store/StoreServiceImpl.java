@@ -24,7 +24,7 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public void store_update(StoreVO vo) {
-
+		dao.store_update(vo);
 	}
 
 	@Override

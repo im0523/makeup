@@ -15,7 +15,7 @@ input, textarea { width: 90%;}
 </head>
 <body>
 <h3>스토어 수정</h3>
-<form action="" method="post" enctype="multipart/form-data">
+<form action="update.st" method="post" enctype="multipart/form-data">
 <table>
 <tr>
 	<th>제목</th>
@@ -29,10 +29,8 @@ input, textarea { width: 90%;}
 	<th>국가</th>
 		<td>
 			<select name="category" >
-<%-- 				<option value="${vo.category eq '국내' ? selected="selected" : ''}">국내</option> --%>
-<%-- 				<option value="${vo.category eq '해외' ? selected="selected" : ''}">해외</option> --%>
-				<option value="국내" selected="selected">국내</option>
-				<option value="해외" selected="selected">해외</option>
+				<option value="국내" <c:if test="${vo.category eq '국내'}">selected</c:if>>국내</option>
+				<option value="국내" <c:if test="${vo.category eq '해외'}">selected</c:if>>해외</option>
 			</select>
 		</td>
 </tr>
@@ -52,6 +50,8 @@ input, textarea { width: 90%;}
 		</td>
 </tr>
 </table>
+<input type="hidden" name="id" value="${vo.id }"/>
+<input type="hidden" name="delete" value="0"/>
 </form>
 
 <div style="width: 95px; height: 50px; margin: 0 auto;">
@@ -75,7 +75,6 @@ $('#delete-file').click(function(){
 $(function(){
 	if ( ${!empty vo.filename} ){
 		$('#delete-file').css('display', 'inline-block');
-// 		$('file-name').text( this.files[0].name );
 		$('#file-name').css('padding-right', '20px');
 	}
 })

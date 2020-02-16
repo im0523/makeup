@@ -78,5 +78,34 @@ public class StoreController {
 		return "store/modify";
 	}
 	
+	//게시글 수정처리 요청
+	@RequestMapping("/update.st")
+	public String update(StoreVO vo, int id, MultipartFile file, HttpSession ss, int delete) {
+		StoreVO old = service.store_detail(id);
+		String uuid = ss.getServletContext().getRealPath("resources");
+		if( file.getSize()>0 ) {
+			//파일을 첨부하는 경우
+			vo.setFilename( file.getOriginalFilename() );
+			vo.setFilepath( common.fileUpload(file, ss, "store"));
+			
+			//원래 첨부된 파일을 바꿔 첨부하는 경우
+			//원래 첨부된 파일을 삭제한다.
+			File f = new File( uuid );
+			if ( f.exists() ) { f.delete(); }
+		}else {
+			//파일을 첨부하지 않는 경우
+			if( delete != 1) {
+				//1. 원래 첨부된 파일을 그대로 사용하는 경우
+				vo.setFilename( old.getFilename() );
+				vo.setFilepath( old.getFilepath() );
+			} else {
+				//2. 원래 첨부된 파일을 삭제하는 경우
+				//원래 첨부된 파일을 삭제한다.
+				File f = new File( uuid );
+				if ( f.exists() ) { f.delete(); }
+			}
+		}
+		return "store/redirect";
+	}
 	
 }
