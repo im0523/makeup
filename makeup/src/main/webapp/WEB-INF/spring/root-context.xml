@@ -9,5 +9,5 @@
 <!-- <import resource="classpath:data/default.xml"/> -->
 	<import resource="classpath:data/*.xml"/>
 	
-	<context:component-scan base-package="product, common, store" />		
+	<context:component-scan base-package="customer, product, common, store" />		
 </beans>
