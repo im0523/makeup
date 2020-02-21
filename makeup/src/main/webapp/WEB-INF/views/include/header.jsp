@@ -18,7 +18,7 @@ img { float: left; cursor: pointer;}
 	<a onclick="location='list.pd'"><img src="img/logo.PNG" /></a>
 	<div class="position">
 	<ul>
-		<li class="list"><a onclick="location='list.pd'" style="cursor: pointer;">CUSTOMER</a></li>
+		<li class="list"><a onclick="location='list.cu'" style="cursor: pointer;">CUSTOMER</a></li>
 		<li class="list"><a>BRAND</a></li>
 		<li class="list"><a onclick="location='list.pd'" style="cursor: pointer;">PRODUCT</a></li>
 		<li class="list"><a onclick="location='list.st'" style="cursor: pointer;">STORE</a></li>
