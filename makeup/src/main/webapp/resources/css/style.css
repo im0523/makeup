@@ -102,3 +102,13 @@ table th {
 	color: #545454;
 	font-weight: lighter;
 }
+
+.btn-fill-s {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	border-radius: 10px;
+	padding: 3px;
+	cursor: pointer;
+	font-size: 11px;
+}

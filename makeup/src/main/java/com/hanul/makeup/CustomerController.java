@@ -20,4 +20,9 @@ public class CustomerController {
 		model.addAttribute("page", service.customer_list(page));
 		return "customer/list";
 	}
+	
+	@RequestMapping("/insert.cu")
+	public String insert() {
+		return "customer/new";
+	}
 }

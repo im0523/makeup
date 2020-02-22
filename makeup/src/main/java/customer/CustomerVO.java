@@ -3,7 +3,7 @@ package customer;
 public class CustomerVO {
 	//customer
 	private int no;
-	private String id, password, name, birthday, gender, email, address, hobby, graduate_h, schoolname_h, location_h,
+	private String id, password, name, birthday, gender, phone[], email, address, hobby, graduate_h, schoolname_h, location_h,
 			graduate_u, schoolname_u, location_u, graduate_m, schoolname_m, location_m;
 	
 	private String organization, period_edu, context_edu;	//education
@@ -27,6 +27,12 @@ public class CustomerVO {
 	}
 	public String getGender() {
 		return gender;
+	}
+	public String[] getPhone() {
+		return phone;
+	}
+	public void setPhone(String[] phone) {
+		this.phone = phone;
 	}
 	public String getEmail() {
 		return email;
