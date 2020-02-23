@@ -112,3 +112,7 @@ table th {
 	cursor: pointer;
 	font-size: 11px;
 }
+
+select {
+	height: 23px;
+}

@@ -3,8 +3,8 @@ package customer;
 public class CustomerVO {
 	//customer
 	private int no;
-	private String id, password, name, birthday, gender, phone[], email, address, hobby, graduate_h, schoolname_h, location_h,
-			graduate_u, schoolname_u, location_u, graduate_m, schoolname_m, location_m;
+	private String id, password, name, birthday, gender, phone[], email, postcode, roadAddress, detailAddress,
+			graduate_h, schoolname_h, location_h, graduate_u, schoolname_u, location_u, graduate_m, schoolname_m, location_m;
 	
 	private String organization, period_edu, context_edu;	//education
 	private String company_ca, period_ca, department, position_ca, task_ca;		//career
@@ -37,11 +37,20 @@ public class CustomerVO {
 	public String getEmail() {
 		return email;
 	}
-	public String getAddress() {
-		return address;
+	public String getPostcode() {
+		return postcode;
 	}
-	public String getHobby() {
-		return hobby;
+	public String getRoadAddress() {
+		return roadAddress;
+	}
+	public String getDetailAddress() {
+		return detailAddress;
+	}
+	public void setRoadAddress(String roadAddress) {
+		this.roadAddress = roadAddress;
+	}
+	public void setDetailAddress(String detailAddress) {
+		this.detailAddress = detailAddress;
 	}
 	public String getGraduate_h() {
 		return graduate_h;
@@ -160,11 +169,8 @@ public class CustomerVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public void setHobby(String hobby) {
-		this.hobby = hobby;
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
 	}
 	public void setGraduate_h(String graduate_h) {
 		this.graduate_h = graduate_h;
