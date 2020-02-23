@@ -139,7 +139,7 @@ input { width: 150px;}
 <div class="div_cate">
 	<span class="cate">[ 경력사항 ]</span>
 </div>
-<!--기간을 hiredate, resign date로 변경  (skill도 마찬가지)-->
+<!-- 기간을 hiredate, resign date로 변경  (skill도 마찬가지) -->
 
 <table>
 <tr>
