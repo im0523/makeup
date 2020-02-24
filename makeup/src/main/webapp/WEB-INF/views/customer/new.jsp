@@ -139,16 +139,66 @@ input { width: 150px;}
 <div class="div_cate">
 	<span class="cate">[ 경력사항 ]</span>
 </div>
-<!-- 기간을 hiredate, resign date로 변경  (skill도 마찬가지) -->
 
 <table>
 <tr>
 	<th>근무기간</th>
-		<td><input name="company_ca" style="width: 200px;"/>
-		</td>
+	<th>회사명</th>
+	<th style="width: 100px;">역할</th>
+	<th style="text-align: left;">직책</th>
+</tr>
+
+<tr>
+	<td style="text-align: center;"><input type="text" name="hiredate_c" style="width: 80px;"/> - 
+									<input type="text" name="resigndate_c" style="width: 80px;"/></td>
+	<td style="text-align: center;"><input type="text" name="company_c"/></td>
+	<td style="text-align: center;">
+		<select>
+			<option value="">선택</option>
+			<option value="SI">SI</option>
+			<option value="SM">SM</option>
+			<option value="PL">PL</option>
+			<option value="PM">PM</option>
+			<option value="OP">OP</option>
+		</select>
+	</td>
+	<td style="padding-left: 0px;">
+		<select>
+			<option value="">선택</option>
+			<option value="사원">사원</option>
+			<option value="주임">주임</option>
+			<option value="대리">대리</option>
+			<option value="과장">과장</option>
+			<option value="차장">차장</option>
+			<option value="부장">부장</option>
+			<option value="팀장">팀장</option>
+			<option value="이사">이사</option>
+			<option value="상무">상무</option>
+			<option value="대표">대표</option>
+		</select>
+		<span class="btn-fill-s" style="margin-left: 50px;">추가</span>
+	</td>
 </tr>
 </table>
 
+<div class="div_cate">
+	<span class="cate">[ 스킬 ]</span>
+</div>
+
+<table>
+	<tr>
+		<th>프로젝트명</th>
+		<th>참여기간</th>
+		<th>고객사</th>
+		<th>근무회사</th>
+		<th>역할</th>
+	</tr>
+</table>
+
+<div style="width: 90px; height: 50px; margin: 50px auto;">
+	<a class="btn-empty">취소</a>
+	<a class="btn-fill">등록</a>
+</div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
 function execPostCode(){

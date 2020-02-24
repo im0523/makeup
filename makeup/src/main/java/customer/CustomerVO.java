@@ -7,8 +7,8 @@ public class CustomerVO {
 			graduate_h, schoolname_h, location_h, graduate_u, schoolname_u, location_u, graduate_m, schoolname_m, location_m;
 	
 	private String organization, period_edu, context_edu;	//education
-	private String company_ca, period_ca, department, position_ca, task_ca;		//career
-	private String project, client, company_sk, position_sk, part, task_sk, os, language, dbms, tool, communication, etc;	//skill
+	private String company_c, hiredate_c, resigndate_c, position_c, task_c;		//career
+	private String project, hiredate_s, resigndate_s, client, company_s, position_s, task_s, os, language, dbms, tool, communication, etc;	//skill
 	private String certification, acquisition, context_ce;	//certificate 
 	public int getNo() {
 		return no;
@@ -31,9 +31,6 @@ public class CustomerVO {
 	public String[] getPhone() {
 		return phone;
 	}
-	public void setPhone(String[] phone) {
-		this.phone = phone;
-	}
 	public String getEmail() {
 		return email;
 	}
@@ -45,12 +42,6 @@ public class CustomerVO {
 	}
 	public String getDetailAddress() {
 		return detailAddress;
-	}
-	public void setRoadAddress(String roadAddress) {
-		this.roadAddress = roadAddress;
-	}
-	public void setDetailAddress(String detailAddress) {
-		this.detailAddress = detailAddress;
 	}
 	public String getGraduate_h() {
 		return graduate_h;
@@ -88,38 +79,41 @@ public class CustomerVO {
 	public String getContext_edu() {
 		return context_edu;
 	}
-	public String getCompany_ca() {
-		return company_ca;
+	public String getCompany_c() {
+		return company_c;
 	}
-	public String getPeriod_ca() {
-		return period_ca;
+	public String getHiredate_c() {
+		return hiredate_c;
 	}
-	public String getDepartment() {
-		return department;
+	public String getResigndate_c() {
+		return resigndate_c;
 	}
-	public String getPosition_ca() {
-		return position_ca;
+	public String getPosition_c() {
+		return position_c;
 	}
-	public String getTask_ca() {
-		return task_ca;
+	public String getTask_c() {
+		return task_c;
 	}
 	public String getProject() {
 		return project;
 	}
+	public String getHiredate_s() {
+		return hiredate_s;
+	}
+	public String getResigndate_s() {
+		return resigndate_s;
+	}
 	public String getClient() {
 		return client;
 	}
-	public String getCompany_sk() {
-		return company_sk;
+	public String getCompany_s() {
+		return company_s;
 	}
-	public String getPosition_sk() {
-		return position_sk;
+	public String getPosition_s() {
+		return position_s;
 	}
-	public String getPart() {
-		return part;
-	}
-	public String getTask_sk() {
-		return task_sk;
+	public String getTask_s() {
+		return task_s;
 	}
 	public String getOs() {
 		return os;
@@ -166,11 +160,20 @@ public class CustomerVO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public void setPhone(String[] phone) {
+		this.phone = phone;
+	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
+	}
+	public void setRoadAddress(String roadAddress) {
+		this.roadAddress = roadAddress;
+	}
+	public void setDetailAddress(String detailAddress) {
+		this.detailAddress = detailAddress;
 	}
 	public void setGraduate_h(String graduate_h) {
 		this.graduate_h = graduate_h;
@@ -208,38 +211,41 @@ public class CustomerVO {
 	public void setContext_edu(String context_edu) {
 		this.context_edu = context_edu;
 	}
-	public void setCompany_ca(String company_ca) {
-		this.company_ca = company_ca;
+	public void setCompany_c(String company_c) {
+		this.company_c = company_c;
 	}
-	public void setPeriod_ca(String period_ca) {
-		this.period_ca = period_ca;
+	public void setHiredate_c(String hiredate_c) {
+		this.hiredate_c = hiredate_c;
 	}
-	public void setDepartment(String department) {
-		this.department = department;
+	public void setResigndate_c(String resigndate_c) {
+		this.resigndate_c = resigndate_c;
 	}
-	public void setPosition_ca(String position_ca) {
-		this.position_ca = position_ca;
+	public void setPosition_c(String position_c) {
+		this.position_c = position_c;
 	}
-	public void setTask_ca(String task_ca) {
-		this.task_ca = task_ca;
+	public void setTask_c(String task_c) {
+		this.task_c = task_c;
 	}
 	public void setProject(String project) {
 		this.project = project;
 	}
+	public void setHiredate_s(String hiredate_s) {
+		this.hiredate_s = hiredate_s;
+	}
+	public void setResigndate_s(String resigndate_s) {
+		this.resigndate_s = resigndate_s;
+	}
 	public void setClient(String client) {
 		this.client = client;
 	}
-	public void setCompany_sk(String company_sk) {
-		this.company_sk = company_sk;
+	public void setCompany_s(String company_s) {
+		this.company_s = company_s;
 	}
-	public void setPosition_sk(String position_sk) {
-		this.position_sk = position_sk;
+	public void setPosition_s(String position_s) {
+		this.position_s = position_s;
 	}
-	public void setPart(String part) {
-		this.part = part;
-	}
-	public void setTask_sk(String task_sk) {
-		this.task_sk = task_sk;
+	public void setTask_s(String task_s) {
+		this.task_s = task_s;
 	}
 	public void setOs(String os) {
 		this.os = os;
@@ -268,6 +274,7 @@ public class CustomerVO {
 	public void setContext_ce(String context_ce) {
 		this.context_ce = context_ce;
 	}
+	
 	
 	
 }
