@@ -16,6 +16,8 @@ input { width: 150px;}
 </head>
 <body>
 <h3>회원 등록</h3>
+<form action="insert.cu" >
+
 <div class="div_cate">
 	<span class="cate">[ 인적사항 ]</span>
 </div>
@@ -185,19 +187,52 @@ input { width: 150px;}
 	<span class="cate">[ 스킬 ]</span>
 </div>
 
-<table>
+<table style="width: 1250px;">
 	<tr>
-		<th>프로젝트명</th>
-		<th>참여기간</th>
-		<th>고객사</th>
-		<th>근무회사</th>
-		<th>역할</th>
+		<th style="width: 250px;">프로젝트명</th>
+		<th style="width: 160px;">참여기간</th>
+		<th style="width: 80px;">고객사</th>
+		<th style="width: 80px;">근무회사</th>
+		<th style="width: 30px;">역할</th>
+		<th style="width: 40px;">언어</th>
+		<th style="width: 40px;">DBMS</th>
+		<th style="width: 40px;">OS</th>
+		<th style="width: 40px;">TOOL</th>
+		<th style="width: 40px;">통신</th>
+		<th style="width: 40px;">기타</th>
+		<th style="width: 30px;"></th>
+	</tr>
+	
+	<tr>
+		<td style="text-align: center;"><input type="text" style="width: 250px;" name="project"/></td>
+		<td style="padding: 0px;"><input type="text" name="hiredate_s" style="width: 80px;"/> - 
+									<input type="text" name="resigndate_s" style="width: 80px;"/></td>
+		<td style="text-align: center; padding:0px;"><input type="text" style="width: 80px;" name="client"/></td>
+		<td style="text-align: center; padding:0px;"><input type="text" style="width: 80px;" name="company_s"/></td>
+		<td style="text-align: center; padding:0px;">
+			<select name="position_s">
+				<option value="">선택</option>
+				<option value="SI">SI</option>
+				<option value="SM">SM</option>
+				<option value="PL">PL</option>
+				<option value="PM">PM</option>
+				<option value="OP">OP</option>
+			</select>
+		</td>
+		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="language"/></td>
+		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="dbms"/></td>
+		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="os"/></td>
+		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="tool"/></td>
+		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="communication"/></td>
+		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="etc"/></td>
+		<td><span class="btn-fill-s">추가</span></td>
 	</tr>
 </table>
+</form>
 
 <div style="width: 90px; height: 50px; margin: 50px auto;">
-	<a class="btn-empty">취소</a>
-	<a class="btn-fill">등록</a>
+	<a class="btn-empty" onclick="history.back()">취소</a>
+	<a class="btn-fill" onclick="location='insert.cu'">등록</a>
 </div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">

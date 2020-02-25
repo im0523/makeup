@@ -14,7 +14,7 @@ table tr td { text-align: center;}
 <body>
 <p class="main">회원 관리</p>
 <div class="head">
-	<a class="btn-fill" style="float:right;" onclick="location='insert.cu'">회원등록</a>
+	<a class="btn-fill" style="float:right;" onclick="location='new.cu'">회원등록</a>
 </div>
 <table style="width: 700px;">
 <tr>
