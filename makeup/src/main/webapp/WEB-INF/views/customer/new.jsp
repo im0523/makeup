@@ -24,13 +24,15 @@ input { width: 150px;}
 <table>
 <tr>
 	<th>아이디</th>
-		<td><input type="text" name="id"/></td>
+		<td><input onkeyup="$('#id_usable').val('n'); validate('id')" type="text" name="id"/>
+			<a id="btn-usable" onclick="usable()" class="btn-fill-s">중복확인</a>
+			<span style="font-size: 10px; color: #545454; margin-left: 30px;">대/소문자 구분</span></td>
 </tr>
 <tr>
 	<th>패스워드</th>
-		<td><input type="text" name="password"/>
+		<td><input type="text" name="pwd"/>
 	<span style="font-size: 10px; color: #545454; font-weight: lighter; margin-left: 30px;">패스워드 확인</span>
-			<input type="text" name="password"/></td>
+			<input type="text" name="pwd_ch"/></td>
 </tr>
 <tr>
 </tr>
@@ -40,8 +42,8 @@ input { width: 150px;}
 </tr>
 <tr>
 	<th>주민등록번호</th>
-		<td><input style="width:70px;" type="text" name="birthday"/> -
-			<input style="width:70px;" type="text" name="birthday"/></td>
+		<td><input style="width:70px;" type="text" name="birth_b"/> -
+			<input style="width:70px;" type="text" name="birth_e"/></td>
 </tr>
 <tr>
 	<th>휴대폰 번호</th>

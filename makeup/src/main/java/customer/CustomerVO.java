@@ -3,7 +3,7 @@ package customer;
 public class CustomerVO {
 	//customer
 	private int no;
-	private String id, password, name, birthday, gender, phone[], email, postcode, roadAddress, detailAddress,
+	private String id, pwd, pwd_ck, name, birth_b, birth_e, gender, phone[], email, postcode, roadAddress, detailAddress,
 			graduate_h, schoolname_h, location_h, graduate_u, schoolname_u, location_u, graduate_m, schoolname_m, location_m;
 	
 	private String organization, period_edu, context_edu;	//education
@@ -16,14 +16,20 @@ public class CustomerVO {
 	public String getId() {
 		return id;
 	}
-	public String getPassword() {
-		return password;
+	public String getPwd() {
+		return pwd;
+	}
+	public String getPwd_ck() {
+		return pwd_ck;
 	}
 	public String getName() {
 		return name;
 	}
-	public String getBirthday() {
-		return birthday;
+	public String getBirth_b() {
+		return birth_b;
+	}
+	public String getBirth_e() {
+		return birth_e;
 	}
 	public String getGender() {
 		return gender;
@@ -148,14 +154,20 @@ public class CustomerVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public void setPwd_ck(String pwd_ck) {
+		this.pwd_ck = pwd_ck;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
+	public void setBirth_b(String birth_b) {
+		this.birth_b = birth_b;
+	}
+	public void setBirth_e(String birth_e) {
+		this.birth_e = birth_e;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
@@ -274,7 +286,5 @@ public class CustomerVO {
 	public void setContext_ce(String context_ce) {
 		this.context_ce = context_ce;
 	}
-	
-	
-	
+
 }

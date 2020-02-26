@@ -24,7 +24,7 @@ public class CustomerDAO implements CustomerService {
 
 	@Override
 	public void customer_insert(CustomerVO vo) {
-
+		sql.insert("customer.mapper.insert", vo);
 	}
 
 	@Override

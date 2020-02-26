@@ -31,6 +31,7 @@ public class CustomerController {
 	
 	@RequestMapping("/insert.cu")
 	public String insert(CustomerVO vo, HttpSession ss) {
-		return "";
+		service.customer_insert(vo);
+		return "redirect:list.cu";
 	}
 }

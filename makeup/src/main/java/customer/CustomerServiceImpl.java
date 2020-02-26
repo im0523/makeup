@@ -19,7 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void customer_insert(CustomerVO vo) {
-
+		dao.customer_insert(vo);
 	}
 
 	@Override
