@@ -238,6 +238,14 @@ input { width: 150px;}
 </div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
+function usable(){
+	var data = validate('id');
+	if( data.code != 'valid' ){	//중복확인 불필요
+		alert ( data.desc );
+		return;
+	}
+}
+
 function execPostCode(){
 	new daum.Postcode({
 		oncomplete: function(data){
