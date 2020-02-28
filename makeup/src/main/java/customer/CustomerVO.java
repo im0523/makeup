@@ -3,7 +3,7 @@ package customer;
 public class CustomerVO {
 	//customer
 	private int no;
-	private String id, pwd, pwd_ck, name, birth_b, birth_e, gender, phone[], email, postcode, roadAddress, detailAddress,
+	private String id, pwd, pwd_ck, name, birth_b, birth_e, gender, phone[], phones, email, postcode, roadAddress, detailAddress,
 			graduate_h, schoolname_h, location_h, graduate_u, schoolname_u, location_u, graduate_m, schoolname_m, location_m;
 	
 	private String organization, period_edu, context_edu;	//education
@@ -36,6 +36,9 @@ public class CustomerVO {
 	}
 	public String[] getPhone() {
 		return phone;
+	}
+	public String getPhones() {
+		return phones;
 	}
 	public String getEmail() {
 		return email;
@@ -174,6 +177,11 @@ public class CustomerVO {
 	}
 	public void setPhone(String[] phone) {
 		this.phone = phone;
+		phones = String.join("-", phone);	//배열에 담을 때 phones에 '-'를 함께 담는다
+	}
+	public void setPhones(String phones) {
+		this.phones = phones;
+		phone = phones.split("-");
 	}
 	public void setEmail(String email) {
 		this.email = email;

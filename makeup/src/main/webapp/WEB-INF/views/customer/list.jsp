@@ -29,7 +29,7 @@ table tr td { text-align: center;}
 		<td>${vo.no }</td>
 		<td>${vo.name }</td>
 		<td>${vo.id }</td>
-		<td>${vo.birthday }</td>
+		<td>${vo.birth_b }</td>
 		<td>${vo.gender }</td>
 	</tr>
 </c:forEach>
