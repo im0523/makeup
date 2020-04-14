@@ -18,17 +18,20 @@ public class CustomerController {
 	@Autowired CustomerServiceImpl service;
 	@Autowired CommonService common;
 	
+	// customer list 조회
 	@RequestMapping("/list.cu")
 	public String list(Model model) {
 		model.addAttribute("page", service.customer_list(page));
 		return "customer/list";
 	}
 	
+	// customer insert 화면
 	@RequestMapping("/new.cu")
 	public String customer() {
 		return "customer/new";
 	}
 	
+	// customer insert 처리
 	@RequestMapping("/insert.cu")
 	public String insert(CustomerVO vo, HttpSession ss) {
 		service.customer_insert(vo);

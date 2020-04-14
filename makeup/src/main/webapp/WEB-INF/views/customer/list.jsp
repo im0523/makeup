@@ -24,15 +24,15 @@ table tr td { text-align: center;}
 	<th style="width: 100px;">생년월일</th>
 	<th style="width: 50px;">성별</th>
 </tr>
-<c:forEach items="${page.list }" var="vo" >
-	<tr>
-		<td>${vo.no }</td>
-		<td>${vo.name }</td>
-		<td>${vo.id }</td>
-		<td>${vo.birth_b }</td>
-		<td>${vo.gender }</td>
-	</tr>
-</c:forEach>
+<%-- <c:forEach items="${page.list }" var="vo" > --%>
+<!-- 	<tr> -->
+<%-- 		<td>${vo.no }</td> --%>
+<%-- 		<td>${vo.name }</td> --%>
+<%-- 		<td>${vo.id }</td> --%>
+<%-- 		<td>${vo.birth_b }</td> --%>
+<%-- 		<td>${vo.gender }</td> --%>
+<!-- 	</tr> -->
+<%-- </c:forEach> --%>
 </table>
 </body>
 </html>
