@@ -13,17 +13,17 @@ table tr td { text-align: center;}
 </head>
 <body>
 <p class="main">회원 관리</p>
-<div class="head">
-	<a class="btn-fill" style="float:right;" onclick="location='new.cu'">회원등록</a>
-</div>
-<table style="width: 700px;">
-<tr>
-	<th style="width: 60px;">번호</th>
-	<th style="width: 100px;">이름</th>
-	<th style="width: 100px;">아이디</th>
-	<th style="width: 100px;">생년월일</th>
-	<th style="width: 50px;">성별</th>
-</tr>
+<!-- <div class="head"> -->
+<!-- 	<a class="btn-fill" style="float:right;" onclick="location='new.cu'">회원등록</a> -->
+<!-- </div> -->
+<!-- <table style="width: 700px;"> -->
+<!-- <tr> -->
+<!-- 	<th style="width: 60px;">번호</th> -->
+<!-- 	<th style="width: 100px;">이름</th> -->
+<!-- 	<th style="width: 100px;">아이디</th> -->
+<!-- 	<th style="width: 100px;">생년월일</th> -->
+<!-- 	<th style="width: 50px;">성별</th> -->
+<!-- </tr> -->
 <%-- <c:forEach items="${page.list }" var="vo" > --%>
 <!-- 	<tr> -->
 <%-- 		<td>${vo.no }</td> --%>
@@ -33,6 +33,6 @@ table tr td { text-align: center;}
 <%-- 		<td>${vo.gender }</td> --%>
 <!-- 	</tr> -->
 <%-- </c:forEach> --%>
-</table>
+<!-- </table> -->
 </body>
 </html>
