@@ -21,7 +21,7 @@ public class CustomerController {
 	// customer list 조회
 	@RequestMapping("/list.cu")
 	public String list(Model model) {
-//		model.addAttribute("page", service.customer_list(page));
+		model.addAttribute("page", service.customer_list(page));
 		return "customer/list";
 	}
 	

@@ -1,0 +1,14 @@
+--customer table 생성
+CREATE TABLE "MAKEUP"."CUSTOMER"(
+	customer_id		VARCHAR2(500) NOT NULL ,
+	customer_pw		VARCHAR2(1000) NOT NULL,
+	customer_name	VARCHAR2(200) NOT  NULL,
+	customer_socialNum	VARCHAR2(200) NOT NULL,
+	customer_email 		VARCHAR2(200),
+	customer_phone 		VARCHAR2(200),
+	customer_postcode	VARCHAR2(100),
+	customer_address	VARCHAR2(1000),
+	customer_registerDate	DATE DEFAULT SYSDATE,
+	
+	CONSTRAINT CUSTOMER_PK PRIMARY KEY (customer_id)
+);

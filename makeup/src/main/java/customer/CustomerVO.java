@@ -5,14 +5,25 @@ public class CustomerVO {
 	private String customer_pw;
 	private String customer_pwCk;
 	private String customer_name;
-	private String customer_SocialNum;
+	private String customer_socialNum;
 	private String customer_email;
 	private String customer_phone[];
 	private String customer_phones;
 	private String customer_postcode;
 	private String customer_address[];
 	private String customer_addresses;
+	private String customer_registerDate;
 	
+	
+	public String getCustomer_registerDate() {
+		return customer_registerDate;
+	}
+	public void setCustomer_registerDate(String customer_registerDate) {
+		this.customer_registerDate = customer_registerDate;
+	}
+	public void setCustomer_socialNum(String customer_socialNum) {
+		this.customer_socialNum = customer_socialNum;
+	}
 	public String getCustomer_id() {
 		return customer_id;
 	}
@@ -37,11 +48,11 @@ public class CustomerVO {
 	public void setCustomer_name(String customer_name) {
 		this.customer_name = customer_name;
 	}
-	public String getCustomer_SocialNum() {
-		return customer_SocialNum;
+	public String getCustomer_socialNum() {
+		return customer_socialNum;
 	}
-	public void setCustomer_SocialNum(String customer_SocialNum) {
-		this.customer_SocialNum = customer_SocialNum;
+	public void setCustomer_SocialNum(String customer_socialNum) {
+		this.customer_socialNum = customer_socialNum;
 	}
 	public String getCustomer_email() {
 		return customer_email;
