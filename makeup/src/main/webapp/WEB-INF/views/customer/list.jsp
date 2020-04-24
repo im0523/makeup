@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@ table tr td { text-align: center;}
 	<tr>
 		<td>${vo.customer_id }</td>
 		<td>${vo.customer_name }</td>
-		<td>${vo.customer_socialNum }</td>
+		<td>${fn:substring(vo.customer_socialNum, 0, 6) }</td>
 		<td>${vo.customer_registerDate }</td>
 	</tr>
 </c:forEach>

@@ -15,237 +15,130 @@ input { width: 150px;}
 </style>
 </head>
 <body>
-<h3>회원 등록</h3>
+<h3>회원 가입</h3>
 <form action="insert.cu" >
-
-<div class="div_cate">
-	<span class="cate">[ 인적사항 ]</span>
-</div>
-<table>
-<tr>
-	<th>아이디</th>
-		<td><input onkeyup="$('#id_usable').val('n'); validate('id')" type="text" name="id"/>
-			<a id="btn-usable" onclick="usable()" class="btn-fill-s">중복확인</a>
-			<span style="font-size: 10px; color: #545454; margin-left: 30px;">대/소문자 구분</span></td>
-</tr>
-<tr>
-	<th>패스워드</th>
-		<td><input type="text" name="pwd"/>
-	<span style="font-size: 10px; color: #545454; font-weight: lighter; margin-left: 30px;">패스워드 확인</span>
-			<input type="text" name="pwd_ch"/></td>
-</tr>
-<tr>
-</tr>
-<tr>
-	<th>이름</th>
-		<td><input type="text" name="name"/></td>
-</tr>
-<tr>
-	<th>주민등록번호</th>
-		<td><input style="width:70px;" type="text" name="birth_b"/> -
-			<input style="width:70px;" type="text" name="birth_e"/></td>
-</tr>
-<tr>
-	<th>휴대폰 번호</th>
-		<td><input class="phone" type="text" name="phone"/> -
-			<input class="phone" type="text" name="phone"/> -
-			<input class="phone" type="text" name="phone"/></td>
-</tr>
-<tr>
-	<th>성별</th>
-		<td><label style="font-size: 13px;"><input class="radio" type="radio" name="gender" value="남"/>남</label>
-			<label style="font-size: 13px;"><input class="radio" type="radio" name="gender" value="여"/>여</label></td>
-</tr>
-<tr>
-	<th>이메일</th>
-		<td><input style="width:230px;"type="text" name="email"/></td>
-</tr>
-<tr>
-	<th>주소</th>
-		<td><input style="width: 60px;" type="text" name="postcode" id="postcode" placeholder="우편번호" readonly="readonly"/>
-				<a onclick="execPostCode()" class="btn-fill-s">우편번호 찾기</a></td>
-</tr>
-<tr>
-	<th></th>
-		<td><input style="width: 400px;" type="text" name="roadAddress" id="roadAddress" placeholder="도로명주소" readonly="readonly"/>
-			<input style="width: 330px;" type="text" name="detailAddress" id="detailAddress" placeholder="상세주소"/></td>
-</tr>
-</table>
-
-<div class="div_cate">
-	<span class="cate">[ 학력사항 ]</span>
-</div>
-<table>
-<tr>
-	<th>졸업년월</th>
-		<td><input type="text" name="graduate_h" style="width: 100px;"/>
-			<input type="text" name="schoolname_h" style="margin-left: 70px;"/>
-	<span style="font-size: 10px; color: #545454; font-weight: lighter;">고등학교</span>
-	<span style="font-size: 10px; color: #545454; font-weight: lighter; margin-left: 50px;">소재지</span>
-			<input type="text" name="location_h" style="width: 100px;"/></td>
-</tr>
-<tr>
-	<th>졸업년월</th>
-		<td><input type="text" name="graduate_u" style="width: 100px;"/>
-			<input type="text" name="schoolname_u" style="margin-left: 70px;"/>
-	<span style="font-size: 10px; color: #545454; font-weight: lighter;">대학교</span>
-	<span style="font-size: 10px; color: #545454; font-weight: lighter; margin-left: 59px;">소재지</span>
-			<input type="text" name="location_u" style="width: 100px;"/></td>
-</tr>
-<tr>
-	<th>졸업년월</th>
-		<td><input type="text" name="graduate_h" style="width: 100px;"/>
-			<input type="text" name="schoolname_h" style="margin-left: 70px;"/>
-	<span style="font-size: 10px; color: #545454; font-weight: lighter;">대학원</span>
-	<span style="font-size: 10px; color: #545454; font-weight: lighter; margin-left: 59px;">소재지</span>
-			<input type="text" name="location_h" style="width: 100px;"/></td>
-</tr>
-</table>
-
-<div class="div_cate">
-	<span class="cate">[ 자격증 ]</span>
-</div>
-
-<table>
-<tr>
-	<th>자격증명</th>
-		<td>
-			<select>
-				<option value="">종류</option>
-				<option value="정보처리기능사">정보처리기능사</option>
-				<option value="정보처리산업기사">정보처리산업기사</option>
-				<option value="정보처리기사">정보처리기사</option>
-			</select>
-		
-		<span style="font-size: 10px; color: #545454; font-weight: lighter; margin-left: 50px;">취득일</span>
-		<input type="text" name="location_h"/>
-		<span class="btn-fill-s" style="margin-left: 250px;">추가</span>
-		</td>
-</tr>
-</table>
-
-<div class="div_cate">
-	<span class="cate">[ 교육사항 ]</span>
-</div>
-
-<table>
-<tr>
-	<th>기간</th>
-		<td><input type="text" name="period_edu"/>
-		<span style="font-size: 10px; color: #545454; font-weight: lighter; margin-left: 20px;">기관명</span>
-			<input type="text" name="organization"/>
-		<span style="font-size: 10px; color: #545454; font-weight: lighter; margin-left: 20px;">내용</span>
-			<input type="text" name="context_edu" style="width: 230px;"/>
-			<span class="btn-fill-s" style="margin-left: 50px;">추가</span></td>
-</tr>
-</table>
-
-<div class="div_cate">
-	<span class="cate">[ 경력사항 ]</span>
-</div>
-
-<table>
-<tr>
-	<th>근무기간</th>
-	<th>회사명</th>
-	<th style="width: 100px;">역할</th>
-	<th style="text-align: left;">직책</th>
-</tr>
-
-<tr>
-	<td style="text-align: center;"><input type="text" name="hiredate_c" style="width: 80px;"/> - 
-									<input type="text" name="resigndate_c" style="width: 80px;"/></td>
-	<td style="text-align: center;"><input type="text" name="company_c"/></td>
-	<td style="text-align: center;">
-		<select>
-			<option value="">선택</option>
-			<option value="SI">SI</option>
-			<option value="SM">SM</option>
-			<option value="PL">PL</option>
-			<option value="PM">PM</option>
-			<option value="OP">OP</option>
-		</select>
-	</td>
-	<td style="padding-left: 0px;">
-		<select>
-			<option value="">선택</option>
-			<option value="사원">사원</option>
-			<option value="주임">주임</option>
-			<option value="대리">대리</option>
-			<option value="과장">과장</option>
-			<option value="차장">차장</option>
-			<option value="부장">부장</option>
-			<option value="팀장">팀장</option>
-			<option value="이사">이사</option>
-			<option value="상무">상무</option>
-			<option value="대표">대표</option>
-		</select>
-		<span class="btn-fill-s" style="margin-left: 50px;">추가</span>
-	</td>
-</tr>
-</table>
-
-<div class="div_cate">
-	<span class="cate">[ 스킬 ]</span>
-</div>
-
-<table style="width: 1250px;">
+	<table>
 	<tr>
-		<th style="width: 250px;">프로젝트명</th>
-		<th style="width: 160px;">참여기간</th>
-		<th style="width: 80px;">고객사</th>
-		<th style="width: 80px;">근무회사</th>
-		<th style="width: 30px;">역할</th>
-		<th style="width: 40px;">언어</th>
-		<th style="width: 40px;">DBMS</th>
-		<th style="width: 40px;">OS</th>
-		<th style="width: 40px;">TOOL</th>
-		<th style="width: 40px;">통신</th>
-		<th style="width: 40px;">기타</th>
-		<th style="width: 30px;"></th>
+		<th>아이디</th>
+			<td>
+				<input type="text" id="customer_id" name="customer_id" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g, '');" maxlength="16"/>
+				<a id="btn-usable" onclick="validate()" class="btn-fill-s">중복확인</a>
+				<span style="font-size: 12px; color: #545454; margin-left: 10px;">대/소문자 구분(6~16자)</span>
+			</td>
 	</tr>
-	
 	<tr>
-		<td style="text-align: center;"><input type="text" style="width: 250px;" name="project"/></td>
-		<td style="padding: 0px;"><input type="text" name="hiredate_s" style="width: 80px;"/> - 
-									<input type="text" name="resigndate_s" style="width: 80px;"/></td>
-		<td style="text-align: center; padding:0px;"><input type="text" style="width: 80px;" name="client"/></td>
-		<td style="text-align: center; padding:0px;"><input type="text" style="width: 80px;" name="company_s"/></td>
-		<td style="text-align: center; padding:0px;">
-			<select name="position_s">
-				<option value="">선택</option>
-				<option value="SI">SI</option>
-				<option value="SM">SM</option>
-				<option value="PL">PL</option>
-				<option value="PM">PM</option>
-				<option value="OP">OP</option>
-			</select>
-		</td>
-		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="language"/></td>
-		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="dbms"/></td>
-		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="os"/></td>
-		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="tool"/></td>
-		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="communication"/></td>
-		<td style="text-align: center; padding:0px;"><input type="text" style="width: 45px;" name="etc"/></td>
-		<td><span class="btn-fill-s">추가</span></td>
+		<th>비밀번호</th>
+			<td>
+				<input type="password" id="customer_pw" name="customer_pw" onkeyup="isSame(); this.value=this.value.replace(/[^a-zA-Z0-9]/g, '');" maxlength="16"/>
+				<span style="font-size: 12px; color: #545454; margin-left: 10px;">대소문자/숫자(6~16자)</span>
+				<span style="font-size: 13px; color: #545454; font-weight: lighter; margin-left: 30px;">비밀번호 확인</span>
+				<input type="password" id="customer_pwCk" onkeyup="isSame(); this.value=this.value.replace(/[^a-zA-Z0-9]/g, '');" maxlength="16"/>
+				<span id="same"></span>
+			</td>
 	</tr>
-</table>
+	<tr>
+	</tr>
+	<tr>
+		<th>이름</th>
+			<td>
+				<input type="text" id="customer_name" name="customer_name" maxlength="14" onkeyup="this.value=this.value.replace(/[^a-zA-Z가-힣]/g, '');"/>
+			</td>
+	</tr>
+	<tr>
+		<th>주민등록번호</th>
+			<td>
+				<input style="width:70px;" type="text" id="birth_b"/> -
+				<input style="width:70px;" type="text" id="birth_e"/>
+				<input type="hidden" name="customer_socialNum" id="customer_socialNum"/>
+			</td>
+	</tr>
+	<tr>
+		<th>휴대폰번호</th>
+			<td>
+				<input class="phone" type="text" id="phone1"/> -
+				<input class="phone" type="text" id="phone2"/> -
+				<input class="phone" type="text" id="phone3"/>
+				<input type="hidden" name="phone" id="name"/>
+			</td>
+	</tr>
+	<tr>
+		<th>이메일</th>
+			<td><input style="width:230px;" type="text" name="customer_email"/></td>
+	</tr>
+	<tr>
+		<th>주소</th>
+			<td><input style="width: 60px;" type="text" name="customer_postcode" id="customer_postcode" placeholder="우편번호" readonly="readonly"/>
+					<a onclick="execPostCode()" class="btn-fill-s">우편번호 찾기</a></td>
+	</tr>
+	<tr>
+		<th></th>
+			<td><input style="width: 400px;" type="text" name="roadAddress" id="roadAddress" placeholder="도로명주소" readonly="readonly"/>
+				<input style="width: 330px;" type="text" name="detailAddress" id="detailAddress" placeholder="상세주소"/></td>
+	</tr>
+	</table>
 </form>
 
 <div style="width: 90px; height: 50px; margin: 50px auto;">
-	<a class="btn-empty" onclick="history.back()">취소</a>
 	<a class="btn-fill" onclick="location='insert.cu'">등록</a>
+	<a class="btn-empty" onclick="history.back()">취소</a>
 </div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
-function usable(){
-	var data = validate('id');
-	if( data.code != 'valid' ){	//중복확인 불필요
-		alert ( data.desc );
+// 유효성검사
+function validate(){
+	if( $('#customer_id').val() == '' ){
+		alert('아이디를 입력해주세요');
+		$('#customer_id').focus();
 		return;
+// 	}else if( $('#customer_id').val().length < 6 ){
+// 		alert('아이디가 너무 짧습니다');
+// 		$('#customer_id').focus();
+// 		return;
+// 	}else if( $('#customer_pw').val() == '' ){
+// 		alert('비밀번호를 입력해주세요');
+// 		$('#customer_pw').focus();
+// 		return;
+// 	}else if( $('#customer_pw').val().length < 6 ){
+// 		alert('비밀번호가 너무 짧습니다');
+// 		$('#customer_pw').focus();
+// 		return;
+// 	}else if( $('#customer_pw').val() != $('#customer_pwCk').val() ){
+// 		alert('비밀번호가 서로 다릅니다');
+// 		$('#customer_pw').focus();
+// 		return;
+// 	}else if( $('#customer_name').val() == '' ){
+// 		alert('이름을 입력해주세요');
+// 		$('#customer_name').focus();
+// 		return;
+	}else if( $('#birth_b').val() == '' || $('#birth_e').val() == '' ){
+// 		if( $('#birth_b').val().length() != 6 || $('#birth_e').val().length() != 7 ){
+// 			alert('주민등록번호가 올바르지 않습니다');
+// 			$('#birth_e').focus();
+// 			return;
+// 		}
+	}
+
+}
+
+// 비밀번호, 비밀번호확인 값이 같은지 체크
+function isSame(){
+	var pw = $('#customer_pw').val();
+	var pwCk = $('#customer_pwCk').val();
+	
+	if( pw != '' && pwCk != '' ){
+		if( pw == pwCk ){
+			$('#same').html('비밀번호가 일치합니다');
+			$('#same').css('font-size', '7px');
+			$('#same').css('color', 'green');
+		}else{
+			$('#same').html('비밀번호가 일치하지 않습니다');
+			$('#same').css('font-size', '7px');
+			$('#same').css('color', 'red');
+		}
 	}
 }
 
+// 우편번호 API
 function execPostCode(){
 	new daum.Postcode({
 		oncomplete: function(data){

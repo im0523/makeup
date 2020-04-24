@@ -12,3 +12,13 @@ CREATE TABLE "MAKEUP"."CUSTOMER"(
 	
 	CONSTRAINT CUSTOMER_PK PRIMARY KEY (customer_id)
 );
+
+-- test 데이터 삽입
+insert into customer
+values('ddono', 'ddono12', '또노', '9105231234567', 'ddono@gmail.com', '010-1234-1234', '08051', '서울 가산동 어딘가 1101호', sysdate);
+insert into customer
+values('dmstjd', 'dmstjd12', '은성', '9011011234567', 'dmstjd@gmail.com', '010-1234-1234', '02331', '서울 노원구 어딘가 2101호', sysdate);
+insert into customer
+values('sowon', 'sowon12', '소원', '9407301234567', 'sowon@gmail.com', '010-1234-1234', '08051', '경기도 부천시 어딘가 803호', sysdate);
+
+commit;
