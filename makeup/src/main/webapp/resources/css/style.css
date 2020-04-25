@@ -19,7 +19,7 @@
 	cursor: pointer;
 }
 
-h3 {
+h2 {
 	text-align: center;
 	margin: 50px;
 }
@@ -87,7 +87,7 @@ textarea {
 
 table {
 	margin: 0 auto;
-	width: 75%;
+	width: 60%;
 	border-top: 1px solid #ececec;
 	border-collapse: collapse;
 }
@@ -115,4 +115,8 @@ table th {
 
 select {
 	height: 23px;
+}
+
+.phone { 
+	width: 30px;
 }

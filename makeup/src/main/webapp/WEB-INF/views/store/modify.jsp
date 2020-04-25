@@ -14,7 +14,7 @@ input, textarea { width: 90%;}
 </style>
 </head>
 <body>
-<h3>스토어 수정</h3>
+<h2>스토어 수정</h2>
 <form action="update.st" method="post" enctype="multipart/form-data">
 <table>
 <tr>

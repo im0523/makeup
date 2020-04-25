@@ -5,17 +5,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.div_cate, table { width: 50%;}
-.cate { font-size: 15px; color: #545454; font-weight: bold;}
 table tr th { width: 120px;}
 input { width: 150px;}
-.radio { width: 10px; height: 10px; line-height: 10px;}
-.phone { width: 30px;}
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </style>
 </head>
 <body>
-<h3>회원 가입</h3>
+<h2>회원 가입</h2>
 <form action="insert.cu" >
 	<table>
 	<tr>
@@ -47,23 +43,40 @@ input { width: 150px;}
 	<tr>
 		<th>주민등록번호</th>
 			<td>
-				<input style="width:70px;" type="text" id="birth_b"/> -
-				<input style="width:70px;" type="text" id="birth_e"/>
+				<input style="width:70px;" type="text" id="birth_b" maxlength="6" onkeyup="this.value=this.value.replace(/[^0-9]/g, '');"/> -
+				<input style="width:70px;" type="text" id="birth_e" maxlength="7" onkeyup="this.value=this.value.replace(/[^0-9]/g, '');"/>
 				<input type="hidden" name="customer_socialNum" id="customer_socialNum"/>
 			</td>
 	</tr>
 	<tr>
 		<th>휴대폰번호</th>
 			<td>
-				<input class="phone" type="text" id="phone1"/> -
-				<input class="phone" type="text" id="phone2"/> -
-				<input class="phone" type="text" id="phone3"/>
+				<select id="phone1">
+					<option value="010">010</option>
+					<option value="011">011</option>
+					<option value="016">016</option>
+				</select> -
+<!-- 				<input class="phone" type="text" id="phone1" maxlength="3" onkeyup="this.value=this.value.replace(/[^0-9]/g, '');"/> - -->
+				<input class="phone" type="text" id="phone2" maxlength="4" onkeyup="this.value=this.value.replace(/[^0-9]/g, '');"/> -
+				<input class="phone" type="text" id="phone3" maxlength="4" onkeyup="this.value=this.value.replace(/[^0-9]/g, '');"/>
 				<input type="hidden" name="phone" id="name"/>
 			</td>
 	</tr>
 	<tr>
 		<th>이메일</th>
-			<td><input style="width:230px;" type="text" name="customer_email"/></td>
+			<td>
+				<input style="width:200px;" type="text" id="customer_id" maxlength="30"/>
+				<select id="customer_domain">
+					<option value="">선택하세요</option>
+					<option>@naver.com</option>
+					<option>@gmail.com</option>
+					<option>@daum.net</option>
+					<option value="1">직접입력</option>
+				</select>
+				<input type="hidden" id="customer_email" name="customer_email"/>
+			</td>
+					
+					
 	</tr>
 	<tr>
 		<th>주소</th>
@@ -86,6 +99,9 @@ input { width: 150px;}
 <script type="text/javascript">
 // 유효성검사
 function validate(){
+	var phone2 = /^\d{3,4}$/;
+	var phone3 = /^\d{4}$/;
+	
 	if( $('#customer_id').val() == '' ){
 		alert('아이디를 입력해주세요');
 		$('#customer_id').focus();
@@ -109,15 +125,28 @@ function validate(){
 // 	}else if( $('#customer_name').val() == '' ){
 // 		alert('이름을 입력해주세요');
 // 		$('#customer_name').focus();
+// // 		return;
+// 	}else if( $('#birth_b').val() == '' || $('#birth_e').val() == '' ){
+// 		alert('주민등록번호를 입력해주세요');
+// 		$('#birth_e').focus();
 // 		return;
-	}else if( $('#birth_b').val() == '' || $('#birth_e').val() == '' ){
-// 		if( $('#birth_b').val().length() != 6 || $('#birth_e').val().length() != 7 ){
-// 			alert('주민등록번호가 올바르지 않습니다');
-// 			$('#birth_e').focus();
-// 			return;
-// 		}
+// 	}else if( $('#birth_b').val().length != 6 || $('#birth_e').val().length != 7 ){
+// 		alert('주민등록번호가 올바르지 않습니다');
+// 		$('#birth_e').focus();
+// 		return;
+// 	}else if( $('#phone2').val() == '' || $('#phone3').val() == '' ){
+// 		alert('휴대폰 번호를 입력해주세요');
+// 		$('#phone3').focus();
+// 		return;
+// 	}else if( !phone2.test( $('#phone2').val() ) ) {            
+//         alert('전화번호 가운데번호는 3자리 또는 4자리');
+// 		$('#phone2').focus();
+//         return;
+// 	}else if( !phone3.test( $('#phone3').val() ) ) {            
+//         alert('전화번호 마지막 자리는 4자리');
+// 		$('#phone3').focus();
+//         return;
 	}
-
 }
 
 // 비밀번호, 비밀번호확인 값이 같은지 체크
@@ -144,32 +173,24 @@ function execPostCode(){
 		oncomplete: function(data){
 			//우편번호 찾기 버튼을 눌렀을 때
 			
-			var fullRoadAddr = data.roadAddress;	//도로명 주소 변수
-			var extraRoadAddr = '';		//도로명 조합형 주소 변수
-			
-			//법정 동명이 있을 경우 추가한다. (법정 리는 제외)
-			//법정 동의 경우 마지막 문자가 "/동/로/가"로 끝난다.
-			if( data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-				extraRoadAddr += data.bname;
-			}
-			
-			//건물명이 있고, 공동주택일 경우 추가한다.
-			if(data.buildingName !=='' && data.apartment ==='Y'){
-				extraRoadAddr += (extraRoadAddr !=='' ? ', ' + data.buildingName : data.buildingName);
-			}
-			//도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-			if(extraRoadAddr !==''){
-				extraRoadAddr = ' (' + extraRoadAddr + ')';
-			}
-			//도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
-			if(fullRoadAddr !==''){
-				fullRoadAddr += extraRoadAddr;
-			}
+			var post, address;
+			if ( data.userSelectedType == 'J' ){
+				post = data.postcode;
+				address = data.jibunAddress;
+			}else {
+				post = data.zonecode;
+				address = data.roadAddress;
+				var extra = '';
+				if( data.buildingName !=''){	//건물 이름이 있으면
+					extra = address += data.buildingName;	//넣어주고
+				}
+				address += extra=='' ? '' : '(' + extra + ')';
+			}	
 			
 			//우편번호와 주소 정보를 해당 필드에 넣는다.
-			document.getElementById('postcode').value = data.zonecode;	//5자리 새 우편번호 사용
-			document.getElementById('roadAddress').value = fullRoadAddr;
-			document.getElementById('detailAddress').focus();
+			$('#customer_postcode').val(post);	//5자리 새 우편번호 사용
+			$('#roadAddress').val(address);
+			$('#detailAddress').focus();
 		}
 	}).open();
 }

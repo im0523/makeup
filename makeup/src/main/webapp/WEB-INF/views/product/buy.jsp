@@ -16,7 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>상품구매</h3>
+<h2>상품구매</h2>
 <div class="header">
 	<div class="imagepath"><img style="width: 200px; height: 200px;" src="${vo.imagepath }" /></div>
 		<div class="infoArea">

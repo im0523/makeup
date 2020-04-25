@@ -17,7 +17,7 @@
 </style>
 </head>
 <body>
-<h3>상품등록</h3>
+<h2>상품등록</h2>
 <form action="insert.pd" method="post" enctype="multipart/form-data">
 	<div class="content" style="width: 900px; margin: 0 auto; border: 1px solid gray;">
 		<div style="width: 130px; height: 130px;">

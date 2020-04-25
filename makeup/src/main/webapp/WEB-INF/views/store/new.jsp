@@ -13,7 +13,7 @@ input, textarea { width: 90%;}
 </style>
 </head>
 <body>
-<h3>스토어 등록</h3>
+<h2>스토어 등록</h2>
 <form action="insert.st" method="post" enctype="multipart/form-data">
 <table>
 <tr>
