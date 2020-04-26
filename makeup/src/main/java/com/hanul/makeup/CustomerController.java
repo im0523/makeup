@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import common.CommonService;
 import customer.CustomerPageVO;
@@ -36,5 +37,11 @@ public class CustomerController {
 	public String insert(CustomerVO vo, HttpSession ss) {
 		service.customer_insert(vo);
 		return "redirect:list.cu";
+	}
+	
+	// id 중복검사
+	@ResponseBody @RequestMapping("/usable.cu")
+	public String id_usable(String customer_id) {
+		return String.valueOf(service.id_usable(customer_id));
 	}
 }

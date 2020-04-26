@@ -6,7 +6,7 @@
 			customer_id,
 			customer_name,
 			customer_socialNum,
-			to_char(customer_registerDate, 'YYYY-MM-DD') customer_registerDate
+			TO_CHAR(CUSTOMER_REGISTERDATE, 'YYYY-MM-DD') CUSTOMER_REGISTERDATE
 		FROM
 			CUSTOMER
 	</select>
@@ -17,4 +17,13 @@
 		values(seq_customer.nextval, #{id}, #{pwd}, #{pwd_ck}, #{name}, #{gender}, #{email}, #{postcode}, #{graduate_h}, #{schoolname_h}, #{location_h},
 				#{graduate_u}, #{schoolname_u}, #{location_u}, #{graduate_m}, #{schoolname_m}, #{location_m}, #{phones}, #{roadaddress}, #{detailaddress})
 	</insert>
+	
+	<select id="idUsable" resultType="customer.CustomerVO">
+		SELECT
+			COUNT(*) CNT
+		FROM
+			CUSTOMER
+		WHERE
+			CUSTOMER_ID = #{CUSTOMER_ID}
+	</select>
 </mapper>

@@ -37,4 +37,11 @@ public class CustomerDAO implements CustomerService {
 
 	}
 
+	// 아이디 중복검사
+	@Override
+	public int id_usable(String customer_id) {
+		return sql.selectOne("customer.mapper.idUsable", customer_id);
+//		return (Integer)sql.selectOne("customer.mapper.idUsable", customer_id) == 1 ? false : true;
+	}
+
 }

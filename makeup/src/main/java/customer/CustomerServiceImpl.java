@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 public class CustomerServiceImpl implements CustomerService {
 	@Autowired CustomerDAO dao;
 
+	// customer list 조회
 	@Override
 	public CustomerPageVO customer_list(CustomerPageVO page) {
 		return dao.customer_list(page);
@@ -17,6 +18,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return null;
 	}
 
+	// customer 등록
 	@Override
 	public void customer_insert(CustomerVO vo) {
 		dao.customer_insert(vo);
@@ -30,6 +32,12 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void customer_delete(int no) {
 
+	}
+
+	// 아이디 중복검사
+	@Override
+	public int id_usable(String customer_id) {
+		return dao.id_usable(customer_id);
 	}
 
 }

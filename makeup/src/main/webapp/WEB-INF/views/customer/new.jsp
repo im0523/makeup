@@ -18,7 +18,7 @@ input { width: 150px;}
 		<th>아이디</th>
 			<td>
 				<input type="text" id="customer_id" name="customer_id" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g, '');" maxlength="16"/>
-				<a id="btn-usable" onclick="validate()" class="btn-fill-s">중복확인</a>
+				<a id="btn-usable" onclick="usable();" class="btn-fill-s">중복확인</a>
 				<span style="font-size: 12px; color: #545454; margin-left: 10px;">대/소문자 구분(6~16자)</span>
 			</td>
 	</tr>
@@ -147,6 +147,20 @@ function validate(){
 // 		$('#phone3').focus();
 //         return;
 	}
+}
+
+function usable(){
+	$.ajax({
+		type: 'post',
+		data: {customer_id : $('#customer_id').val() },
+		url : '/usable.cu',
+		success: function(data){
+			console.log(data.customer_id);
+		},error: function(req, status){
+			alert(customer_id);
+			alert('실패');
+		}
+	})
 }
 
 // 비밀번호, 비밀번호확인 값이 같은지 체크
