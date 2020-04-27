@@ -8,5 +8,5 @@ public interface CustomerService {
 	void customer_update(CustomerVO vo);
 	void customer_delete(int no);
 	
-	int id_usable(String customer_id);	//아이디 중복확인(이 아이디를 사용할 수 있다 or 없다 니까 boolean)
+	boolean id_usable(String customer_id);	//아이디 중복확인(이 아이디를 사용할 수 있다 or 없다 니까 boolean)
 }

@@ -36,7 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	// 아이디 중복검사
 	@Override
-	public int id_usable(String customer_id) {
+	public boolean id_usable(String customer_id) {
 		return dao.id_usable(customer_id);
 	}
 

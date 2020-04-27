@@ -7,9 +7,9 @@ public class CustomerVO {
 	private String customer_socialNum;
 	private String customer_email;
 	private String customer_phone;
-	private String customer_postcode;
-	private String customer_address[];
-	private String customer_addresses;
+	private String customer_postCode;
+	private String customer_address;
+	private String customer_detailAddress;
 	private String customer_registerDate;
 	
 	public String getCustomer_id() {
@@ -48,23 +48,23 @@ public class CustomerVO {
 	public void setCustomer_phone(String customer_phone) {
 		this.customer_phone = customer_phone;
 	}
-	public String getCustomer_postcode() {
-		return customer_postcode;
+	public String getCustomer_postCode() {
+		return customer_postCode;
 	}
-	public void setCustomer_postcode(String customer_postcode) {
-		this.customer_postcode = customer_postcode;
+	public void setCustomer_postCode(String customer_postCode) {
+		this.customer_postCode = customer_postCode;
 	}
-	public String[] getCustomer_address() {
+	public String getCustomer_address() {
 		return customer_address;
 	}
-	public void setCustomer_address(String[] customer_address) {
+	public void setCustomer_address(String customer_address) {
 		this.customer_address = customer_address;
 	}
-	public String getCustomer_addresses() {
-		return customer_addresses;
+	public String getCustomer_detailAddress() {
+		return customer_detailAddress;
 	}
-	public void setCustomer_addresses(String customer_addresses) {
-		this.customer_addresses = customer_addresses;
+	public void setCustomer_detailAddress(String customer_detailAddress) {
+		this.customer_detailAddress = customer_detailAddress;
 	}
 	public String getCustomer_registerDate() {
 		return customer_registerDate;
@@ -73,6 +73,4 @@ public class CustomerVO {
 		this.customer_registerDate = customer_registerDate;
 	}
 	
-	
-
 }

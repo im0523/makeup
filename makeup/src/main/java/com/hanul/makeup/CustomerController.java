@@ -40,7 +40,7 @@ public class CustomerController {
 	}
 	
 	// id 중복검사
-	@ResponseBody @RequestMapping("/usable.cu")
+	@ResponseBody @RequestMapping("/id_usable")
 	public String id_usable(String customer_id) {
 		return String.valueOf(service.id_usable(customer_id));
 	}

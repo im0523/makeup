@@ -7,8 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.head { width: 70%; height: 50px; line-height: normal;}
-table tr td { text-align: center;}
+.head { width: 70%; height: 50px; line-height: normal; }
+table tr th { width: 100px; }
+table tr td { text-align: center; }
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
@@ -19,10 +20,10 @@ table tr td { text-align: center;}
 </div>
 <table style="width: 700px;">
 <tr>
-	<th style="width: 100px;">아이디</th>
-	<th style="width: 100px;">이름</th>
-	<th style="width: 100px;">생년월일</th>
-	<th style="width: 60px;">등록일</th>
+	<th>아이디</th>
+	<th>이름</th>
+	<th>생년월일</th>
+	<th>등록일</th>
 </tr>
 <c:forEach items="${page.list }" var="vo" >
 	<tr>

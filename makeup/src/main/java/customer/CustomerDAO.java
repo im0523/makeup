@@ -39,9 +39,9 @@ public class CustomerDAO implements CustomerService {
 
 	// 아이디 중복검사
 	@Override
-	public int id_usable(String customer_id) {
-		return sql.selectOne("customer.mapper.idUsable", customer_id);
-//		return (Integer)sql.selectOne("customer.mapper.idUsable", customer_id) == 1 ? false : true;
+	public boolean id_usable(String customer_id) {
+		// 1이면 아이디가 이미 존재해서 사용할 수 없고, 0이면 사용가능
+		return (Integer)sql.selectOne("customer.mapper.idUsable", customer_id) == 1 ? false : true;
 	}
 
 }
