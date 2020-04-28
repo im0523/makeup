@@ -98,9 +98,14 @@ table th, table td {
 }
 
 table th {
+	width: 120px;
 	font-size: 13px;
 	color: #545454;
 	font-weight: lighter;
+}
+
+input {
+	width: 150px;
 }
 
 .btn-fill-s {

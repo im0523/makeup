@@ -1,7 +1,5 @@
 package com.hanul.makeup;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +24,7 @@ public class CustomerController {
 		return "customer/list";
 	}
 	
-	// customer insert 화면
+	// customer insert 화면 요청
 	@RequestMapping("/new.cu")
 	public String customer() {
 		return "customer/new";
@@ -45,12 +43,24 @@ public class CustomerController {
 		return String.valueOf(service.id_usable(customer_id));
 	}
 	
-	// customer detail 화면
+	// customer detail 화면 요청
 	@RequestMapping("/detail.cu")
 	public String detail(Model model, String customer_id) {
-		
 		model.addAttribute("vo", service.customer_detail(customer_id));
-		
 		return "customer/detail";
+	}
+	
+	// customer modify 화면 요청
+	@RequestMapping("/modify.cu")
+	public String modify(Model model, String customer_id) {
+		model.addAttribute("vo", service.customer_detail(customer_id));
+		return "customer/modify";
+	}
+	
+	@RequestMapping("/update.cu")
+	public String update(CustomerVO vo, Model model, String customer_id) {
+		service.customer_update(vo);
+		model.addAttribute("customer_id", vo.getCustomer_id());
+		return "redirect:detail.cu";
 	}
 }

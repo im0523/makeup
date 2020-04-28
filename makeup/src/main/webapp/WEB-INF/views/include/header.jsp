@@ -16,7 +16,7 @@ ul li a { cursor: pointer;}
 </head>
 <body>
 <div>
-	<a onclick="location='list.pd'"><img src="img/logo.PNG" /></a>
+	<a onclick="location='/makeup'"><img src="img/logo.PNG" /></a>
 	<div class="position">
 	<ul>
 		<li class="list"><a onclick="location='list.cu'">CUSTOMER</a></li>

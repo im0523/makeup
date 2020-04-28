@@ -29,7 +29,7 @@ public class CustomerDAO implements CustomerService {
 
 	@Override
 	public void customer_update(CustomerVO vo) {
-
+		sql.update("customer.mapper.update", vo);
 	}
 
 	@Override

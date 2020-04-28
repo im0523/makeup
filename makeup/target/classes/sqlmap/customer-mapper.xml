@@ -60,4 +60,21 @@
 		WHERE
 			CUSTOMER_ID = #{CUSTOMER_ID}
 	</select>
+	
+	<update id="update">
+			UPDATE
+				CUSTOMER
+			SET
+				  CUSTOMER_PW = #{customer_pw}
+				, CUSTOMER_NAME = #{customer_name}
+				, CUSTOMER_SOCIALNUM = #{customer_socialNum}
+				, CUSTOMER_PHONE = #{customer_phone}
+				, CUSTOMER_EMAIL = #{customer_email}
+				, CUSTOMER_POSTCODE = #{customer_postCode}
+				, CUSTOMER_ADDRESS = #{customer_address}
+				, CUSTOMER_DETAILADDRESS = #{customer_detailAddress}
+			WHERE
+				CUSTOMER_ID = #{customer_id}
+				
+	</update>
 </mapper>

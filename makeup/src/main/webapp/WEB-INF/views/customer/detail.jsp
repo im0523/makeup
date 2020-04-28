@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-table tr th { width: 120px;}
-input { width: 150px;}
-</style>
 </head>
 <body>
 
@@ -27,7 +24,7 @@ input { width: 150px;}
 	</tr>
 	<tr>
 		<th>주민등록번호</th>
-			<td>${vo.customer_socialNum }</td>
+			<td>${fn:substring(vo.customer_socialNum, 0, 6)}-${fn:substring(vo.customer_socialNum, 6, 13) } </td>
 	</tr>
 	<tr>
 		<th>휴대폰번호</th>
@@ -48,7 +45,7 @@ input { width: 150px;}
 			<td>
 				<input style="width: 470px;" type="text" name="customer_address" id="customer_address" placeholder="도로명주소" readonly="readonly"
 						value="${vo.customer_address }"/>
-				<input style="width: 260px;" type="text" name="customer_detailAddress" id="customer_detailAddress" placeholder="상세주소"
+				<input style="width: 260px;" type="text" name="customer_detailAddress" id="customer_detailAddress" placeholder="상세주소" readonly="readonly"
 						value="${vo.customer_detailAddress }"/>	
 			</td>
 	</tr>
@@ -56,7 +53,7 @@ input { width: 150px;}
 </table>
 
 <div style="width: 128px; height: 50px; margin: 50px auto;">
-	<a class="btn-fill" onclick="">수정</a>
+	<a class="btn-fill" onclick="location='modify.cu?customer_id=${vo.customer_id}'">수정</a>
 	<a class="btn-empty" onclick="history.back()">뒤로가기</a>
 </div>
 
