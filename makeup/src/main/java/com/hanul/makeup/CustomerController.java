@@ -34,7 +34,7 @@ public class CustomerController {
 	
 	// customer insert 처리
 	@RequestMapping("/insert.cu")
-	public String insert(CustomerVO vo, HttpSession ss) {
+	public String insert(CustomerVO vo) {
 		service.customer_insert(vo);
 		return "redirect:list.cu";
 	}
@@ -43,5 +43,14 @@ public class CustomerController {
 	@ResponseBody @RequestMapping("/id_usable")
 	public String id_usable(String customer_id) {
 		return String.valueOf(service.id_usable(customer_id));
+	}
+	
+	// customer detail 화면
+	@RequestMapping("/detail.cu")
+	public String detail(Model model, String customer_id) {
+		
+		model.addAttribute("vo", service.customer_detail(customer_id));
+		
+		return "customer/detail";
 	}
 }

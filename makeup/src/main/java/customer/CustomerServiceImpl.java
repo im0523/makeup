@@ -14,8 +14,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public CustomerVO customer_detail(int no) {
-		return null;
+	public CustomerVO customer_detail(String customer_id) {
+		return dao.customer_detail(customer_id);
 	}
 
 	// customer 등록

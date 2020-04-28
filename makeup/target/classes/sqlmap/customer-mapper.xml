@@ -51,4 +51,13 @@
 		WHERE
 			CUSTOMER_ID = #{CUSTOMER_ID}
 	</select>
+	
+	<select id="detail" resultType="customer.CustomerVO">
+		SELECT
+			*
+		FROM
+			CUSTOMER
+		WHERE
+			CUSTOMER_ID = #{CUSTOMER_ID}
+	</select>
 </mapper>

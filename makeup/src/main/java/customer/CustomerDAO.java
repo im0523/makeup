@@ -18,8 +18,8 @@ public class CustomerDAO implements CustomerService {
 	}
 
 	@Override
-	public CustomerVO customer_detail(int no) {
-		return null;
+	public CustomerVO customer_detail(String customer_id) {
+		return sql.selectOne("customer.mapper.detail", customer_id);
 	}
 
 	@Override

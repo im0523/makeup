@@ -66,7 +66,7 @@ input { width: 150px;}
 	<tr>
 		<th>이메일</th>
 			<td>
-				<input style="width:200px;" type="text" id="customer_id" maxlength="30" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9@]/g, '');"/>
+				<input style="width:200px;" type="text" id="customer_id" maxlength="28" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9@_-.]/g, '');"/>
 				<select id="customer_domain">
 					<option value="">선택하세요</option>
 					<option>@naver.com</option>
