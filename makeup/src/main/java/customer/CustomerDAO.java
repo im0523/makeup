@@ -12,6 +12,7 @@ public class CustomerDAO implements CustomerService {
 
 	@Override
 	public CustomerPageVO customer_list(CustomerPageVO page) {
+		page.setTotalList( sql.selectOne("customer.mapper.totalCount", page) );
 		List<CustomerVO> list = sql.selectList("customer.mapper.list", page);
 		page.setList(list);
 		return page;

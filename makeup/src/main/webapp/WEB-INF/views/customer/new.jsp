@@ -88,7 +88,7 @@
 
 <div style="width: 90px; height: 50px; margin: 50px auto;">
 	<a class="btn-fill" onclick="if( $('#usable').val()==0 ){ alert('아이디 중복검사를 해주세요'); }else{ go_insert(); }">등록</a>
-	<a class="btn-empty" onclick="history.back()">취소</a>
+	<a class="btn-empty" onclick="location='list.cu'">취소</a>
 </div>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>

@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="customer.mapper">
-	<select id="list" resultType="customer.CustomerVO">
+	<select id="totalCount" resultType="integer">
 		SELECT
-			CUSTOMER_ID,
-			CUSTOMER_NAME,
-			CUSTOMER_SOCIALNUM,
-			TO_CHAR(CUSTOMER_REGISTERDATE, 'YYYY-MM-DD HH24:MI:SS') CUSTOMER_REGISTERDATE
+			COUNT(*)
 		FROM
 			CUSTOMER
-		ORDER BY
-			CUSTOMER_REGISTERDATE DESC
+	</select>
+
+	<select id="list" resultType="customer.CustomerVO">
+		SELECT
+			A.* 
+		FROM 
+			(
+			SELECT
+			  	  ROWNUM NUM
+				, CUSTOMER_ID
+				, CUSTOMER_NAME
+				, CUSTOMER_SOCIALNUM
+				, TO_CHAR(CUSTOMER_REGISTERDATE, 'YYYY-MM-DD HH24:MI:SS') CUSTOMER_REGISTERDATE
+			FROM
+				CUSTOMER
+			ORDER BY
+				CUSTOMER_REGISTERDATE DESC
+		    ) A
+		WHERE
+			NUM BETWEEN #{beginList} and #{endList}
 	</select>
 	
 	<insert id="insert">

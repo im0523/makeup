@@ -9,7 +9,7 @@
 <body>
 
 <h2>회원 상세정보</h2>
-<table style="border: 1px solid #ececec">
+<table>
 	<tr>
 		<th>아이디</th>
 			<td>${vo.customer_id }</td>
@@ -54,7 +54,7 @@
 
 <div style="width: 128px; height: 50px; margin: 50px auto;">
 	<a class="btn-fill" onclick="location='modify.cu?customer_id=${vo.customer_id}'">수정</a>
-	<a class="btn-empty" onclick="history.back()">뒤로가기</a>
+	<a class="btn-empty" onclick="location='list.cu'">목록으로</a>
 </div>
 
 </body>

@@ -1,6 +1,8 @@
 package customer;
 
 public class CustomerVO {
+	private int num;		// page에 담길 글의 갯수를 쪼갤 때 사용   ex) 2page 의 11~20번의 글
+	
 	private String customer_id;
 	private String customer_pw;
 	private String customer_name;
@@ -12,6 +14,13 @@ public class CustomerVO {
 	private String customer_detailAddress;
 	private String customer_registerDate;
 	
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getCustomer_id() {
 		return customer_id;
 	}

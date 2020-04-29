@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import common.CommonService;
@@ -19,8 +20,14 @@ public class CustomerController {
 	
 	// customer list 조회
 	@RequestMapping("/list.cu")
-	public String list(Model model) {
+	public String list(Model model, @RequestParam(defaultValue = "1") int curPage) {
+		
+		page.setCurPage(curPage);	// curpage 기본 값을 1로 set 해준다
+		
 		model.addAttribute("page", service.customer_list(page));
+		System.out.println("비긴리스트 = "+page.getBeginList());
+		System.out.println("끝리스트 = "+page.getEndList());
+		System.out.println("블럭페이지 = "+page.getBlockPage());
 		return "customer/list";
 	}
 	

@@ -3,7 +3,8 @@ package common;
 public class PageVO {
 	private int pageList = 10,	//페이지 수
 				blockPage = 10,	//블럭당 보여질 페이지 수
-				totalList, totalPage, totalBlock, curPage, BeginList, endList, curBlock, beginPage, endPage;
+				totalList,		//총 글의 수
+				totalPage, totalBlock, curPage, beginList, endList, curBlock, beginPage, endPage;
 	private String search, keyword;
 	public int getPageList() {
 		return pageList;
@@ -22,6 +23,33 @@ public class PageVO {
 	}
 	public void setTotalList(int totalList) {
 		this.totalList = totalList;
+		
+		// 총 페이지 수
+		totalPage = totalList / pageList;
+		if( totalList % pageList > 0 ) ++totalPage;		// 페이지보다 넘치는 글이 있기 때문에 담을 페이지 1증가
+		
+		// 총 블럭 수 = 총 페이지 수 / 블럭당 보여질 페이지 수
+		totalBlock = totalPage / blockPage;
+		if( totalPage % blockPage > 0 ) ++totalBlock;
+		
+		// 각 페이지에서의 끝 목록번호
+		// = 총 목록 수 - (현재페이지 번호-1) * 페이지당 보여질 목록 수
+		endList = totalList - (curPage-1) * pageList;
+		
+		// 시작 목록 번호 = 끝 목록번호 - (페이지당 보여질 목록 수 -1)
+		beginList = endList - (pageList-1);
+		
+		// 현재 블럭번호 = 현재 페이지 번호 / 블럭당 보여질 페이지 수
+		curBlock = curPage / blockPage;
+		if( curPage % blockPage > 0 ) ++curBlock;
+		
+		// 각 블럭에서의 끝 페이지 번호
+		// = 현재 블럭번호 * 블럭당 보여질 페이지 수
+		endPage = curBlock * blockPage;
+		
+		//시작 페이지 번호 = 끝 페이지 번호-(블럭당 페이지수-1)
+		beginPage = endPage - (blockPage-1);
+		if( endPage > totalPage ) endPage = totalPage;
 	}
 	public int getTotalPage() {
 		return totalPage;
@@ -42,10 +70,10 @@ public class PageVO {
 		this.curPage = curPage;
 	}
 	public int getBeginList() {
-		return BeginList;
+		return beginList;
 	}
 	public void setBeginList(int beginList) {
-		BeginList = beginList;
+		this.beginList = beginList;
 	}
 	public int getEndList() {
 		return endList;

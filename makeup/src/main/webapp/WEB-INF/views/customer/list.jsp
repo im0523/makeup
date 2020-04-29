@@ -16,24 +16,29 @@ tr td a { cursor: pointer; }
 </head>
 <body>
 <p class="main">회원 관리</p>
-<div class="head">
-	<a class="btn-fill" style="float:right;" onclick="location='new.cu'">회원추가</a>
-</div>
-<table style="width: 700px;">
-<tr>
-	<th>아이디</th>
-	<th>이름</th>
-	<th>생년월일</th>
-	<th>등록일</th>
-</tr>
-<c:forEach items="${page.list }" var="vo" >
-	<tr onclick="location='detail.cu?customer_id=${vo.customer_id}'">
-		<td><a>${vo.customer_id }</a></td>
-		<td><a>${vo.customer_name }</a></td>
-		<td><a>${fn:substring(vo.customer_socialNum, 0, 6) }</a></td>
-		<td><a>${vo.customer_registerDate }</a></td>
-	</tr>
-</c:forEach>
-</table>
+	<input type="hidden" name="curPage" value="1"/>
+
+	<div class="head">
+		<a class="btn-fill" style="float:right;" onclick="location='new.cu'">회원추가</a>
+	</div>
+	
+	<table style="width: 700px;">
+		<tr>
+			<th>아이디</th>
+			<th>이름</th>
+			<th>생년월일</th>
+			<th>등록일</th>
+		</tr>
+	<c:forEach items="${page.list }" var="vo" >
+		<tr onclick="location='detail.cu?customer_id=${vo.customer_id}'">
+			<td><a>${vo.customer_id }</a></td>
+			<td><a>${vo.customer_name }</a></td>
+			<td><a>${fn:substring(vo.customer_socialNum, 0, 6) }</a></td>
+			<td><a>${vo.customer_registerDate }</a></td>
+		</tr>
+	</c:forEach>
+	</table>
+
+<jsp:include page="/WEB-INF/views/include/page.jsp" />
 </body>
 </html>

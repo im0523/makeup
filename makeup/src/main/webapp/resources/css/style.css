@@ -90,6 +90,7 @@ table {
 	width: 60%;
 	border-top: 1px solid #ececec;
 	border-collapse: collapse;
+	border: 1px solid #ececec
 }
 
 table th, table td {
