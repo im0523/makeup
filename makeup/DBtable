@@ -1,29 +1,29 @@
 --store table 생성
-create table store(
-id      number not null,
-readcnt number,
-no      number,
-title   varchar2(200),
-category varchar2(100),
-content varchar2(4000),
-writer  varchar2(50),
-filename varchar2(500),
-filepath varchar2(2000),
-writedate date default sysdate not null
+CREATE TABLE STORE(
+	id      	NUMBER NOT NULL,
+	readcnt 	NUMBER,
+	no      	NUMBER,
+	title  	 	VARCHAR2(200),
+	category 	VARCHAR2(100),
+	content 	VARCHAR2(4000),
+	writer  	VARCHAR2(50),
+	filename 	VARCHAR2(500),
+	filepath 	VARCHAR2(2000),
+	writedate 	DATE DEFAULT SYSDATE
 );
 
 
 --customer table 생성
-CREATE TABLE "MAKEUP"."CUSTOMER"(
-	customer_id		VARCHAR2(500) NOT NULL ,
+CREATE TABLE CUSTOMER(
+	customer_id		VARCHAR2(500) NOT NULL,
 	customer_pw		VARCHAR2(1000) NOT NULL,
-	customer_name	VARCHAR2(200) NOT  NULL,
+	customer_name		VARCHAR2(200) NOT  NULL,
 	customer_socialNum	VARCHAR2(200) NOT NULL,
 	customer_email 		VARCHAR2(200),
 	customer_phone 		VARCHAR2(200),
 	customer_postcode	VARCHAR2(100),
 	customer_address	VARCHAR2(1000),
-	customer_detailAddress varchar2(500),
+	customer_detailAddress 	VARCHAR2(500),
 	customer_registerDate	DATE DEFAULT SYSDATE,
 	
 	CONSTRAINT CUSTOMER_PK PRIMARY KEY (customer_id)
