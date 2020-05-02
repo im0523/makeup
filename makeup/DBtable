@@ -1,3 +1,5 @@
+--product table 생성
+
 --store table 생성
 CREATE TABLE STORE(
 	id      	NUMBER NOT NULL,
