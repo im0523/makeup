@@ -1,4 +1,16 @@
 --product table 생성
+CREATE TABLE PRODUCT(
+	no		NUMBER NOT NULL,
+	imagepath	VARCHAR2(200),
+	name		VARCHAR2(200) NOT NULL,
+	explanation	VARCHAR2(2000),
+	price		VARCHAR2(200) NOT NULL,
+	category	VARCHAR2(200),
+	context		VARCHAR2(4000),
+	image1		VARCHAR2(200),
+	image2		VARCHAR2(200),
+	image3		VARCHAR2(200)
+);
 
 --store table 생성
 CREATE TABLE STORE(
@@ -32,16 +44,16 @@ CREATE TABLE CUSTOMER(
 );
 
 -- test 데이터 삽입
-insert into store(id, no, title, content, writer)
-values (1, 1, '제목', '이곳은 입니다', '작성자');
-insert into store(id, title, writer, content, filename, filepath)
-values ( seq_store.nextval, '제목', '작성자', '컨텐트', '파일이름', '가나다');
+INSERT INTO STORE(id, no, title, content, writer)
+VALUES (1, 1, '제목', '이곳은 입니다', '작성자');
+INSERT INTO STORE(id, title, writer, content, filename, filepath)
+VALUES ( seq_store.nextval, '제목', '작성자', '컨텐트', '파일이름', '가나다');
 
-insert into customer
-values('ddono', 'ddono12', '또노', '9105231234567', 'ddono@gmail.com', '010-1234-1234', '08051', '서울 가산동 어딘가', '1101호', sysdate);
-insert into customer
-values('dmstjd', 'dmstjd12', '은성', '9011011234567', 'dmstjd@gmail.com', '010-1234-1234', '02331', '서울 노원구 어딘가', '2101호', sysdate);
-insert into customer
-values('sowon', 'sowon12', '소원', '9407301234567', 'sowon@gmail.com', '010-1234-1234', '08051', '경기도 부천시 어딘가', '803호', sysdate);
+INSERT INTO CUSTOMER
+VALUES('ddono', 'ddono12', '또노', '9105231234567', 'ddono@gmail.com', '010-1234-1234', '08051', '서울 가산동 어딘가', '1101호', sysdate);
+INSERT INTO CUSTOMER
+VALUES('dmstjd', 'dmstjd12', '은성', '9011011234567', 'dmstjd@naver.com', '010-1234-1234', '02331', '서울 노원구 어딘가', '2101호', sysdate);
+INSERT INTO CUSTOMER
+VALUES('sowon', 'sowon12', '소원', '9407301234567', 'sowon@gmail.com', '010-1234-1234', '08051', '경기도 부천시 어딘가', '803호', sysdate);
 
-commit;
+COMMIT;
