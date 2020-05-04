@@ -1,15 +1,18 @@
 --product table 생성
 CREATE TABLE PRODUCT(
-	no		NUMBER NOT NULL,
-	imagepath	VARCHAR2(200),
-	name		VARCHAR2(200) NOT NULL,
-	explanation	VARCHAR2(2000),
-	price		VARCHAR2(200) NOT NULL,
-	category	VARCHAR2(200),
-	context		VARCHAR2(4000),
-	image1		VARCHAR2(200),
-	image2		VARCHAR2(200),
-	image3		VARCHAR2(200)
+	product_no		NUMBER NOT NULL,
+	product_thumbNail	VARCHAR2(200),
+	product_name		VARCHAR2(200) NOT NULL,
+	product_explanation	VARCHAR2(2000),
+	product_price		VARCHAR2(200) NOT NULL,
+	product_category	VARCHAR2(200),
+	product_context		VARCHAR2(4000)
+);
+
+--image table 생성
+CREATE TABLE IMAGE(
+	product_no	NUMBER NOT NULL,
+	image_no	NUMBER NOT NULL
 );
 
 --store table 생성
@@ -26,7 +29,6 @@ CREATE TABLE STORE(
 	writedate 	DATE DEFAULT SYSDATE
 );
 
-
 --customer table 생성
 CREATE TABLE CUSTOMER(
 	customer_id		VARCHAR2(500) NOT NULL,
@@ -42,6 +44,7 @@ CREATE TABLE CUSTOMER(
 	
 	CONSTRAINT CUSTOMER_PK PRIMARY KEY (customer_id)
 );
+
 
 -- test 데이터 삽입
 INSERT INTO STORE(id, no, title, content, writer)
