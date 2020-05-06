@@ -63,5 +63,6 @@
 <script>
 function go_page(num){
 	$('[name=curPage]').val(num);
+	$('#list').submit();
 }
 </script>

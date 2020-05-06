@@ -16,7 +16,9 @@ tr td a { cursor: pointer; }
 </head>
 <body>
 <p class="main">회원 관리</p>
-	<input type="hidden" name="curPage" value="1"/>
+	<form id="list" method="post">
+		<input type="hidden" name="curPage" value="1"/>
+	</form>
 
 	<div class="head">
 		<a class="btn-fill" style="float:right;" onclick="location='new.cu'">회원추가</a>

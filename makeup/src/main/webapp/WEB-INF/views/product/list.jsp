@@ -36,18 +36,18 @@
 	
 	<div class="content">
 		<c:forEach items="${page.list }" var="vo">
-			<a onclick="go_detail(${vo.no})"><div class="item_box">
-				<div class="thumbnail"><img src="${vo.imagepath }" class="thumbnail"/></div>
-				<div class="name">${vo.name }</div>
-				<div class="price"><h5>${vo.price }</h5></div>
+			<a onclick="go_detail(${vo.product_no})"><div class="item_box">
+				<div class="thumbnail"><img src="${vo.product_thumbNail }" class="thumbnail"/></div>
+				<div class="name">${vo.product_name }</div>
+				<div class="price"><h5>${vo.product_price }</h5></div>
 			</div></a>
 		</c:forEach>
 	</div>
-	<input type="hidden" name="no"/>
+	<input type="hidden" name="product_no"/>
 </form>
 <script type="text/javascript">
 function go_detail(no){
-	$('[name=no]').val(no);
+	$('[name=product_no]').val(no);
 	$('#list').attr('action', 'detail.pd');
 	$('#list').submit();
 }

@@ -3,76 +3,54 @@ package product;
 import java.sql.Date;
 
 public class ProductVO {
-	private int no;
-	private String imagepath, name, explanation, price, category, context, image1, image2, image3;
-	private Date writedate;
+	private int product_no;
+	private String product_thumbNail;
+	private String product_name;
+	private String product_explanation;
+	private String product_price;
+	private String product_category;
+	private String product_context;
 	
-	public int getNo() {
-		return no;
+	public int getProduct_no() {
+		return product_no;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setProduct_no(int product_no) {
+		this.product_no = product_no;
 	}
-	public String getImagepath() {
-		return imagepath;
+	public String getProduct_thumbNail() {
+		return product_thumbNail;
 	}
-	public void setImagepath(String imagepath) {
-		this.imagepath = imagepath;
+	public void setProduct_thumbNail(String product_thumbNail) {
+		this.product_thumbNail = product_thumbNail;
 	}
-	public String getName() {
-		return name;
+	public String getProduct_name() {
+		return product_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
-	public String getExplanation() {
-		return explanation;
+	public String getProduct_explanation() {
+		return product_explanation;
 	}
-	public void setExplanation(String explanation) {
-		this.explanation = explanation;
+	public void setProduct_explanation(String product_explanation) {
+		this.product_explanation = product_explanation;
 	}
-	public String getPrice() {
-		return price;
+	public String getProduct_price() {
+		return product_price;
 	}
-	public void setPrice(String price) {
-		this.price = price;
+	public void setProduct_price(String product_price) {
+		this.product_price = product_price;
 	}
-	public String getCategory() {
-		return category;
+	public String getProduct_category() {
+		return product_category;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+	public void setProduct_category(String product_category) {
+		this.product_category = product_category;
 	}
-	public String getContext() {
-		return context;
+	public String getProduct_context() {
+		return product_context;
 	}
-	public void setContext(String context) {
-		this.context = context;
+	public void setProduct_context(String product_context) {
+		this.product_context = product_context;
 	}
-	public Date getWritedate() {
-		return writedate;
-	}
-	public void setWritedate(Date writedate) {
-		this.writedate = writedate;
-	}
-	public String getImage1() {
-		return image1;
-	}
-	public void setImage1(String image1) {
-		this.image1 = image1;
-	}
-	public String getImage2() {
-		return image2;
-	}
-	public void setImage2(String image2) {
-		this.image2 = image2;
-	}
-	public String getImage3() {
-		return image3;
-	}
-	public void setImage3(String image3) {
-		this.image3 = image3;
-	}
-	
-	
 }

@@ -19,8 +19,8 @@ public class ProductDAO implements ProductService {
 	}
 
 	@Override
-	public ProductVO product_detail(int no) {
-		return sql.selectOne("product.mapper.detail", no);
+	public ProductVO product_detail(int product_no) {
+		return sql.selectOne("product.mapper.detail", product_no);
 	}
 
 	@Override
@@ -34,8 +34,8 @@ public class ProductDAO implements ProductService {
 	}
 
 	@Override
-	public void product_delete(int no) {
-		sql.delete("product.mapper.delete", no);
+	public void product_delete(int product_no) {
+		sql.delete("product.mapper.delete", product_no);
 	}
 
 }

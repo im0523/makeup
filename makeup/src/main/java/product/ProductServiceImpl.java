@@ -13,8 +13,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductVO product_detail(int no) {
-		return dao.product_detail(no);
+	public ProductVO product_detail(int product_no) {
+		return dao.product_detail(product_no);
 	}
 
 	@Override
@@ -28,8 +28,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void product_delete(int no) {
-		dao.product_delete(no);
+	public void product_delete(int product_no) {
+		dao.product_delete(product_no);
 	}
 
 }

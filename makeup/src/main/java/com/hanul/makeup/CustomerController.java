@@ -25,9 +25,9 @@ public class CustomerController {
 		page.setCurPage(curPage);	// curpage 기본 값을 1로 set 해준다
 		
 		model.addAttribute("page", service.customer_list(page));
-		System.out.println("비긴리스트 = "+page.getBeginList());
-		System.out.println("끝리스트 = "+page.getEndList());
-		System.out.println("블럭페이지 = "+page.getBlockPage());
+//		System.out.println("curPage값 : " + page.getCurPage());
+//		System.out.println("beginList값 : " + page.getBeginList());
+//		System.out.println("endList값 : " + page.getEndList());
 		return "customer/list";
 	}
 	

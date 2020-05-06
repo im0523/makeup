@@ -6,6 +6,8 @@ public class PageVO {
 				totalList,		//총 글의 수
 				totalPage, totalBlock, curPage, beginList, endList, curBlock, beginPage, endPage;
 	private String search, keyword;
+	
+	
 	public int getPageList() {
 		return pageList;
 	}
@@ -34,10 +36,10 @@ public class PageVO {
 		
 		// 각 페이지에서의 끝 목록번호
 		// = 총 목록 수 - (현재페이지 번호-1) * 페이지당 보여질 목록 수
-		endList = totalList - (curPage-1) * pageList;
+		endList = (curPage) * pageList;
 		
 		// 시작 목록 번호 = 끝 목록번호 - (페이지당 보여질 목록 수 -1)
-		beginList = endList - (pageList-1);
+		beginList = (curPage-1) * pageList + 1;
 		
 		// 현재 블럭번호 = 현재 페이지 번호 / 블럭당 보여질 페이지 수
 		curBlock = curPage / blockPage;
