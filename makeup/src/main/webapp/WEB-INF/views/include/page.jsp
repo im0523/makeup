@@ -20,18 +20,18 @@
 	border: 1px solid gray;
 	text-indent: -99999999px;
 }
-/* .page-first { */
-/* 	background: url("img/page_first.jpg") center no-repeat; */
-/* } */
-/* .page-prev { */
-/* 	background: url("img/page_prev.jpg") center no-repeat; */
-/* } */
-/* .page-next { */
-/* 	background: url("img/page_next.jpg") center no-repeat; */
-/* } */
-/* .page-last { */
-/* 	background: url("img/page_last.jpg") center no-repeat; */
-/* } */
+.page-first {
+	background: url("img/page_first.jpg") center no-repeat;
+}
+.page-prev {
+	background: url("img/page_prev.jpg") center no-repeat;
+}
+.page-next {
+	background: url("img/page_next.jpg") center no-repeat;
+}
+.page-last {
+	background: url("img/page_last.jpg") center no-repeat;
+}
 </style>
 
 <p id="page-list">
