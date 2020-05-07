@@ -1,7 +1,10 @@
 package com.hanul.makeup;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -77,5 +80,17 @@ public class CustomerController {
 	@RequestMapping("/login")
 	public String login() {
 		return "customer/login";
+	}
+	
+	// login 처리 요청
+	@ResponseBody @RequestMapping("/loginCheck")
+	public int login_check(String customer_id, String customer_pw, HttpSession ss) {
+		CustomerVO vo = service.login_check(customer_id, customer_pw);
+		ss.setAttribute("login_info", vo);
+		
+		int result = 0;
+		
+		result = ( vo == null ? 0 : 1 );
+		return result;
 	}
 }

@@ -1,5 +1,6 @@
 package customer;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -43,6 +44,17 @@ public class CustomerDAO implements CustomerService {
 	public boolean id_usable(String customer_id) {
 		// 1이면 아이디가 이미 존재해서 사용할 수 없고, 0이면 사용가능
 		return (Integer)sql.selectOne("customer.mapper.idUsable", customer_id) == 1 ? false : true;
+	}
+
+
+	// 로그인 처리
+	@Override
+	public CustomerVO login_check(String customer_id, String customer_pw) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("customer_id", customer_id);
+		map.put("customer_pw", customer_pw);
+		
+		return sql.selectOne("customer.mapper.loginCheck", map);
 	}
 
 }

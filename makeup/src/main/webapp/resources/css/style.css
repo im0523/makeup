@@ -126,3 +126,42 @@ select {
 .phone { 
 	width: 30px;
 }
+
+.login-findBox{
+	width: 360px;
+}
+
+.login-findBox-tagBox{
+	margin: 25px auto;
+    width: 200px;
+    height: 35px;
+}
+
+.login-findBox-tag{
+	width: 100px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+	font-size: 11px;
+    color: #545454;
+    font-weight: lighter;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.loginBox{
+	margin-top: 0;
+    width: 300px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    display: block;
+	background: #000000;
+	box-shadow: 5px 5px 16px 0 rgba(0, 0, 0, .3);
+	font-weight: 600;
+	color: #ffffff;
+	margin: 0 1px 10px 0;
+	padding: 17px 30px;
+	font-size: 16px;
+	letter-spacing: 3px;
+}

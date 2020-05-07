@@ -40,4 +40,10 @@ public class CustomerServiceImpl implements CustomerService {
 		return dao.id_usable(customer_id);
 	}
 
+	// login 처리
+	@Override
+	public CustomerVO login_check(String customer_id, String customer_pw) {
+		return dao.login_check(customer_id, customer_pw);
+	}
+
 }

@@ -92,4 +92,16 @@
 				CUSTOMER_ID = #{customer_id}
 				
 	</update>
+	
+	<select id="loginCheck" resultType="customer.CustomerVO">
+		SELECT
+			  CUSTOMER_ID
+			, CUSTOMER_PW
+		FROM
+			CUSTOMER
+		WHERE
+			CUSTOMER_ID = #{customer_id}
+		AND
+			CUSTOMER_PW = #{customer_pw}
+	</select>
 </mapper>

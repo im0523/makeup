@@ -111,3 +111,38 @@ function go_update(){
 	$('.updateForm').submit();
 	alert('회원정보가 변경되었습니다');
 }
+
+// 로그인 처리
+function go_login(){
+	var id = $('#customer_id').val();
+	var pw = $('#customer_pw').val();
+	
+	if( id == '' ){
+		alert('아이디를 입력해주세요');
+		$('#customer_id').focus();
+		return;
+	}else if( pw == '' ){
+		alert('비밀번호를 입력해주세요');
+		$('#customer_pw').focus();
+		return;
+	}
+	
+	$.ajax({
+		type: 'post',
+		url: 'loginCheck',
+		data: {
+			customer_id: id,
+			customer_pw: pw
+		},
+		success: function(data){
+			if( data == 1){
+				alert('로그인 되었습니다');
+				window.location=document.referrer;	// 이전 화면으로 가는 처리
+			}else{
+				alert('비밀번호가 맞지 않습니다');
+			}
+		},error: function(){
+			alert('실패');
+		}
+	});
+}
