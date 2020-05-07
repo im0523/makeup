@@ -54,8 +54,13 @@
 
 <div style="width: 128px; height: 50px; margin: 50px auto;">
 	<a class="btn-fill" onclick="location='modify.cu?customer_id=${vo.customer_id}'">수정</a>
-	<a class="btn-empty" onclick="location='list.cu'">목록으로</a>
+	<a class="btn-empty" onclick="$('#detail').submit()">목록으로</a>
 </div>
+
+<!-- 다른 페이지에서 detail 보다가 목록으로 버튼 눌렀을 때 보던 페이지로 가는 처리 -->
+<form id="detail" action="list.cu" method="post">
+	<input type="hidden" name="curPage" value="${page.curPage }"/>
+</form>
 
 </body>
 </html>

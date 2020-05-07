@@ -24,7 +24,7 @@ ul li a { cursor: pointer;}
 		<li class="list"><a onclick="location='list.pd'">PRODUCT</a></li>
 		<li class="list"><a onclick="location='list.st'">STORE</a></li>
 		<li class="bar"></li>
-		<li class="list-s">LOGIN</li>
+		<li class="list-s"><a onclick="location='login'">LOGIN</a></li>
 		<li class="list-s"><a onclick="location='new.cu'">JOIN</a></li>
 		<li class="list-s">COMMUNITY</li>
 	</ul>

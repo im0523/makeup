@@ -54,20 +54,28 @@ public class CustomerController {
 	@RequestMapping("/detail.cu")
 	public String detail(Model model, String customer_id) {
 		model.addAttribute("vo", service.customer_detail(customer_id));
+		model.addAttribute("page", page);
 		return "customer/detail";
 	}
 	
-	// customer modify 화면 요청
+	// customer 수정 화면 요청
 	@RequestMapping("/modify.cu")
 	public String modify(Model model, String customer_id) {
 		model.addAttribute("vo", service.customer_detail(customer_id));
 		return "customer/modify";
 	}
 	
+	// customer 수정 처리 요청
 	@RequestMapping("/update.cu")
 	public String update(CustomerVO vo, Model model, String customer_id) {
 		service.customer_update(vo);
 		model.addAttribute("customer_id", vo.getCustomer_id());
 		return "redirect:detail.cu";
+	}
+	
+	// login 화면 요청
+	@RequestMapping("/login")
+	public String login() {
+		return "customer/login";
 	}
 }
