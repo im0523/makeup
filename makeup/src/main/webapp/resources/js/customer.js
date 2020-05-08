@@ -136,13 +136,35 @@ function go_login(){
 		},
 		success: function(data){
 			if( data == 1){
-				alert('로그인 되었습니다');
 				window.location=document.referrer;	// 이전 화면으로 가는 처리
 			}else{
 				alert('비밀번호가 맞지 않습니다');
 			}
 		},error: function(){
 			alert('실패');
+		}
+	});
+}
+
+// 로그아웃 처리
+function go_logout(){
+	
+	
+	$.ajax({
+		url: 'logout',
+		success: function(){
+			
+			if( $('#adminCheck').val() == 'admin' ){
+				alert('로그아웃 되었습니다');
+				location.href = '/makeup';
+			}else{
+				alert('로그아웃 되었습니다');
+				location.reload();
+			}
+			
+			
+		},error: function(req, text){
+			alert(text + ': ' + req.status);
 		}
 	});
 }

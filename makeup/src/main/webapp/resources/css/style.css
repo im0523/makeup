@@ -123,39 +123,39 @@ select {
 	height: 28px;
 }
 
-.phone { 
+.phone {
 	width: 30px;
 }
 
-.login-findBox{
+.login-findBox {
 	width: 360px;
 }
 
-.login-findBox-tagBox{
+.login-findBox-tagBox {
 	margin: 25px auto;
-    width: 200px;
-    height: 35px;
+	width: 200px;
+	height: 35px;
 }
 
-.login-findBox-tag{
+.login-findBox-tag {
 	width: 100px;
-    height: 30px;
-    line-height: 30px;
-    float: left;
+	height: 30px;
+	line-height: 30px;
+	float: left;
 	font-size: 11px;
-    color: #545454;
-    font-weight: lighter;
-    margin-top: 0px;
-    text-align: center;
+	color: #545454;
+	font-weight: lighter;
+	margin-top: 0px;
+	text-align: center;
 }
 
-.loginBox{
+.loginBox {
 	margin-top: 0;
-    width: 300px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    display: block;
+	width: 300px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	display: block;
 	background: #000000;
 	box-shadow: 5px 5px 16px 0 rgba(0, 0, 0, .3);
 	font-weight: 600;
@@ -164,4 +164,47 @@ select {
 	padding: 17px 30px;
 	font-size: 16px;
 	letter-spacing: 3px;
+}
+
+.login-bar {
+	width: 200px;
+	height: 100px;
+	line-height: 114px;
+	margin: 0;
+	float: left;
+	text-align: right;
+	font-size: 10px;
+	color: #545454;
+	font-weight: lighter;
+}
+
+.position {
+	width: 900px;
+	height: 100px;
+	float: right;
+	margin-top: 0px;
+}
+
+.list {
+	list-style: none;
+	float: right;
+	font-size: 20px;
+	color: dimgray;
+	padding: 0 20px;
+}
+
+.bar {
+	list-style: none;
+	float: right;
+	border-right: 1px solid #ddd;
+	height: 16px;
+	margin: 33px 5px;
+}
+
+.list-s {
+	list-style: none;
+	float: right;
+	font-size: 13px;
+	color: dimgray;
+	padding: 0 8px;
 }

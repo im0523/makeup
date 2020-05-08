@@ -19,6 +19,10 @@ function validate(){
 		alert('이름을 입력해주세요');
 		$('#customer_name').focus();
 		return false;
+	}else if( $('#customer_name').val() == '관리자' ){
+		alert('이름을 확인해주세요');
+		$('#customer_name').focus();
+		return false;
 	}else if( $('#birth_b').val() == '' || $('#birth_e').val() == '' ){
 		alert('주민등록번호를 입력해주세요');
 		$('#birth_e').focus();
