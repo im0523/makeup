@@ -63,6 +63,8 @@ VALUES (1, 1, '제목', '이곳은 입니다', '작성자');
 INSERT INTO STORE(id, title, writer, content, filename, filepath)
 VALUES ( seq_store.nextval, '제목', '작성자', '컨텐트', '파일이름', '가나다');
 
+INSERT INTO CUSTOMER(customer_id, customer_pw, customer_name)
+VALUES('admin', 'admin', '관리자');
 INSERT INTO CUSTOMER
 VALUES('ddono', 'ddono12', '또노', '9105231234567', 'ddono@gmail.com', '010-1234-1234', '08051', '서울 가산동 어딘가', '1101호', sysdate);
 INSERT INTO CUSTOMER
