@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,9 +23,13 @@ public class CustomerController {
 	
 	// customer list 조회
 	@RequestMapping("/list.cu")
-	public String list(Model model, @RequestParam(defaultValue = "1") int curPage) {
+	public String list(Model model, @RequestParam(defaultValue = "1") int curPage,
+									@RequestParam(defaultValue = "") String search,
+									@RequestParam(defaultValue = "") String keyword ) {
 		
 		page.setCurPage(curPage);	// curpage 기본 값을 1로 set 해준다
+		page.setKeyword(keyword);
+		page.setSearch(search);
 		
 		model.addAttribute("page", service.customer_list(page));
 //		System.out.println("curPage값 : " + page.getCurPage());

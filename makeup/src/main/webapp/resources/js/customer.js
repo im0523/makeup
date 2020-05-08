@@ -148,23 +148,23 @@ function go_login(){
 
 // 로그아웃 처리
 function go_logout(){
-	
-	
 	$.ajax({
 		url: 'logout',
 		success: function(){
 			
-			if( $('#adminCheck').val() == 'admin' ){
-				alert('로그아웃 되었습니다');
-				location.href = '/makeup';
+			if( $('#adminCheck').val() == 'admin' ){	// 로그아웃이 성공하면
+				location.href = '/makeup';		// 관리자일 경우에는 초기 화면으로 돌아가고
 			}else{
-				alert('로그아웃 되었습니다');
-				location.reload();
+				location.reload();				// 일반 회원일 경우에는 현재 페이지로
 			}
-			
 			
 		},error: function(req, text){
 			alert(text + ': ' + req.status);
 		}
 	});
+}
+
+// 고객 검색
+function go_search(){
+	alert('조회');
 }

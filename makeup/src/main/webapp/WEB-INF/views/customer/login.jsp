@@ -23,7 +23,8 @@ table th, table td { border-bottom: none;}
 		<tr>
 			<th>비밀번호</th>
 				<td>
-					<input type="password" id="customer_pw" name="customer_pw" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g, '');" maxlength="16"/>
+					<input type="password" id="customer_pw" name="customer_pw"
+						   onkeyup="if (window.event.keyCode == 13) { go_login() } this.value=this.value.replace(/[^a-zA-Z0-9]/g, '');" maxlength="16"/>
 				</td>
 		</tr>
 </table>

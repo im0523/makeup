@@ -20,7 +20,10 @@ ul li a { cursor: pointer;}
 	
 	<ul>
 		<li class="list-s">COMMUNITY</li>
-		<li class="list-s"><a onclick="location='new.cu'">JOIN</a></li>
+		
+		<c:if test="${empty login_info.customer_id }">
+			<li class="list-s"><a onclick="location='new.cu'">JOIN</a></li>
+		</c:if>
 
 		<c:choose>
 			<c:when test="${!empty login_info.customer_name }">

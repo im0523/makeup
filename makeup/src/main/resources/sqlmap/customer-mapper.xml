@@ -21,6 +21,7 @@
 				, TO_CHAR(CUSTOMER_REGISTERDATE, 'YYYY-MM-DD HH24:MI:SS') CUSTOMER_REGISTERDATE
 			FROM
 				CUSTOMER
+			<include refid="search"/>
 			ORDER BY
 				CUSTOMER_REGISTERDATE DESC
 		    ) A
@@ -105,4 +106,21 @@
 		AND
 			CUSTOMER_PW = #{customer_pw}
 	</select>
+	
+	<sql id="search">
+		<if test="search == all">
+			WHERE
+				CUSTOMER_ID LIKE '%' || #{keyword} || '%'
+			OR
+				CUSTOMER_NAME LIKE '%' || #{keyword} || '%'
+			OR
+				CUSTOMER_BIRTH LIKE '%' || #{keyword} || '%'
+			OR
+				CUSTOMER_EMAIL LIKE '%' || #{keyword} || '%'
+		</if>
+		<if test="search == 'id' or search == 'name' or search == 'birth' or search == 'email'">
+			WHERE
+				${search} LIKE '%' || #{keyword} || '%'
+		</if>
+	</sql>
 </mapper>
