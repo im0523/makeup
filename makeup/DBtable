@@ -53,6 +53,11 @@ START WITH 1
 INCREMENT BY 1
 MAXVALUE 99999999999999999999;
 
+-- store sequence 생성
+CREATE SEQUENCE STORE_SEQ
+START WITH 1
+INCREMENT BY 1
+MAXVALUE 99999999999999999999;
 
 
 
@@ -61,7 +66,7 @@ MAXVALUE 99999999999999999999;
 INSERT INTO STORE(id, no, title, content, writer)
 VALUES (1, 1, '제목', '이곳은 입니다', '작성자');
 INSERT INTO STORE(id, title, writer, content, filename, filepath)
-VALUES ( seq_store.nextval, '제목', '작성자', '컨텐트', '파일이름', '가나다');
+VALUES ( store_seq.nextval, '제목', '작성자', '컨텐트', '파일이름', '가나다');
 
 INSERT INTO CUSTOMER(customer_id, customer_pw, customer_name)
 VALUES('admin', 'admin', '관리자');
