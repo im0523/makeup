@@ -34,7 +34,7 @@ CREATE TABLE CUSTOMER(
 	customer_id		VARCHAR2(500) NOT NULL,
 	customer_pw		VARCHAR2(1000) NOT NULL,
 	customer_name		VARCHAR2(200) NOT  NULL,
-	customer_socialNum	VARCHAR2(200) NOT NULL,
+	customer_socialNum	VARCHAR2(200),
 	customer_email 		VARCHAR2(200),
 	customer_phone 		VARCHAR2(200),
 	customer_postcode	VARCHAR2(100),
@@ -70,11 +70,10 @@ VALUES ( store_seq.nextval, '제목', '작성자', '컨텐트', '파일이름', 
 
 INSERT INTO CUSTOMER(customer_id, customer_pw, customer_name)
 VALUES('admin', 'admin', '관리자');
+INSERT INTO CUSTOMER(customer_id, customer_pw, customer_name)
+VALUES('test', 'test', '테스트');
 INSERT INTO CUSTOMER
-VALUES('ddono', 'ddono12', '또노', '9105231234567', 'ddono@gmail.com', '010-1234-1234', '08051', '서울 가산동 어딘가', '1101호', sysdate);
+VALUES('ddono', 'ddono12', '또노', '9105231234567', 'ddono@gmail.com', '010-1234-1234', '08051', '서울 노원구 어딘가', '1101호', sysdate);
 INSERT INTO CUSTOMER
-VALUES('dmstjd', 'dmstjd12', '은성', '9011011234567', 'dmstjd@naver.com', '010-1234-1234', '02331', '서울 노원구 어딘가', '2101호', sysdate);
-INSERT INTO CUSTOMER
-VALUES('sowon', 'sowon12', '소원', '9407301234567', 'sowon@gmail.com', '010-1234-1234', '08051', '경기도 부천시 어딘가', '803호', sysdate);
 
 COMMIT;
