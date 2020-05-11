@@ -15,7 +15,7 @@ tr td a { cursor: pointer; }
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
-<p class="main">회원 관리</p>
+<p class="main">회원 관리d</p>
 	<form id="list" method="post">
 		<input type="hidden" name="curPage" value="1"/>
 
