@@ -35,8 +35,8 @@ public class CustomerDAO implements CustomerService {
 	}
 
 	@Override
-	public void customer_delete(int no) {
-
+	public void customer_delete(String customer_id) {
+		sql.delete("customer.mapper.delete", customer_id);
 	}
 
 	// 아이디 중복검사

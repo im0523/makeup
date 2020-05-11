@@ -80,6 +80,13 @@ public class CustomerController {
 		return "redirect:detail.cu";
 	}
 	
+	// customer 삭제 처리 요청
+	@RequestMapping("/delete.cu")
+	public String delete(String customer_id) {
+		service.customer_delete(customer_id);
+		return "redirect:list.cu";
+	}
+	
 	// login 화면 요청
 	@RequestMapping("/login")
 	public String login() {

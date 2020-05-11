@@ -6,6 +6,7 @@
 			COUNT(*)
 		FROM
 			CUSTOMER
+		<include refid="search" />
 	</select>
 
 	<select id="list" resultType="customer.CustomerVO">
@@ -108,19 +109,26 @@
 	</select>
 	
 	<sql id="search">
-		<if test="search == all">
+		<if test="search == 'all'">
 			WHERE
 				CUSTOMER_ID LIKE '%' || #{keyword} || '%'
 			OR
 				CUSTOMER_NAME LIKE '%' || #{keyword} || '%'
 			OR
-				CUSTOMER_BIRTH LIKE '%' || #{keyword} || '%'
+				CUSTOMER_SOCIALNUM LIKE '%' || #{keyword} || '%'
 			OR
 				CUSTOMER_EMAIL LIKE '%' || #{keyword} || '%'
 		</if>
-		<if test="search == 'id' or search == 'name' or search == 'birth' or search == 'email'">
+		<if test="search == 'customer_id' or search == 'customer_name' or search == 'customer_socialNum' or search == 'customer_email'">
 			WHERE
 				${search} LIKE '%' || #{keyword} || '%'
 		</if>
 	</sql>
+	
+	<delete id="delete">
+		DELETE FROM
+			CUSTOMER
+		WHERE
+			CUSTOMER_ID = #{customer_id}
+	</delete>
 </mapper>

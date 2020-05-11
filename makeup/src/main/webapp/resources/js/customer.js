@@ -1,4 +1,25 @@
-//아이디 중복체크
+$(function(){
+	// 체크박스 전체선택 & 전체해제
+	$('#list-allCheck').click(function(){
+		if( $('#list-allCheck').prop('checked') ){
+            $('input[type=checkbox]').prop('checked', true); 
+        }else{
+            $('input[type=checkbox]').prop('checked', false); 
+        }
+	})
+	
+	//체크박스 하나라도 해제되어 있을 시 전체선택 체크박스도 해제
+	$('.list-checkBox').click(function(){
+		if( $('.list-checkBox:checked').length == $('.list-checkBox').length ){		// 체크박스에 체크된 갯수가 체크박스 전체갯수 숫자와 같으면
+			$('#list-allCheck').prop('checked', true);		// allCheck 체크박스도 체크를 하고
+		}else {
+			$('#list-allCheck').prop('checked', false);		// 그렇지 않으면 allCheck 체크박스도 체크를 해제
+		}
+	})
+})
+
+
+// 아이디 중복체크
 function usable(){
 	$.ajax({
 		type: 'post',
@@ -167,4 +188,22 @@ function go_logout(){
 // 고객 검색
 function go_search(){
 	alert('조회');
+}
+
+// 고객 탈퇴
+function customer_delete(){
+	$('.list-checkBox:checked').each(function(){
+		var customer_id = $(this).parent().find('input:last').val();	// 체크된 id값 가져오는 처리
+		
+		$.ajax({
+			url: 'delete.cu',
+			data: {customer_id : customer_id},
+			success: function(data){
+				location.reload();
+			},error: function(req, text){
+				alert('실패');
+			}
+		})
+	})
+	
 }

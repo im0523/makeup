@@ -6,7 +6,7 @@ public interface CustomerService {
 	CustomerVO customer_detail(String customer_id);		// customer 상세정보
 	void customer_insert(CustomerVO vo);				// customer 등록 처리
 	void customer_update(CustomerVO vo);				// customer 정보 수정 처리
-	void customer_delete(int no);						// customer 삭제 처리
+	void customer_delete(String customer_id);						// customer 삭제 처리
 	
 	boolean id_usable(String customer_id);	// 아이디 중복확인(이 아이디를 사용할 수 있다 or 없다 니까 boolean)
 	
