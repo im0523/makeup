@@ -42,9 +42,11 @@ ul li a { cursor: pointer;}
 		<li class="list"><a onclick="location='list.st'">STORE</a></li>
 		<li class="list"><a onclick="location='list.pd'">PRODUCT</a></li>
 		<li class="list"><a>BRAND</a></li>
+		
 		<c:if test="${login_info.customer_name == '관리자' }">
 			<li class="list"><a onclick="location='list.cu'">CUSTOMER</a></li>
 		</c:if>
+		
 	</ul>
 	</div>
 	

@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 <style type="text/css">
 table { width: 360px ;}
 table th, table td { border-bottom: none;}
@@ -33,8 +34,8 @@ table th, table td { border-bottom: none;}
 <div class="login-findBox">
 	<div class="loginBox" onclick="go_login()">로그인</div>
 	<div class="login-findBox-tagBox">
-		<div class="login-findBox-tag">아이디 찾기</div>
-		<div class="login-findBox-tag">비밀번호 찾기</div>
+		<div class="login-findBox-tag"><a onclick="location='findId'">아이디 찾기</a></div>
+		<div class="login-findBox-tag"><a>비밀번호 찾기</a></div>
 	</div>
 </div>
 

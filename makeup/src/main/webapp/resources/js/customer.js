@@ -207,3 +207,25 @@ function customer_delete(){
 	})
 	
 }
+
+// 아이디 찾기 - 이메일로 찾기 선택 시
+function findId_div(){
+	var value = $('.findId-radio:checked').val();
+
+	if( value == '1' ){
+		$('#phoneBox').css('display', 'none');
+		$('#emailBox').css('display', 'contents');
+		$('#customer_name').val('');
+		$('#customer_email').val('');
+		$('.phone').val('');
+	}else if( value == '2' ){
+		$('#phoneBox').css('display', 'contents');
+		$('#emailBox').css('display', 'none');
+		$('#customer_name').val('');
+		$('.phone').val('');
+	}
+}
+
+function go_findId(){
+	
+}

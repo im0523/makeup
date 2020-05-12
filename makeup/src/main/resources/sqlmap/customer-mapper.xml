@@ -131,4 +131,15 @@
 		WHERE
 			CUSTOMER_ID = #{customer_id}
 	</delete>
+	
+	<select id="findId_email" resultType="customer.CustomerVO">
+		SELECT
+			CUSTOMER_ID
+		FROM
+			CUSTOMER
+		WHERE
+			CUSTOMER_NAME = #{customer_name}
+        AND
+        	CUSTOMER_EMAIL = #{customer_email}
+	</select>
 </mapper>

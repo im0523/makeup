@@ -110,4 +110,16 @@ public class CustomerController {
 	public void logout(HttpSession ss) {
 		ss.removeAttribute("login_info");
 	}
+	
+	// id 찾기
+	@RequestMapping("/findId")
+	public String findId(String customer_name, String customer_email, String customer_phone) {
+//		if( customer_phone == null ) {
+//			CustomerVO vo = service.findId_email(customer_name, customer_email);
+//		}else if( customer_email == null ) {
+//			CustomerVO vo = service.findId_phone(customer_name, customer_email);
+//		}
+		
+		return "customer/findId";
+	}
 }

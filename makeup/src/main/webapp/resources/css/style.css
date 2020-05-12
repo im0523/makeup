@@ -235,3 +235,22 @@ select {
     font-size: 13px;
     color: dimgray;
 }
+
+.loginBox, .login-findBox a{
+	cursor: pointer;
+}
+
+#findIdTb{
+	width: 380px;	
+}
+
+.findId-radioText{
+	font-weight: bold;
+	color: black;
+	font-size: 14px;
+}
+
+.findId-radio{
+	width: 12px;
+    height: 12px;
+}

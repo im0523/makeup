@@ -14,6 +14,22 @@ table tr td { text-align: center; }
 tr td a { cursor: pointer; }
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+<!-- /makeup/list.cu 경로로 접속 시 일반회원은 접근을 막는 처리 -->
+<c:choose>
+	<c:when test="${login_info.customer_name == '관리자' }">
+<!-- 		<script> -->
+<!--  		alert(2) -->
+<!-- 		</script> -->
+	</c:when>
+	<c:otherwise>
+		<script>
+//  		alert('일반');
+		location.href="/makeup"
+		</script>
+	</c:otherwise>
+</c:choose>
+
 </head>
 <body>
 <p class="main">회원 관리</p>
