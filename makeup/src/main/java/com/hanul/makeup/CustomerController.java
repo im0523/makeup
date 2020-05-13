@@ -1,12 +1,19 @@
 package com.hanul.makeup;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.security.auth.message.callback.SecretKeyCallback.Request;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.codehaus.jackson.map.MapperConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -111,15 +118,32 @@ public class CustomerController {
 		ss.removeAttribute("login_info");
 	}
 	
-	// id 찾기
+	// id 찾기 화면 요청
 	@RequestMapping("/findId")
-	public String findId(String customer_name, String customer_email, String customer_phone) {
-//		if( customer_phone == null ) {
-//			CustomerVO vo = service.findId_email(customer_name, customer_email);
-//		}else if( customer_email == null ) {
-//			CustomerVO vo = service.findId_phone(customer_name, customer_email);
-//		}
-		
+	public String findId() {
 		return "customer/findId";
+	}
+	
+	// id 찾기 처리 요청
+	 @RequestMapping("/findId1")
+	public @ResponseBody Map<String, Object> findId(Model model, String customer_name, String customer_email, String customer_phone, HttpServletRequest request) {
+
+		 Map<String, Object> map = new HashMap<String, Object>();
+		 String radio = request.getParameter("radio");
+		
+//		if( customer_name != null && customer_email != null ) {
+		if( radio.equals("1") ) {
+			CustomerVO vo = service.findId_email(customer_name, customer_email);
+			map.put("customer_id", vo.getCustomer_id());
+			System.out.println("Controller email에서 " + vo.getCustomer_id());
+//			model.addAttribute("customer_id", customers);
+//		}else if( customer_name != null && customer_phone != null ) {
+		}else if( radio.equals("2") ) {
+			CustomerVO vo = service.findId_phone(customer_name, customer_phone);
+			model.addAttribute("customer_id", vo.getCustomer_id());
+			System.out.println("Controller phone에서 " + vo.getCustomer_id());
+		}
+		
+		return map;
 	}
 }

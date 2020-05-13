@@ -142,4 +142,15 @@
         AND
         	CUSTOMER_EMAIL = #{customer_email}
 	</select>
+
+	<select id="findId_phone" resultType="customer.CustomerVO">
+		SELECT
+			CUSTOMER_ID
+		FROM
+			CUSTOMER
+		WHERE
+			CUSTOMER_NAME = #{customer_name}
+        AND
+        	CUSTOMER_EMAIL = #{customer_phone}
+	</select>
 </mapper>

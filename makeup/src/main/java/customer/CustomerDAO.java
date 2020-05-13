@@ -57,21 +57,23 @@ public class CustomerDAO implements CustomerService {
 		return sql.selectOne("customer.mapper.loginCheck", map);
 	}
 
+	// email로 아이디 찾기
 	@Override
 	public CustomerVO findId_email(String customer_name, String customer_email) {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("customer_name", customer_name);
 		map.put("customer_email", customer_email);
-		// 1이면 해당하는 아이디가 있고, 0이면 없다
+
 		return sql.selectOne("customer.mapper.findId_email", map);
 	}
 
+	// phone으로 아이디 찾기
 	@Override
 	public CustomerVO findId_phone(String customer_name, String customer_phone) {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("customer_name", customer_name);
 		map.put("customer_phone", customer_phone);
-		// 1이면 해당하는 아이디가 있고, 0이면 없다
+
 		return sql.selectOne("customer.mapper.findId_phone", map);
 	}
 

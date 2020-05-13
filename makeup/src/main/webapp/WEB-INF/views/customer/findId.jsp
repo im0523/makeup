@@ -43,7 +43,7 @@
 </table>
 
 <div class="login-findBox">
-	<div class="loginBox" onclick="go_findId()">확인</div>
+	<div class="loginBox" onclick="go_findId()" style="width: 40px; margin: 0 auto;">확인</div>
 </div>
 
 </body>

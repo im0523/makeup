@@ -27,7 +27,7 @@ function usable(){
 		data: {customer_id : $('#customer_id').val() },
 		dataType: 'json',
 		success: function(data){
-			
+			console.log(data)
 			if( $('#customer_id').val() == '' ){
 				alert('아이디를 입력해주세요');
 				$('#customer_id').focus();
@@ -227,5 +227,26 @@ function findId_div(){
 }
 
 function go_findId(){
+	var name = $('#customer_name').val();
+	var email = $('#customer_email').val();
+	var phone = $('#customer_phone').val();
 	
+	$.ajax({
+		url: 'findId1',
+		type: 'get',
+		dataType: 'json',
+		async:false,
+		data: {
+				customer_name : name,
+				customer_email : email,
+				customer_phone : phone
+			  },
+	  	success: function(data){
+			alert(data.customer_id);
+		},
+		error: function(request, status, error){
+			alert("code : " + request.status + "\r\nmessage : "
+		               + request.reponseText);
+		}
+	})
 }
