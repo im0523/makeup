@@ -251,8 +251,35 @@ function go_findId(){
 		},
 		error: function(request, status, error){
 			alert('회원정보가 올바르지 않습니다');
-//			alert("code : " + request.status + "\r\nmessage : "
-//		               + request.reponseText);
+//			alert("code : " + request.status + "\r\nmessage : " + request.reponseText);
+		}
+	})
+}
+
+function go_findPw(){
+	// customer_phone 라는 hidden 값에 010-1111-1234 식의 풀 전화번호를 담는 처리
+	$('#customer_phone').val($('#phone1').val() + '-' + $('#phone2').val() + '-' +$('#phone3').val());
+	
+	var id = $('#customer_id').val();
+	var name = $('#customer_name').val();
+	var phone = $('#customer_phone').val();
+	var email = $('#customer_email').val();
+	
+	$.ajax({
+		url: 'go_findPw',
+		type: 'post',
+		dataType: 'json',
+		data: {
+			customer_id : id,
+			customer_name : name,
+			customer_phone : phone,
+			customer_email : email
+		},
+		success: function(data){
+			alert('회원님의 비밀번호는 ' + data.customer_pw + ' 입니다.');
+		},error: function(request, status, error){
+			alert('회원정보가 올바르지 않습니다');
+//			alert("code : " + request.status + "\r\nmessage : " + request.reponseText);
 		}
 	})
 }

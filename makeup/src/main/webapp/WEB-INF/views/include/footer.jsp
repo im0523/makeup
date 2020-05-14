@@ -18,7 +18,7 @@ p { font-size: 10px; height: 10px;}
 </style>
 <div class="footer">
 	<div class="left">
-		<p>C/S CENTERQ&A 바로가기</p>
+		<p>C/S CENTER Q&A 바로가기</p>
 		<p1>070.8779.8080</p1>
 		<p>평일 AM11:00 - PM6:00</p>
 		<p>주말 및 공휴일 휴무</p>

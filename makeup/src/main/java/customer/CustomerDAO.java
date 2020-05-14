@@ -57,7 +57,7 @@ public class CustomerDAO implements CustomerService {
 		return sql.selectOne("customer.mapper.loginCheck", map);
 	}
 
-	// email로 아이디 찾기
+	// 아이디 찾기 - email
 	@Override
 	public CustomerVO findId_email(String customer_name, String customer_email) {
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -67,7 +67,7 @@ public class CustomerDAO implements CustomerService {
 		return sql.selectOne("customer.mapper.findId_email", map);
 	}
 
-	// phone으로 아이디 찾기
+	// 아이디 찾기 - phone
 	@Override
 	public CustomerVO findId_phone(String customer_name, String customer_phone) {
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -75,6 +75,18 @@ public class CustomerDAO implements CustomerService {
 		map.put("customer_phone", customer_phone);
 
 		return sql.selectOne("customer.mapper.findId_phone", map);
+	}
+
+	// 비밀번호 찾기
+	@Override
+	public CustomerVO findPw(String customer_id, String customer_name, String customer_phone, String customer_email) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("customer_id", customer_id);
+		map.put("customer_name", customer_name);
+		map.put("customer_phone", customer_phone);
+		map.put("customer_email", customer_email);
+		
+		return sql.selectOne("customer.mapper.findPw", map);
 	}
 
 }

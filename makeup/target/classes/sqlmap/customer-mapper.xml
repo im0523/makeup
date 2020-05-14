@@ -153,4 +153,19 @@
         AND
         	CUSTOMER_PHONE = #{customer_phone}
 	</select>
+	
+	<select id="findPw" resultType="customer.CustomerVO">
+		SELECT
+			CUSTOMER_PW
+		FROM
+			CUSTOMER
+		WHERE
+			CUSTOMER_ID = #{customer_id}
+		AND
+			CUSTOMER_NAME = #{customer_name}
+		AND
+			CUSTOMER_PHONE = #{customer_phone}
+        AND
+        	CUSTOMER_EMAIL = #{customer_email}
+	</select>
 </mapper>

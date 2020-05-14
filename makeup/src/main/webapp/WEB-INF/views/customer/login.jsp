@@ -35,7 +35,7 @@ table th, table td { border-bottom: none;}
 	<div class="loginBox" onclick="go_login()">로그인</div>
 	<div class="login-findBox-tagBox">
 		<div class="login-findBox-tag"><a onclick="location='findId'">아이디 찾기</a></div>
-		<div class="login-findBox-tag"><a>비밀번호 찾기</a></div>
+		<div class="login-findBox-tag"><a onclick="location='findPw'">비밀번호 찾기</a></div>
 	</div>
 </div>
 

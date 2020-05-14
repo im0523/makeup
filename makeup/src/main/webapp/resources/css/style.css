@@ -240,7 +240,7 @@ select {
 	cursor: pointer;
 }
 
-#findIdTb{
+#findIdTb, #findPwTb{
 	width: 380px;	
 }
 
@@ -253,4 +253,8 @@ select {
 .findId-radio{
 	width: 12px;
     height: 12px;
+}
+
+#findPwTb tr td input{
+	width: 200px;
 }

@@ -118,15 +118,15 @@ public class CustomerController {
 		ss.removeAttribute("login_info");
 	}
 	
-	// id 찾기 화면 요청
+	// 아이디 찾기 화면 요청
 	@RequestMapping("/findId")
 	public String findId() {
 		return "customer/findId";
 	}
 	
-	// id 찾기 처리 요청
-	 @RequestMapping("/findId1")
-	public @ResponseBody Map<String, Object> findId(Model model, String customer_name, String customer_email, String customer_phone, HttpServletRequest request) {
+	// 아이디 찾기 처리 요청
+	@ResponseBody @RequestMapping("/findId1")
+	public  Map<String, Object> findId(String customer_name, String customer_email, String customer_phone, HttpServletRequest request) {
 
 		 Map<String, Object> map = new HashMap<String, Object>();
 		 String radio = request.getParameter("radio");
@@ -135,13 +135,30 @@ public class CustomerController {
 		if( radio.equals("1") ) {
 			CustomerVO vo = service.findId_email(customer_name, customer_email);
 			map.put("customer_id", vo.getCustomer_id());
-			System.out.println("Controller email에서 " + vo.getCustomer_id());
+//			System.out.println("Controller email에서 " + vo.getCustomer_id());
 		}else if( radio.equals("2") ) {
 			CustomerVO vo = service.findId_phone(customer_name, customer_phone);
 			map.put("customer_id", vo.getCustomer_id());
-			System.out.println("Controller phone에서 " + vo.getCustomer_id());
+//			System.out.println("Controller phone에서 " + vo.getCustomer_id());
 		}
 		
 		return map;
 	}
+	 
+	 // 비밀번호 찾기 화면 요청
+	 @RequestMapping("/findPw")
+	 public String findPw() {
+		 return "customer/findPw";
+	 }
+	 
+	 // 비밀번호 찾기
+	 @ResponseBody @RequestMapping("/go_findPw")
+	 public Map<String, String> go_findPw(String customer_id, String customer_name, String customer_phone, String customer_email ) {
+		 Map<String, String> map = new HashMap<String, String>();
+		 
+		 CustomerVO vo = service.findPw(customer_id, customer_name, customer_phone, customer_email);
+		 map.put("customer_pw", vo.getCustomer_pw());
+		 
+		 return map;
+	 }
 }
