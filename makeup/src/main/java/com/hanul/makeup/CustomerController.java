@@ -131,16 +131,14 @@ public class CustomerController {
 		 Map<String, Object> map = new HashMap<String, Object>();
 		 String radio = request.getParameter("radio");
 		
-//		if( customer_name != null && customer_email != null ) {
+//		 System.out.println("radio 값 : "+radio);
 		if( radio.equals("1") ) {
 			CustomerVO vo = service.findId_email(customer_name, customer_email);
 			map.put("customer_id", vo.getCustomer_id());
 			System.out.println("Controller email에서 " + vo.getCustomer_id());
-//			model.addAttribute("customer_id", customers);
-//		}else if( customer_name != null && customer_phone != null ) {
 		}else if( radio.equals("2") ) {
 			CustomerVO vo = service.findId_phone(customer_name, customer_phone);
-			model.addAttribute("customer_id", vo.getCustomer_id());
+			map.put("customer_id", vo.getCustomer_id());
 			System.out.println("Controller phone에서 " + vo.getCustomer_id());
 		}
 		

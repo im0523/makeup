@@ -227,9 +227,13 @@ function findId_div(){
 }
 
 function go_findId(){
+	// customer_phone 라는 hidden 값에 010-1111-1234 식의 풀 전화번호를 담는 처리
+	$('#customer_phone').val($('#phone1').val() + '-' + $('#phone2').val() + '-' +$('#phone3').val());
+
 	var name = $('#customer_name').val();
 	var email = $('#customer_email').val();
 	var phone = $('#customer_phone').val();
+	var radio = $('input[name="radio"]:checked').val();
 	
 	$.ajax({
 		url: 'findId1',
@@ -237,16 +241,18 @@ function go_findId(){
 		dataType: 'json',
 		async:false,
 		data: {
+				radio : radio,
 				customer_name : name,
 				customer_email : email,
 				customer_phone : phone
 			  },
 	  	success: function(data){
-			alert(data.customer_id);
+			alert('회원 아이디는 "' + data.customer_id + '" 입니다.');
 		},
 		error: function(request, status, error){
-			alert("code : " + request.status + "\r\nmessage : "
-		               + request.reponseText);
+			alert('회원정보가 올바르지 않습니다');
+//			alert("code : " + request.status + "\r\nmessage : "
+//		               + request.reponseText);
 		}
 	})
 }

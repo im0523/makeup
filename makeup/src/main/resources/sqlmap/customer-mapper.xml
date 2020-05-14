@@ -151,6 +151,6 @@
 		WHERE
 			CUSTOMER_NAME = #{customer_name}
         AND
-        	CUSTOMER_EMAIL = #{customer_phone}
+        	CUSTOMER_PHONE = #{customer_phone}
 	</select>
 </mapper>
