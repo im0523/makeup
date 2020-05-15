@@ -26,8 +26,8 @@ public class ProductDAO implements ProductService {
 	}
 
 	@Override
-	public void product_insert(ProductVO vo) {
-		sql.insert("product.mapper.insert", vo);
+	public int product_insert(ProductVO vo) {
+		return sql.insert("product.mapper.insert", vo);
 	}
 	
 	@Override

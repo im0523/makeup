@@ -1,7 +1,5 @@
 package product;
 
-import java.sql.Date;
-
 public class ProductVO {
 	private int product_no;
 	private String product_thumbNail;

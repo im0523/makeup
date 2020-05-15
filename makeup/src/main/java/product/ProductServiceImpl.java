@@ -21,8 +21,14 @@ public class ProductServiceImpl implements ProductService {
 
 	// 상품 등록
 	@Override
-	public void product_insert(ProductVO productVo) {
-		dao.product_insert(productVo);
+	public int product_insert(ProductVO productVo, ImageVO imageVo) {
+		int result = 0;
+		
+		result = dao.product_insert(productVo);
+		if(result == 1) {
+			dao.image_insert(imageVo);
+		}
+		return result;
 	}
 	
 	// 상품 등록
