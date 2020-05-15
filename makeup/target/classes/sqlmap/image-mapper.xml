@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="image.mapper">
+
+	<insert id="insert">
+		INSERT INTO IMAGE
+			(
+			  PRODUCT_NO
+			, IMAGE_NO
+			, IMAGEPATH
+			)
+		VALUES
+			(
+			  (SELECT MAX(PRODUCT_NO) FROM PRODUCT)
+			, (SELECT MAX(NVL(IMAGE_NO, 0))+1 IMAGE_NO FROM IMAGE)
+			, #{imagepath, jdbcType=VARCHAR}
+			)
+	</insert>
+
+
+
+</mapper>

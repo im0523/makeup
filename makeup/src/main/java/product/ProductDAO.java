@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import image.ImageVO;
+
 @Repository
 public class ProductDAO implements ProductService {
 	@Autowired private SqlSession sql;
@@ -26,6 +28,11 @@ public class ProductDAO implements ProductService {
 	@Override
 	public void product_insert(ProductVO vo) {
 		sql.insert("product.mapper.insert", vo);
+	}
+	
+	@Override
+	public void image_insert(ImageVO vo) {
+		sql.insert("image.mapper.insert", vo);
 	}
 
 	@Override

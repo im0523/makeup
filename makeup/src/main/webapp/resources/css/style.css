@@ -35,13 +35,16 @@ h2 {
 	width: 150px;
 	height: 30px;
 	margin: 0;
+	line-height: 30px;
+	float: left;
 }
 
-.product_name {
+.product_name, .product_category {
 	width: 150px;
 	height: 30px;
 	float: left;
 	line-height: 30px;
+	margin-top: 0;
 }
 
 input {
@@ -222,39 +225,63 @@ select {
 	vertical-align: top;
 }
 
-.list-allCheck, .list-checkBox{
-	width: 13px;	
+.list-allCheck, .list-checkBox {
+	width: 13px;
 }
 
-.delete{
+.delete {
 	float: left;
-    width: 110px;
-    height: 50px;
-    line-height: 30px;
-    margin: 0;
-    font-size: 13px;
-    color: dimgray;
+	width: 110px;
+	height: 50px;
+	line-height: 30px;
+	margin: 0;
+	font-size: 13px;
+	color: dimgray;
 }
 
-.loginBox, .login-findBox a{
+.loginBox, .login-findBox a {
 	cursor: pointer;
 }
 
-#findIdTb, #findPwTb{
-	width: 380px;	
+#findIdTb, #findPwTb {
+	width: 380px;
 }
 
-.findId-radioText{
+.findId-radioText {
 	font-weight: bold;
 	color: black;
 	font-size: 14px;
 }
 
-.findId-radio{
+.findId-radio {
 	width: 12px;
-    height: 12px;
+	height: 12px;
 }
 
-#findPwTb tr td input{
+#findPwTb tr td input {
 	width: 200px;
+}
+
+.seqBox {
+	height: 50px;
+	line-height: 50px;
+	margin-top: 0;
+}
+
+
+.seqBox select {
+	float: left;
+}
+
+
+.pd_nameInput {
+	width: 600px;
+	float: left;
+}
+
+.imagefiles {
+	width: 605px;
+	height: 100px;
+	float: left;
+	margin: 0;
 }

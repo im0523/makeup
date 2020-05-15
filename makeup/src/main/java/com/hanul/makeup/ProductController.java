@@ -1,7 +1,5 @@
 package com.hanul.makeup;
 
-import java.io.File;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import common.CommonService;
+import image.ImageVO;
 import product.ProductPageVO;
 import product.ProductServiceImpl;
 import product.ProductVO;
@@ -33,6 +32,21 @@ public class ProductController {
 	public String product(Model model) {
 		return "product/new";
 	}
+	
+	//상품 등록처리 요청
+	@RequestMapping("/insert.pd")
+	public String insert(ProductVO productVo, ImageVO imageVo, HttpSession ss, MultipartFile thumbNail, MultipartFile image[]) {
+		productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );
+		
+		
+//		imageVo.setImagepath( common.fileUpload(image, ss, "product") );
+		
+		service.product_insert(productVo);
+//		service.image_insert(imageVo);
+		
+		return "redirect:list.pd";
+	}
+	
 	
 	//상품 등록처리 요청
 //	@RequestMapping("/insert.pd")

@@ -12,7 +12,8 @@ CREATE TABLE PRODUCT(
 --image table 생성
 CREATE TABLE IMAGE(
 	product_no	NUMBER NOT NULL,
-	image_no	NUMBER NOT NULL
+	image_no	NUMBER NOT NULL,
+	imagepath	VARCHAR2(3000)
 );
 
 --store table 생성

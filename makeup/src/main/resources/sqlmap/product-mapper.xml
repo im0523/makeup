@@ -5,7 +5,7 @@
 <select id="list" resultType="product.ProductVO">
 	SELECT
 		  PRODUCT_NO
-		, PRODUCT_THUMBNAIL
+		, REPLACE(PRODUCT_THUMBNAIL, '\', '/') PRODUCT_THUMBNAIL
 		, PRODUCT_NAME
 		, PRODUCT_PRICE
 	FROM
@@ -15,9 +15,26 @@
 </select>
 
 <insert id="insert">
-	insert into product(no, imagepath, name, explanation, price, context, image1, image2, image3)
-	values (seq_product.nextval, #{imagepath, jdbcType=VARCHAR}, #{name}, #{explanation}, #{price}, #{context},
-			#{image1, jdbcType=VARCHAR}, #{image2, jdbcType=VARCHAR}, #{image3, jdbcType=VARCHAR} )
+	INSERT INTO PRODUCT
+		(
+		  PRODUCT_NO
+		, PRODUCT_THUMBNAIL
+		, PRODUCT_NAME
+		, PRODUCT_EXPLANATION
+		, PRODUCT_PRICE
+		, PRODUCT_CATEGORY
+		, PRODUCT_CONTEXT
+		)
+	VALUES
+		(
+		  (SELECT MAX(PRODUCT_NO)+1 FROM PRODUCT)
+		, #{product_thumbNail, jdbcType=VARCHAR}
+		, #{product_name}
+		, #{product_explanation}
+		, #{product_price}
+		, #{product_category}
+		, #{product_context}
+		)
 </insert>
 
 <select id="detail" resultType="product.ProductVO">

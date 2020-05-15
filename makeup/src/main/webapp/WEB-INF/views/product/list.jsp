@@ -11,7 +11,7 @@
 .menu li { list-style: none; float: left; color: lightslategray; font-size: 15px; padding: 10px 27px; border: 1px solid #bdbdbd; margin: 0 4px;}
 .item_box { width: 280px; height: 390px; float: left; margin: 22px;}
 .thumbnail { width: 280px; height: 270px; margin: 0;}
-.name { width: 280px; height: 40px; border-bottom: 1px solid #ececec; margin: 0; padding: 10px 0; line-height: 20px; }
+.name { width: 280px; height: 30px; border-bottom: 1px solid #ececec; margin: 0; padding: 10px 0; line-height: 30px; }
 .price { width: 280px; height: 60px; margin: 0; line-height: 0px;}
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -32,7 +32,9 @@
 		<li>acc</li>
 	</ul>
 	
-<p class="main" style="height: 20px; font-size: 15px; margin: 0 0 0 1100px;"><a class="btn-fill" onclick="location='new.pd'">상품등록</a></p>
+	<c:if test="${login_info.customer_name == '관리자' }">
+		<p class="main" style="height: 20px; font-size: 15px; margin: 0 0 0 1100px;"><a class="btn-fill" onclick="location='new.pd'">상품등록</a></p>
+	</c:if>
 	
 	<div class="content">
 		<c:forEach items="${page.list }" var="vo">
