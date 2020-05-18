@@ -13,6 +13,7 @@ import image.ImageVO;
 public class ProductDAO implements ProductService {
 	@Autowired private SqlSession sql;
 
+	// 상품 리스트 출력
 	@Override
 	public ProductPageVO product_list(ProductPageVO page) {
 		List<ProductVO> list = sql.selectList("product.mapper.list", page);
@@ -26,17 +27,19 @@ public class ProductDAO implements ProductService {
 		return sql.selectOne("product.mapper.detail", product_no);
 	}
 	
-	// 상품 상세보기 - image
+	// 상품 상세보기 - 이미지
 	@Override
 	public List<ImageVO> image_detail(int product_no) {
 		return sql.selectList("image.mapper.detail", product_no);
 	}
 
+	// 상품등록
 	@Override
 	public int product_insert(ProductVO vo) {
 		return sql.insert("product.mapper.insert", vo);
 	}
 	
+	// 상품등록 - 이미지
 	@Override
 	public void image_insert(ImageVO vo) {
 		sql.insert("image.mapper.insert", vo);
@@ -47,9 +50,11 @@ public class ProductDAO implements ProductService {
 		sql.update("product.mapper.update", vo);
 	}
 
+	// 상품 삭제
 	@Override
 	public void product_delete(int product_no) {
 		sql.delete("product.mapper.delete", product_no);
+		sql.delete("image.mapper.delete", product_no);
 	}
 
 	

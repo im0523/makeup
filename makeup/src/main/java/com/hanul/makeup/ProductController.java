@@ -52,7 +52,6 @@ public class ProductController {
 		return "redirect:list.pd";
 	}
 	
-	
 	//상품 상세화면 요청
 	@RequestMapping("/detail.pd")
 	public String detail(int product_no, Model model) {
@@ -61,13 +60,13 @@ public class ProductController {
 		return "product/detail";
 	}
 	
-//	//상품 삭제처리 요청
-//	@RequestMapping("/delete.pd")
-//	public String delete(int product_no) {
-//		service.product_delete(product_no);
-//		return "redirect:list.pd";
-//	}
-//	
+	//상품 삭제처리 요청
+	@RequestMapping("/delete.pd")
+	public String delete(int product_no) {
+		service.product_delete(product_no);
+		return "redirect:list.pd";
+	}
+	
 //	//상품 수정화면 요청
 //	@RequestMapping("/modify.pd")
 //	public String modify(int product_no, Model model) {

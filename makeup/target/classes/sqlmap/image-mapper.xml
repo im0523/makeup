@@ -28,5 +28,10 @@
 			IMAGE_NO ASC
 	</select>
 
-
+	<delete id="delete">
+		DELETE FROM
+			IMAGE
+		WHERE
+			PRODUCT_NO = #{product_no}
+	</delete>
 </mapper>

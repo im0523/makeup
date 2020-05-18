@@ -2,66 +2,66 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="product.mapper">
 
-<select id="list" resultType="product.ProductVO">
-	SELECT
-		  PRODUCT_NO
-		, REPLACE(PRODUCT_THUMBNAIL, '\', '/') PRODUCT_THUMBNAIL
-		, PRODUCT_NAME
-		, PRODUCT_PRICE
-	FROM
-		PRODUCT
-	ORDER BY
-		PRODUCT_NO DESC
-</select>
-
-<insert id="insert">
-	INSERT INTO PRODUCT
-		(
-		  PRODUCT_NO
-		, PRODUCT_THUMBNAIL
-		, PRODUCT_NAME
-		, PRODUCT_EXPLANATION
-		, PRODUCT_PRICE
-		, PRODUCT_CATEGORY
-		, PRODUCT_CONTEXT
-		)
-	VALUES
-		(
-		  (SELECT NVL(MAX(PRODUCT_NO), 0)+1 FROM PRODUCT)
-		, #{product_thumbNail, jdbcType=VARCHAR}
-		, #{product_name}
-		, #{product_explanation}
-		, #{product_price}
-		, #{product_category}
-		, #{product_context}
-		)
-</insert>
-
-<select id="detail" resultType="product.ProductVO">
-	SELECT
-		  PRODUCT_NO
-		, PRODUCT_THUMBNAIL
-		, PRODUCT_NAME
-		, PRODUCT_EXPLANATION
-		, PRODUCT_PRICE
-		, PRODUCT_CONTEXT
-	FROM
-		PRODUCT
-	WHERE
-		PRODUCT_NO = #{product_no}
-</select>
-
-<delete id="delete">
-	DELETE FROM
-		PRODUCT
-	WHERE
-		PRODUCT_NO = #{product_no}
-</delete>
-
-<update id="update">
-	update product
-	set imagepath=#{imagepath, jdbcType=VARCHAR}, name=#{name}, explanation=#{explanation}, price=#{price}, context=#{context},
-		image1=#{image1, jdbcType=VARCHAR}, image2=#{image2, jdbcType=VARCHAR}, image3=#{image3, jdbcType=VARCHAR}
-	where no=#{no}
-</update>
+	<select id="list" resultType="product.ProductVO">
+		SELECT
+			  PRODUCT_NO
+			, REPLACE(PRODUCT_THUMBNAIL, '\', '/') PRODUCT_THUMBNAIL
+			, PRODUCT_NAME
+			, PRODUCT_PRICE
+		FROM
+			PRODUCT
+		ORDER BY
+			PRODUCT_NO DESC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO PRODUCT
+			(
+			  PRODUCT_NO
+			, PRODUCT_THUMBNAIL
+			, PRODUCT_NAME
+			, PRODUCT_EXPLANATION
+			, PRODUCT_PRICE
+			, PRODUCT_CATEGORY
+			, PRODUCT_CONTEXT
+			)
+		VALUES
+			(
+			  (SELECT NVL(MAX(PRODUCT_NO), 0)+1 FROM PRODUCT)
+			, #{product_thumbNail, jdbcType=VARCHAR}
+			, #{product_name}
+			, #{product_explanation}
+			, #{product_price}
+			, #{product_category}
+			, #{product_context}
+			)
+	</insert>
+	
+	<select id="detail" resultType="product.ProductVO">
+		SELECT
+			  PRODUCT_NO
+			, PRODUCT_THUMBNAIL
+			, PRODUCT_NAME
+			, PRODUCT_EXPLANATION
+			, PRODUCT_PRICE
+			, PRODUCT_CONTEXT
+		FROM
+			PRODUCT
+		WHERE
+			PRODUCT_NO = #{product_no}
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM
+			PRODUCT
+		WHERE
+			PRODUCT_NO = #{product_no}
+	</delete>
+	
+	<update id="update">
+		update product
+		set imagepath=#{imagepath, jdbcType=VARCHAR}, name=#{name}, explanation=#{explanation}, price=#{price}, context=#{context},
+			image1=#{image1, jdbcType=VARCHAR}, image2=#{image2, jdbcType=VARCHAR}, image3=#{image3, jdbcType=VARCHAR}
+		where no=#{no}
+	</update>
 </mapper>
