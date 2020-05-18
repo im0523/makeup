@@ -1,10 +1,21 @@
 package image;
 
+import java.util.List;
+
 public class ImageVO {
 	private int product_no;
 	private int image_no;
 	private String imagepath;
 	
+	private List<ImageVO> list;
+	
+	
+	public List<ImageVO> getList() {
+		return list;
+	}
+	public void setList(List<ImageVO> list) {
+		this.list = list;
+	}
 	public int getProduct_no() {
 		return product_no;
 	}

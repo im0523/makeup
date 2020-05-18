@@ -38,11 +38,18 @@ public class ProductController {
 	public String insert(ProductVO productVo, ImageVO imageVo, HttpSession ss, MultipartFile thumbNail, MultipartFile image[]) {
 		productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );
 		
-		
 //		imageVo.setImagepath( common.fileUpload(image, ss, "product") );
 		
-		service.product_insert(productVo);
-//		service.image_insert(imageVo);
+		int result = service.product_insert(productVo);
+		if( result == 1) {
+			for( int i=0; i<image.length; i++ ) {
+//				imageVo.setImagepath(imagepath);
+				if(image[i] != null && image[i].getSize()>0 ) {
+					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );
+					service.image_insert(imageVo);
+				}
+			}
+		}
 		
 		return "redirect:list.pd";
 	}
