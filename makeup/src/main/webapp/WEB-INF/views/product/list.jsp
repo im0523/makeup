@@ -38,11 +38,11 @@
 	
 	<div class="content">
 		<c:forEach items="${page.list }" var="vo">
-			<a onclick="go_detail(${vo.product_no})"><div class="item_box">
-				<div class="thumbnail"><img src="${vo.product_thumbNail }" class="thumbnail"/></div>
-				<div class="name">${vo.product_name }</div>
-				<div class="price"><h5>${vo.product_price }</h5></div>
-			</div></a>
+			<div class="item_box">
+				<div class="thumbnail"><a onclick="go_detail(${vo.product_no})"><img src="${vo.product_thumbNail }" class="thumbnail"/></a></div>
+				<div class="name"><a onclick="go_detail(${vo.product_no})">${vo.product_name }</a></div>
+				<div class="price"><h5><a onclick="go_detail(${vo.product_no})">${vo.product_price }</a></h5></div>
+			</div>
 		</c:forEach>
 	</div>
 	<input type="hidden" name="product_no"/>

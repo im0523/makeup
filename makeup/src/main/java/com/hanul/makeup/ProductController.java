@@ -36,15 +36,13 @@ public class ProductController {
 	//상품 등록처리 요청
 	@RequestMapping("/insert.pd")
 	public String insert(ProductVO productVo, ImageVO imageVo, HttpSession ss, MultipartFile thumbNail, MultipartFile image[]) {
-		productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );
+		productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );	//물리적 위치에 파일 저장
 		
-//		imageVo.setImagepath( common.fileUpload(image, ss, "product") );
+		int result = service.product_insert(productVo);		// 상품 등록처리
 		
-		int result = service.product_insert(productVo);
 		if( result == 1) {
 			for( int i=0; i<image.length; i++ ) {
-//				imageVo.setImagepath(imagepath);
-				if(image[i] != null && image[i].getSize()>0 ) {
+				if(image[i] != null && image[i].getSize() > 0 ) {
 					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );
 					service.image_insert(imageVo);
 				}
@@ -55,27 +53,14 @@ public class ProductController {
 	}
 	
 	
-	//상품 등록처리 요청
-//	@RequestMapping("/insert.pd")
-//	public String insert(ProductVO vo, HttpSession ss, MultipartFile image[]) {
-//		MultipartFile images[] = {null, null, null, null};
-//		for( int i=0; i<image.length; i++)
-//			images[i] = image[i];
-//		vo.setImagepath( image[0]!=null && images[0].getSize()>0 ? common.fileUpload(image[0], ss, "product") : "");
-//		vo.setImage1( image[1]!=null && images[1].getSize()>0 ? common.fileUpload(image[1], ss, "product") : "");
-//		vo.setImage2( image[2]!=null && images[2].getSize()>0 ? common.fileUpload(image[2], ss, "product") : "");
-//		vo.setImage3( image[3]!=null && images[3].getSize()>0 ? common.fileUpload(image[3], ss, "product") : "");
-//		service.product_insert(vo);
-//		return "redirect:list.pd";
-//	}
-//	
-//	//상품 상세화면 요청
-//	@RequestMapping("/detail.pd")
-//	public String detail(int product_no, Model model) {
-//		model.addAttribute("vo", service.product_detail(product_no));
-//		return "product/detail";
-//	}
-//	
+	//상품 상세화면 요청
+	@RequestMapping("/detail.pd")
+	public String detail(int product_no, Model model) {
+		model.addAttribute("vo", service.product_detail(product_no));
+		model.addAttribute("imageList", service.image_detail(product_no));
+		return "product/detail";
+	}
+	
 //	//상품 삭제처리 요청
 //	@RequestMapping("/delete.pd")
 //	public String delete(int product_no) {

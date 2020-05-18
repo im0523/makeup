@@ -1,5 +1,7 @@
 package product;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,15 +20,17 @@ public class ProductServiceImpl implements ProductService {
 	public ProductVO product_detail(int product_no) {
 		return dao.product_detail(product_no);
 	}
+	
+	public List<ImageVO> image_detail(int product_no) {
+		return dao.image_detail(product_no);
+	}
+
 
 	// 상품 등록
 	@Override
 	public int product_insert(ProductVO productVo) {
 		int result = dao.product_insert(productVo);
 		
-//		if(result == 1) {
-//			dao.image_insert(imageVo);
-//		}
 		return result;
 	}
 	
@@ -46,5 +50,6 @@ public class ProductServiceImpl implements ProductService {
 		dao.product_delete(product_no);
 	}
 
+	
 	
 }

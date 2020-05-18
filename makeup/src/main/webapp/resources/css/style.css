@@ -268,11 +268,9 @@ select {
 	margin-top: 0;
 }
 
-
 .seqBox select {
 	float: left;
 }
-
 
 .pd_nameInput {
 	width: 600px;
@@ -284,4 +282,69 @@ select {
 	height: 100px;
 	float: left;
 	margin: 0;
+}
+
+.content a {
+	cursor: pointer;
+}
+
+.imagepath, .imagepath img {
+	width: 550px;
+	height: 550px;
+	float: left;
+}
+
+.detail_infoArea {
+	width: 550px;
+	height: 550px;
+	border-top: 1px solid;
+	float: right;
+}
+
+.detail_name {
+	width: 550px;
+	height: 25px;
+	line-height: 15px;
+	font-size: 20px;
+}
+
+.detail_price {
+	width: 550px;
+	height: 50px;
+	line-height: 15px;
+	font-size: 15px;
+	font-weight: bold;
+	border-bottom: 1px solid #ececec;
+}
+
+.detail_explanation {
+	width: 550px;
+	margin-top: 0px;
+	line-height: 20px;
+}
+
+.quantity input {
+	width: 22px;
+	height: 25px;
+	text-align: center;
+	padding: 0 2px 0 3px;
+	line-height: 23px;
+	border: 1px solid #d4d8d9;
+	border-radius: 3px 0 0 3px
+}
+
+.img-box {
+	width: 1200px;
+	height: auto;
+	margin: 20px auto;
+	bottom: 0;
+}
+
+.detail_image {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.btn-box {
+	width: 150px;
 }

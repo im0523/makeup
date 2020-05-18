@@ -27,7 +27,7 @@
 		)
 	VALUES
 		(
-		  (SELECT MAX(PRODUCT_NO)+1 FROM PRODUCT)
+		  (SELECT NVL(MAX(PRODUCT_NO), 0)+1 FROM PRODUCT)
 		, #{product_thumbNail, jdbcType=VARCHAR}
 		, #{product_name}
 		, #{product_explanation}

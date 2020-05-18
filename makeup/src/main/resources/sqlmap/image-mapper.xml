@@ -12,11 +12,21 @@
 		VALUES
 			(
 			  (SELECT MAX(PRODUCT_NO) FROM PRODUCT)
-			, (SELECT MAX(NVL(IMAGE_NO, 0))+1 IMAGE_NO FROM IMAGE)
+			, (SELECT NVL(MAX(IMAGE_NO), 0)+1 IMAGE_NO FROM IMAGE)
 			, #{imagepath, jdbcType=VARCHAR}
 			)
 	</insert>
 
+	<select id="detail" resultType="image.ImageVO">
+		SELECT
+			*
+		FROM
+			IMAGE
+		WHERE
+			PRODUCT_NO = #{product_no}
+		ORDER BY
+			IMAGE_NO ASC
+	</select>
 
 
 </mapper>

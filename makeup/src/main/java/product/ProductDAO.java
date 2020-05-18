@@ -20,9 +20,16 @@ public class ProductDAO implements ProductService {
 		return page;
 	}
 
+	// 상품 상세보기
 	@Override
 	public ProductVO product_detail(int product_no) {
 		return sql.selectOne("product.mapper.detail", product_no);
+	}
+	
+	// 상품 상세보기 - image
+	@Override
+	public List<ImageVO> image_detail(int product_no) {
+		return sql.selectList("image.mapper.detail", product_no);
 	}
 
 	@Override
@@ -44,5 +51,7 @@ public class ProductDAO implements ProductService {
 	public void product_delete(int product_no) {
 		sql.delete("product.mapper.delete", product_no);
 	}
+
+	
 
 }
