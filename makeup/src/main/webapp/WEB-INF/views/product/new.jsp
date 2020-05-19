@@ -45,7 +45,8 @@
 		</div>
 		<div class="seqBox">
 			<div class="product_price">가격</div>
-				<input type="text" name="product_price" style="width: 200px; float: left;"/>
+				<span class="product_price_f">KRW</span>
+				<input type="text" name="product_price" id="product_price" style="width: 150px; float: left;" onkeyup="comma(this)"/>
 		</div>
 		<div class="seqBox" style="height: 80px;">
 			<div class="product_explanation">상품설명</div>
@@ -93,7 +94,7 @@
 	</div>
 </form>
 
-
+<script type="text/javascript" src="js/product.js" charset="UTF-8"></script>
 <script type="text/javascript">
 $(document).on("change", ".file-attach", handleImgFileSelect);		
 

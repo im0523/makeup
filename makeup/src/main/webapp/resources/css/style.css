@@ -69,17 +69,20 @@ textarea {
 
 .buy-btn {
 	display: block;
+	width: 320px;
 	background: #000000;
 	box-shadow: 5px 5px 16px 0 rgba(0, 0, 0, .3);
 	font-weight: 600;
 	color: #ffffff;
-	margin: 0 1px 10px 0;
+	margin: 4px 1px 10px 10px;
 	padding: 17px 30px;
 	font-size: 16px;
 	letter-spacing: 3px;
 	text-align: center;
-	height: 50px;
-	line-height: 50px;
+	height: 22px;
+	line-height: 22px;
+	float: left;
+	cursor: pointer;
 }
 
 .main {
@@ -320,7 +323,9 @@ select {
 .detail_explanation {
 	width: 550px;
 	margin-top: 0px;
-	line-height: 20px;
+	height: 50px;
+	line-height: 50px;
+	border: 1px solid #e1e1e1;
 }
 
 .quantity input {
@@ -330,7 +335,9 @@ select {
 	padding: 0 2px 0 3px;
 	line-height: 23px;
 	border: 1px solid #d4d8d9;
-	border-radius: 3px 0 0 3px
+	border-radius: 3px 0 0 3px;
+	float: left;
+	margin-top: 12px;
 }
 
 .img-box {
@@ -347,4 +354,71 @@ select {
 
 .btn-box {
 	width: 150px;
+}
+
+.wish-btn {
+	display: inline-block;
+	width: 115px;
+	font-weight: 600;
+	margin: 4px 0 0 0;
+	background: #ffffff;
+	color: #222222;
+	border: 1px solid #ccc;
+	padding: 12px 20px;
+	font-size: 13px;
+	letter-spacing: 1px;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+}
+
+.cartBox {
+	width: 550px;
+	height: 50px;
+	margin-top: 20px;
+    height: 70px;
+}
+
+.quantity img {
+	height: 27px;
+	width: 27px;
+	margin-top: 12px;
+}
+
+.detail_exp_name {
+	float: left;
+	margin-left: 10px;
+	font-size: small;
+}
+
+.detail_exp_price {
+	float: right;
+	font-size: small;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.totalPrice {
+	margin: 0 0 0;
+    padding: 10px 9px 19px;
+    text-align: right;
+    color: #353535;
+    vertical-align: middle;
+	float: left;
+    width: 540px;
+    height: 40px;
+    line-height: 50px;
+}
+
+.totalStr {
+	font-weight: 500;
+    font-size: smaller;
+}
+
+.product_price_f{
+	float: left;
+	line-height: 30px;
+    margin-right: 10px;
+    font-weight: 600;
 }

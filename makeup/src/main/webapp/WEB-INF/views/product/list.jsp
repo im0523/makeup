@@ -32,16 +32,16 @@
 		<li>acc</li>
 	</ul>
 	
-<%-- 	<c:if test="${login_info.customer_name == '관리자' }"> --%>
+	<c:if test="${login_info.customer_name == '관리자' }">
 		<p class="main" style="height: 20px; font-size: 15px; margin: 0 0 0 1100px;"><a class="btn-fill" onclick="location='new.pd'">상품등록</a></p>
-<%-- 	</c:if> --%>
+	</c:if>
 	
 	<div class="content">
 		<c:forEach items="${page.list }" var="vo">
 			<div class="item_box">
 				<div class="thumbnail"><a onclick="go_detail(${vo.product_no})"><img src="${vo.product_thumbNail }" class="thumbnail"/></a></div>
 				<div class="name"><a onclick="go_detail(${vo.product_no})">${vo.product_name }</a></div>
-				<div class="price"><h5><a onclick="go_detail(${vo.product_no})">${vo.product_price }</a></h5></div>
+				<div class="price"><h5><a onclick="go_detail(${vo.product_no})">KRW ${vo.product_price }</a></h5></div>
 			</div>
 		</c:forEach>
 	</div>
