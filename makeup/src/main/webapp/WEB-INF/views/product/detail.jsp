@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,25 +8,31 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <style type="text/css">
-.header { width: 1200px; height: 600px;}
+.header { width: 1200px; height: 600px; margin-bottom: 100px;}
 </style>
 </head>
 <body>
+	<input type="hidden" id="product_price" value="${vo.product_price }"/>
+
 	<div class="header">
 		<div class="imagepath"><img src="${vo.product_thumbNail }" /></div>
 		<div class="detail_infoArea">
 			<p class="detail_name">${vo.product_name }</p>
-			<p class="detail_price">KRW ${vo.product_price }</p>
+			<p class="detail_price">KRW <fmt:formatNumber value="${vo.product_price}" pattern="#,###"/></p>
 			<div class="detail_explanation">${vo.product_explanation }
 				<span class="detail_exp_name">${vo.product_name }</span>
-                    <span class="quantity">
-			      		<a><img src="img/btn_count_down.gif" onclick="quantityDown()" class="QuantityDown down" style="margin-left: 150px;"/></a>
+                    <div class="quantity">
+			      		<a><img src="img/btn_count_down.gif" onclick="quantityDown()" class="QuantityDown down"/></a>
                     	<input id="quantity" name="quantity_name" value="1" type="text" readonly="readonly" /> 
                     	<a><img src="img/btn_count_up.gif" onclick="quantityUp()" class="QuantityUp up"/></a>
-                    </span>
-				<span class="detail_exp_price">KRW ${vo.product_price }</span>
+                    </div>
+				<span class="detail_exp_price">KRW <fmt:formatNumber value="${vo.product_price }" pattern="#,###"/></span>
                     <div id="totalPrice" class="totalPrice">
-		                <strong class="totalStr">TOTAL</strong> : <strong>0</strong><span class="totalStr"> (0개)</span>
+		                <strong class="totalStr">TOTAL</strong> :
+		                <strong>KRW </strong>
+		                	<span id="totalVal"><fmt:formatNumber value="${vo.product_price }" pattern="#,###"/></span>
+		                <span class="totalStr"> (<span id="totalCnt">1</span>개)
+		                </span>
 		            </div>
 	        </div>
 	        

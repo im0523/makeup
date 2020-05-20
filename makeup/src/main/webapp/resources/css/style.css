@@ -380,6 +380,15 @@ select {
     height: 70px;
 }
 
+
+.quantity {
+	width: 90px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 0;
+    float: left;
+}
+
 .quantity img {
 	height: 27px;
 	width: 27px;
@@ -387,8 +396,11 @@ select {
 }
 
 .detail_exp_name {
+	width: 320px;
+    line-height: 50px;
+    height: 50px;
+    margin: 0 0 0 10px;
 	float: left;
-	margin-left: 10px;
 	font-size: small;
 }
 
@@ -421,4 +433,10 @@ select {
 	line-height: 30px;
     margin-right: 10px;
     font-weight: 600;
+}
+
+#totalVal {
+	border: white;
+    font-weight: bold;
+    font-size: medium;
 }
