@@ -67,13 +67,21 @@ public class ProductController {
 		return "redirect:list.pd";
 	}
 	
-//	//상품 수정화면 요청
-//	@RequestMapping("/modify.pd")
-//	public String modify(int product_no, Model model) {
-//		model.addAttribute("vo", service.product_detail(product_no));
-//		return "product/modify";
-//	}
-//	
+	//상품 수정화면 요청
+	@RequestMapping("/modify.pd")
+	public String modify(int product_no, Model model) {
+		model.addAttribute("vo", service.product_detail(product_no));
+		model.addAttribute("imageList", service.image_detail(product_no));
+		
+//		if (imageList.get < 6){
+//			for(int i=0; i< 6 - imgList.length; i++ ){
+//			
+//			}
+//		}
+		
+		return "product/modify";
+	}
+	
 //	//상품 수정처리 요청
 //	@RequestMapping("/update.pd")
 //	public String update(ProductVO vo, MultipartFile image[], HttpSession ss, Model model, int delete) {

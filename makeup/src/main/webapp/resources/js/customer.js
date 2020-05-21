@@ -157,7 +157,9 @@ function go_login(){
 		},
 		success: function(data){
 			if( data == 1){
-				window.location=document.referrer;	// 이전 화면으로 가는 처리
+//				window.location=document.referrer;	// 이전 화면으로 가는 처리
+				history.back();
+//				location.reload();
 			}else{
 				alert('비밀번호가 맞지 않습니다');
 			}

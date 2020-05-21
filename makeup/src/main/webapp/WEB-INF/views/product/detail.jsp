@@ -43,7 +43,7 @@
 			
 		<c:if test="${login_info.customer_name == '관리자' }">
 			<div class="btn-box">
-				<a class="btn-fill" onclick="location='modify.pd?no=${vo.product_no}'">상품수정</a>
+				<a class="btn-fill" onclick="location='modify.pd?product_no=${vo.product_no}'">상품수정</a>
 				<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.pd?product_no=${vo.product_no}' }">상품삭제</a>
 			</div>
 		</c:if>
