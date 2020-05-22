@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,30 +56,12 @@
 		<div class="seqBox" style="height: 90px;">
 			<div style="width: 150px; height: 100px; margin-top: 0; float: left;">이미지 등록</div>
 			<div class="imagefiles">
-				<label>
-					<img class="image_add" id="image1" src="img/image_add.png"/>
-					<input class="file-attach" type="file"  name="image"/>
-				</label>
-				<label>
-					<img class="image_add" id="image2" src="img/image_add.png"/>
-					<input class="file-attach" type="file" name="image"/>
-				</label>
-				<label>
-					<img class="image_add" id="image3" src="img/image_add.png"/>
-					<input class="file-attach" type="file" name="image"/>
-				</label>
-				<label>
-					<img class="image_add" id="image4" src="img/image_add.png"/>
-					<input class="file-attach" type="file"  name="image"/>
-				</label>
-				<label>
-					<img class="image_add" id="image5" src="img/image_add.png"/>
-					<input class="file-attach" type="file" name="image"/>
-				</label>
-				<label>
-					<img class="image_add" id="image6" src="img/image_add.png"/>
-					<input class="file-attach" type="file" name="image"/>
-				</label>
+				<c:forEach begin="1" end="6" varStatus="status">
+					<label>
+						<img class="image_add" id="image${status.count }" src="img/image_add.png"/>
+						<input class="file-attach" type="file"  name="image"/>
+					</label>
+				</c:forEach>
 			</div>
 		</div>
 		<div class="seqBox" style="height: 100px;">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +42,7 @@
 			<div class="item_box">
 				<div class="thumbnail"><a onclick="go_detail(${vo.product_no})"><img src="${vo.product_thumbNail }" class="thumbnail"/></a></div>
 				<div class="name"><a onclick="go_detail(${vo.product_no})">${vo.product_name }</a></div>
-				<div class="price"><h5><a onclick="go_detail(${vo.product_no})">KRW ${vo.product_price }</a></h5></div>
+				<div class="price"><h5><a onclick="go_detail(${vo.product_no})">KRW <fmt:formatNumber value="${vo.product_price}" pattern="#,###"/></a></h5></div>
 			</div>
 		</c:forEach>
 	</div>

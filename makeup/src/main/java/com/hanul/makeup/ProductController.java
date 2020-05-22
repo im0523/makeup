@@ -72,13 +72,7 @@ public class ProductController {
 	public String modify(int product_no, Model model) {
 		model.addAttribute("vo", service.product_detail(product_no));
 		model.addAttribute("imageList", service.image_detail(product_no));
-		
-//		if (imageList.get < 6){
-//			for(int i=0; i< 6 - imgList.length; i++ ){
-//			
-//			}
-//		}
-		
+
 		return "product/modify";
 	}
 	
