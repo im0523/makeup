@@ -76,11 +76,11 @@ public class ProductController {
 		return "product/modify";
 	}
 	
-//	//상품 수정처리 요청
-//	@RequestMapping("/update.pd")
-//	public String update(ProductVO vo, MultipartFile image[], HttpSession ss, Model model, int delete) {
-//		ProductVO old = service.product_detail( vo.getProduct_no() );
-////		String uuid = ss.getServletContext().getRealPath("resources") + old.getImagepath();
+	//상품 수정처리 요청
+	@RequestMapping("/update.pd")
+	public String update(ProductVO vo, MultipartFile image[], HttpSession ss, Model model, int delete) {
+		ProductVO old = service.product_detail( vo.getProduct_no() );
+//		String uuid = ss.getServletContext().getRealPath("resources") + old.getImagepath();
 //		for(int i=0; i<image.length; i++) {
 //			if( image[i].getSize() > 0) {
 //				//파일을 첨부하는 경우
@@ -123,8 +123,8 @@ public class ProductController {
 //		}
 //		service.product_update(vo);
 //		model.addAttribute("no", vo.getNo());
-//		return "product/redirect";
-//	}
+		return "product/redirect";
+	}
 	
 	//상품 구매화면 요청
 	@RequestMapping("/buy.pd")

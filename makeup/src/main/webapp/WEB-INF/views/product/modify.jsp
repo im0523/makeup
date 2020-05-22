@@ -20,7 +20,7 @@
 <%-- ${fn:length(imageList) } --%>
 <%-- ${6-(fn:length(imageList))} --%>
 <%-- ${fn:length(imageList) } --%>
-	<form action="insert.pd" method="post" enctype="multipart/form-data">
+	<form action="update.pd" method="post" enctype="multipart/form-data">
 		<div class="content" style="width: 900px; margin: 0 auto; border: 1px solid gray;">
 			<div style="width: 130px; height: 130px;">
 				<label>
@@ -56,7 +56,9 @@
 			<div class="seqBox">
 				<div class="product_price">가격</div>
 					<span class="product_price_f">KRW</span>
-					<input type="text" name="product_price" id="product_price" value="${vo.product_price}" style="width: 150px; float: left;" onkeyup="comma(this)"/>
+					<input type="text" name="product_price_c" id="product_price_c" style="width: 80px; float: left;"
+					       onkeyup="autoComma(this);" maxlength="11" value="${vo.product_price }"/>
+					<input type="hidden" id="product_price" name="product_price"/>
 			</div>
 			<div class="seqBox" style="height: 80px;">
 				<div class="product_explanation">상품설명</div>
@@ -99,7 +101,7 @@
 		
 		
 		<div style="width: 95px; height: 50px; margin: 0 auto;">
-			<a class="btn-fill" onclick="$('form').submit()">등록</a>
+			<a class="btn-fill" onclick="go_submit();">수정</a>
 			<a class="btn-empty" onclick="history.back();">취소</a>
 		</div>
 	</form>

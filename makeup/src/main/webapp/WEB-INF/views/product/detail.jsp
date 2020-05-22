@@ -19,7 +19,7 @@
 		<div class="detail_infoArea">
 			<p class="detail_name">${vo.product_name }</p>
 			<p class="detail_price">KRW <fmt:formatNumber value="${vo.product_price}" pattern="#,###"/></p>
-			<div class="detail_explanation">${vo.product_explanation }
+			<div class="detail_explanation">
 				<span class="detail_exp_name">${vo.product_name }</span>
                     <div class="quantity">
 			      		<a><img src="img/btn_count_down.gif" onclick="quantityDown()" class="QuantityDown down"/></a>
