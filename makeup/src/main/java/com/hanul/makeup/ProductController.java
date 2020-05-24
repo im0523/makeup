@@ -81,6 +81,8 @@ public class ProductController {
 	public String update(ProductVO vo, MultipartFile image[], HttpSession ss, Model model, int delete) {
 		ProductVO old = service.product_detail( vo.getProduct_no() );
 		String uuid = ss.getServletContext().getRealPath("resources") + old.getImagepath();
+		
+		
 //		for(int i=0; i<image.length; i++) {
 //			if( image[i].getSize() > 0) {
 //				//파일을 첨부하는 경우
