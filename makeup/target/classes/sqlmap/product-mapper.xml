@@ -59,9 +59,16 @@
 	</delete>
 	
 	<update id="update">
-		update product
-		set imagepath=#{imagepath, jdbcType=VARCHAR}, name=#{name}, explanation=#{explanation}, price=#{price}, context=#{context},
-			image1=#{image1, jdbcType=VARCHAR}, image2=#{image2, jdbcType=VARCHAR}, image3=#{image3, jdbcType=VARCHAR}
-		where no=#{no}
+		UPDATE
+			PRODUCT
+		SET
+		    , PRODUCT_THUMBNAIL = #{product_thumbNail}
+		    , PRODUCT_NAME = #{product_name}
+		    , PRODUCT_EXPLANATION = #{product_explanation}
+		    , PRODUCT_PRICE = #{product_price}
+		    , PRODUCT_CATEGORY = #{product_category}
+		    , PRODUCT_CONTEXT = #{product_context}
+		WHERE
+			PRODUCT_NO = #{product_no}
 	</update>
 </mapper>

@@ -45,9 +45,10 @@ public class ProductDAO implements ProductService {
 		sql.insert("image.mapper.insert", vo);
 	}
 
+	// 상품수정
 	@Override
-	public void product_update(ProductVO vo) {
-		sql.update("product.mapper.update", vo);
+	public int product_update(ProductVO productVo) {
+		return sql.update("product.mapper.update", productVo);
 	}
 
 	// 상품 삭제

@@ -43,8 +43,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void product_update(ProductVO vo) {
-		dao.product_update(vo);
+	public int product_update(ProductVO productVo) {
+		return dao.product_update(productVo);
 	}
 
 	// 상품 삭제

@@ -13,7 +13,7 @@ public interface ProductService {
 	int product_insert(ProductVO productVo);	// 상품등록
 	void image_insert(ImageVO imageVo);			// 상품등록
 	
-	void product_update(ProductVO vo);
+	int product_update(ProductVO productVo);	// 상품수정
 	
 	void product_delete(int product_no);		// 상품 삭제
 }

@@ -34,4 +34,6 @@
 		WHERE
 			PRODUCT_NO = #{product_no}
 	</delete>
+	
+	
 </mapper>
