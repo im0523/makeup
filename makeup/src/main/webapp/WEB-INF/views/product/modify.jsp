@@ -99,6 +99,7 @@
 			</div>
 		</div>
 		
+		<input type="hidden" name="product_no" value="${vo.product_no }"/>
 		
 		<div style="width: 95px; height: 50px; margin: 0 auto;">
 			<a class="btn-fill" onclick="go_submit();">수정</a>

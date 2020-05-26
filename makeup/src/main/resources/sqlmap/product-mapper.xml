@@ -62,7 +62,7 @@
 		UPDATE
 			PRODUCT
 		SET
-		    , PRODUCT_THUMBNAIL = #{product_thumbNail}
+		      PRODUCT_THUMBNAIL = #{product_thumbNail}
 		    , PRODUCT_NAME = #{product_name}
 		    , PRODUCT_EXPLANATION = #{product_explanation}
 		    , PRODUCT_PRICE = #{product_price}

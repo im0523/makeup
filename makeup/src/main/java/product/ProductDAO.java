@@ -58,6 +58,12 @@ public class ProductDAO implements ProductService {
 		sql.delete("image.mapper.delete", product_no);
 	}
 
+	// 상품 삭제 - 이미지
+	@Override
+	public int image_delete(int product_no) {
+		return sql.delete("image.mapper.delete", product_no);
+	}
+
 	
 
 }

@@ -1,5 +1,8 @@
 package com.hanul.makeup;
 
+import java.io.File;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,20 +84,32 @@ public class ProductController {
 	public String update(ProductVO productVo, ImageVO imageVo, MultipartFile thumbNail, MultipartFile image[],
 						 HttpSession ss, Model model) {
 		ProductVO old = service.product_detail( productVo.getProduct_no() );
+		List<ImageVO> oldImg = service.product_detail( productVo.getProduct_no() );
 		String uuid = ss.getServletContext().getRealPath("resources") + old.getProduct_thumbNail();
 		
 		productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );	// 물리적 위치에 파일 저장
 		int result = service.product_update(productVo);
-		System.out.println("result = " +result);
-		
+//		model.addAttribute("product_no", productVo.getProduct_no());
+//		System.out.println("result = " +result);
+//		
 		if( result == 1 ) {
-			service.image_detail(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
+//			File f = new File(uuid);							// 원래 첨부된 파일 - 물리적 위치에서 삭제
+//			if( f.exists() ) {
+//				f.delete();
+//			}
+			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
 			for( int i=0; i<image.length; i++ ) {
 				// 파일을 첨부하는 경우
 				if( image[i] != null && image[i].getSize() > 0 ) {
 					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
 					service.image_insert(imageVo);
+					
+					
+//				}else {
+					// 파일을 첨부하지 않을 경우
+					// 1. 기존 파일을 사용할 경우
 				}
+			
 			}
 			
 		}
@@ -142,7 +157,7 @@ public class ProductController {
 //		}
 //		service.product_update(vo);
 //		model.addAttribute("no", vo.getNo());
-		return "redirect:detail.pd";
+		return "redirect:list.pd";
 	}
 	
 	//상품 구매화면 요청

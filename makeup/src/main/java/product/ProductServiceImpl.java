@@ -53,6 +53,12 @@ public class ProductServiceImpl implements ProductService {
 		dao.product_delete(product_no);
 	}
 
+	// 상품 삭제 - 이미지
+	@Override
+	public int image_delete(int product_no) {
+		return dao.image_delete(product_no);
+	}
+
 	
 	
 }
