@@ -11,8 +11,8 @@
 			)
 		VALUES
 			(
-<!-- 			  (SELECT MAX(PRODUCT_NO) FROM PRODUCT) -->
-			  #{product_no}
+			  (SELECT MAX(PRODUCT_NO) FROM PRODUCT)
+<!-- 			  #{product_no} -->
 			, (SELECT NVL(MAX(IMAGE_NO), 0)+1 IMAGE_NO FROM IMAGE)
 			, #{imagepath, jdbcType=VARCHAR}
 			)

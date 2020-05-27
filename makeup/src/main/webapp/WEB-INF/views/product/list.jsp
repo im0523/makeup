@@ -33,9 +33,9 @@
 		<li>acc</li>
 	</ul>
 	
-	<c:if test="${login_info.customer_name == '관리자' }">
+<%-- 	<c:if test="${login_info.customer_name == '관리자' }"> --%>
 		<p class="main" style="height: 20px; font-size: 15px; margin: 0 0 0 1100px;"><a class="btn-fill" onclick="location='new.pd'">상품등록</a></p>
-	</c:if>
+<%-- 	</c:if> --%>
 	
 	<div class="content">
 		<c:forEach items="${page.list }" var="vo">

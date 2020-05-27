@@ -1,3 +1,11 @@
+$(function(){
+	// thumbNail 변경 유무 - delete 파라미터
+	$('#thumbNail').change(function(){
+		$('#delete').val(1);
+	})
+})
+
+
 // 등록, 수정처리
 function go_submit(){
 	var price_c = $('#product_price_c').val();
