@@ -36,5 +36,15 @@
 			PRODUCT_NO = #{product_no}
 	</delete>
 	
-	
+<!-- 	<update id="update"> -->
+<!-- 		UPDATE -->
+<!-- 			IMAGE -->
+<!-- 		SET -->
+<!-- 			( -->
+<!-- 			  IMAGE_NO = #{image_no} -->
+<!-- 			, IMAGEPATH = #{imagepath} -->
+<!-- 			) -->
+<!-- 		WHERE -->
+<!-- 			PRODUCT_NO = #{product_no} -->
+<!-- 	</update> -->
 </mapper>

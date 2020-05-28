@@ -42,16 +42,16 @@ public class ProductController {
 		productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );	//물리적 위치에 파일 저장
 		
 		int result = service.product_insert(productVo);		// 상품 등록처리
-		
+		System.out.println("아 왜 " +productVo.getProduct_no());
 		if( result == 1 ) {
 			for( int i=0; i<image.length; i++ ) {
 				if(image[i] != null && image[i].getSize() > 0 ) {
 					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );
+//					imageVo.setProduct_no(productVo.getProduct_no());
 					service.image_insert(imageVo);
 				}
 			}
 		}
-		
 		return "redirect:list.pd";
 	}
 	
@@ -99,70 +99,30 @@ public class ProductController {
 			productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );	// 물리적 위치에 파일 저장
 		}
 		
-//		productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );	// 물리적 위치에 파일 저장
 		
 		int result = service.product_update(productVo);
+//		model.addAttribute("product_no", productVo.getProduct_no());
 		
 		if( result == 1 ) {
-			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
+//			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
 			for( int i=0; i<image.length; i++ ) {
 				// 파일을 첨부하는 경우
 				if( image[i] != null && image[i].getSize() > 0 ) {
 					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
 					service.image_insert(imageVo);
 //				}else {
-					// 파일을 첨부하지 않을 경우 - 1. 기존 파일 사용
-//					System.out.println("ffffffff" +oldImg.get(i).getImagepath());
-//					imageVo.setImagepath( oldImg.get(i).getImagepath() );
+//					 // 파일을 첨부하지 않을 경우 - 1. 기존 파일 사용
+//					oldImg.set(i, element)
+//					
+//					service.image_insert(imageVo);
+//					
+//					imageVo.setProduct_no( old.getProduct_no() );
 				}
 			
 			}
 			
 		}
 		
-		
-//		for(int i=0; i<image.length; i++) {
-//			if( image[i].getSize() > 0) {
-//				//파일을 첨부하는 경우
-//				switch(i) {
-//				case 0:
-//					vo.setImagepath( common.fileUpload(image[i], ss, "product")); break;
-//				case 1:
-//					vo.setImage1( common.fileUpload(image[i], ss, "product")); break;
-//				case 2:
-//					vo.setImage2( common.fileUpload(image[i], ss, "product")); break;
-//				case 3:
-//					vo.setImage3( common.fileUpload(image[i], ss, "product")); break;
-//				}
-//				// 원래 첨부된 파일을 바꿔 첨부하는 경우 - 원래 첨부된 파일을 삭제한다.
-////				File f = new File(uuid);
-////				if ( f.exists() )f.delete();
-//				
-//			} else {
-//				//파일을 첨부하지 않는 경우
-//				if( delete != 1 ){
-//					//1. 원래 첨부된 파일을 그대로 사용하는 경우
-//					switch(i) {
-//					case 0:
-//						vo.setImagepath( old.getImagepath() ); break;
-//					case 1:
-//						vo.setImage1( old.getImage1() ); break;
-//					case 2:
-//						vo.setImage2( old.getImage2() ); break;
-//					case 3:
-//						vo.setImage3( old.getImage3() ); break;
-//					}
-//				}else {
-//					//2. 원래 첨부된 파일을 삭제하는 경우
-////					File f = new File(uuid);
-////					if ( f.exists() )f.delete();
-//					
-//				}
-//				
-//			}
-//		}
-//		service.product_update(vo);
-//		model.addAttribute("no", vo.getNo());
 		return "redirect:list.pd";
 	}
 	
