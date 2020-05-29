@@ -42,6 +42,7 @@
 			  PRODUCT_NO
 			, PRODUCT_THUMBNAIL
 			, PRODUCT_NAME
+			, PRODUCT_CATEGORY
 			, PRODUCT_EXPLANATION
 			, PRODUCT_PRICE
 			, PRODUCT_CONTEXT
@@ -71,4 +72,14 @@
 		WHERE
 			PRODUCT_NO = #{product_no}
 	</update>
+	
+	<select id="codeNameList" resultType="common.ComCodeVO">
+		SELECT
+			  CODE_ID
+			, CODE_NAME
+		FROM
+			COM_CODE
+		WHERE
+			CODE_TYPE = #{code_type}
+	</select>
 </mapper>

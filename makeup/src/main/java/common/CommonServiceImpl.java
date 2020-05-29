@@ -5,18 +5,23 @@ import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import product.ProductDAO;
+
 @Service
 public class CommonServiceImpl implements CommonService {
+	@Autowired ProductDAO pdDao;
 
 	@Override
 	public String fileUpload(MultipartFile file, HttpSession ss, String category) {
@@ -79,5 +84,11 @@ public class CommonServiceImpl implements CommonService {
 		} catch (Exception e) {
 		}
 		return file;
+	}
+
+	// codeNameList 가져오는 처리
+	@Override
+	public List<ComCodeVO> codeNameList(String code_type) {
+		return pdDao.codeNameList(code_type);
 	}
 }

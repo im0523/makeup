@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import common.ComCodeVO;
 import image.ImageVO;
 
 @Repository
@@ -62,6 +63,11 @@ public class ProductDAO implements ProductService {
 	@Override
 	public int image_delete(int product_no) {
 		return sql.delete("image.mapper.delete", product_no);
+	}
+
+	// 코드 네임 리스트 출력
+	public List<ComCodeVO> codeNameList(String code_type) {
+		return sql.selectList("product.mapper.codeNameList", code_type);
 	}
 
 	

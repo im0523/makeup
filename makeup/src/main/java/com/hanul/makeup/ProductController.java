@@ -33,16 +33,20 @@ public class ProductController {
 	//상품 등록화면 요청
 	@RequestMapping("/new.pd")
 	public String product(Model model) {
+		model.addAttribute("codeList", common.codeNameList("category"));
 		return "product/new";
 	}
 	
 	//상품 등록처리 요청
 	@RequestMapping("/insert.pd")
-	public String insert(ProductVO productVo, ImageVO imageVo, HttpSession ss, MultipartFile thumbNail, MultipartFile image[]) {
+	public String insert(ProductVO productVo, ImageVO imageVo, HttpSession ss,
+						 MultipartFile thumbNail, MultipartFile image[], Model model) {
+		model.addAttribute("codeList", common.codeNameList("category"));
+		
 		productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );	//물리적 위치에 파일 저장
 		
 		int result = service.product_insert(productVo);		// 상품 등록처리
-		System.out.println("아 왜 " +productVo.getProduct_no());
+
 		if( result == 1 ) {
 			for( int i=0; i<image.length; i++ ) {
 				if(image[i] != null && image[i].getSize() > 0 ) {
@@ -73,6 +77,7 @@ public class ProductController {
 	//상품 수정화면 요청
 	@RequestMapping("/modify.pd")
 	public String modify(int product_no, Model model) {
+		model.addAttribute("codeList", common.codeNameList("category"));
 		model.addAttribute("vo", service.product_detail(product_no));
 		model.addAttribute("imageList", service.image_detail(product_no));
 
@@ -104,7 +109,7 @@ public class ProductController {
 //		model.addAttribute("product_no", productVo.getProduct_no());
 		
 		if( result == 1 ) {
-//			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
+			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
 			for( int i=0; i<image.length; i++ ) {
 				// 파일을 첨부하는 경우
 				if( image[i] != null && image[i].getSize() > 0 ) {

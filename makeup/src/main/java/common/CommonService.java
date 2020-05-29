@@ -1,6 +1,7 @@
 package common;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,4 +14,6 @@ public interface CommonService {
 	
 	//응답 받는건 파일을 받는 처리 void -> File
 	File fileDownload(String name, String path, HttpSession ss, HttpServletResponse response);
+	
+	List<ComCodeVO> codeNameList(String code_type);
 }

@@ -3,6 +3,12 @@ $(function(){
 	$('#thumbNail').change(function(){
 		$('#delete').val(1);
 	})
+	
+	// 수정화면에서 DB에 저장된 카테고리 불러오기
+	if ( $('#product_category').val() != null ){
+		var value = $('#hiddenCat').val();		// hidden 값에 DB에 저장 된 값을 넣어놓고
+		$('#product_category').val(value);		// 실제 DB에 저장 할 값에 넣어줘서 select option 에 선택되게 한다
+	}
 })
 
 

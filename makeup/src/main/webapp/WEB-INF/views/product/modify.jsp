@@ -42,16 +42,13 @@
 			</div>
 			<div class="seqBox">
 				<div class="product_category">카테고리</div>
-					<select name="product_category">
+					<select id="product_category" name="product_category">
 						<option value="">선택없음</option>
-						<option value="face">face</option>
-						<option value="lips">lips</option>
-						<option value="eye">eye</option>
-						<option value="multi">multi</option>
-						<option value="cleansing">cleansing</option>
-						<option value="gifting">gifting</option>
-						<option value="acc">acc</option>
+						<c:forEach var="code" items="${codeList }">
+							<option value="${code.code_name }">${code.code_name }</option>
+						</c:forEach>
 					</select>
+					<input type="hidden" id="hiddenCat" value="${vo.product_category }"/>
 			</div>
 			<div class="seqBox">
 				<div class="product_price">가격</div>

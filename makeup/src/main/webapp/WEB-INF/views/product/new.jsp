@@ -35,13 +35,9 @@
 			<div class="product_category">카테고리</div>
 				<select name="product_category">
 					<option value="">선택없음</option>
-					<option value="face">face</option>
-					<option value="lips">lips</option>
-					<option value="eye">eye</option>
-					<option value="multi">multi</option>
-					<option value="cleansing">cleansing</option>
-					<option value="gifting">gifting</option>
-					<option value="acc">acc</option>
+					<c:forEach var="code" items="${codeList }">
+						<option value="${code.code_id }">${code.code_name }</option>
+					</c:forEach>
 				</select>
 		</div>
 		<div class="seqBox">
@@ -71,7 +67,6 @@
 				<textarea style="width: 605px;" name="product_context"></textarea>
 		</div>
 	</div>
-	
 	
 	<div style="width: 95px; height: 50px; margin: 0 auto;">
 		<a class="btn-fill" onclick="go_submit();">등록</a>
