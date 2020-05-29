@@ -45,7 +45,7 @@
 					<select id="product_category" name="product_category">
 						<option value="">선택없음</option>
 						<c:forEach var="code" items="${codeList }">
-							<option value="${code.code_name }">${code.code_name }</option>
+							<option value="${code.code_id }">${code.code_name }</option>
 						</c:forEach>
 					</select>
 					<input type="hidden" id="hiddenCat" value="${vo.product_category }"/>
