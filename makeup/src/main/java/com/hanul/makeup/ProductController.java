@@ -107,7 +107,7 @@ public class ProductController {
 		
 		int result = service.product_update(productVo);
 //		model.addAttribute("product_no", productVo.getProduct_no());
-		
+		//test
 		if( result == 1 ) {
 			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
 			for( int i=0; i<image.length; i++ ) {
