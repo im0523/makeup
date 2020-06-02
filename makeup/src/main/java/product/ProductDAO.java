@@ -70,6 +70,4 @@ public class ProductDAO implements ProductService {
 		return sql.selectList("product.mapper.codeNameList", code_type);
 	}
 
-	
-
 }

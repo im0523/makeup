@@ -32,7 +32,7 @@
 						<img class="image_add" id="image0" src="img/image_add.png"/>
 					</c:otherwise>
 				</c:choose>
-					<input type="file" id="thumbNail" name="thumbNail" class="file-attach"/>
+					<input type="file" id="thumbNail" name="product_thumbNailName" class="file-attach"/>
 				</label>
 			</div>
 			

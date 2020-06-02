@@ -86,35 +86,57 @@ public class ProductController {
 	
 	//상품 수정처리 요청
 	@RequestMapping("/update.pd")
-	public String update(ProductVO productVo, ImageVO imageVo, MultipartFile thumbNail, MultipartFile image[],
+	public String update(ProductVO productVo, ImageVO imageVo, MultipartFile image[],
 						 HttpSession ss, Model model, int delete) {
 		ProductVO old = service.product_detail( productVo.getProduct_no() );
 		List<ImageVO> oldImg = service.image_detail(productVo.getProduct_no());
 		
 		String uuid = ss.getServletContext().getRealPath("resources") + old.getProduct_thumbNail();
-
+		System.out.println("썸넬네임 : "+ old.getProduct_thumbNail());
 		// thumbNail 변경 없이 기존 이미지 사용할 경우
 		if( delete == 0 ) {
 			productVo.setProduct_thumbNail( old.getProduct_thumbNail() );
 		}else {
 			// thumbNail을 변경해서 수정 저장 할 경우
+//			productVo.setProduct_thumbNailName(thumbNail.getOriginalFilename());
+			productVo.setProduct_thumbNail( common.fileUpload(productVo.getProduct_thumbNailName(), ss, "product") );	// 물리적 위치에 파일 저장
+
 			File f = new File( uuid );							// 원래 첨부된 파일 - 물리적 위치에서 삭제
 			if ( f.exists() ) f.delete();
 			
-			productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );	// 물리적 위치에 파일 저장
 		}
+		System.out.println("thumbNail : " + productVo.getProduct_thumbNail());
+		System.out.println("thumbNailName : " + productVo.getProduct_thumbNailName());
+		System.out.println("uuid : " + uuid);
 		
 		
 		int result = service.product_update(productVo);
-//		model.addAttribute("product_no", productVo.getProduct_no());
-		//test
+		
 		if( result == 1 ) {
 			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
+			int imgSize = oldImg.size();
+			
 			for( int i=0; i<image.length; i++ ) {
+//				System.out.println( "size : "+imgSize );
+//				System.out.println( "i : "+i );
+				if( imgSize > i ) {
+//					System.out.println("기존파일"+i+" : " + oldImg.get(i).getImagepath());
+					imageVo.setImagepath(oldImg.get(i).getImagepath());
+					if (image[i].getSize() == 0) {
+						service.image_insert(imageVo);
+					}
+				}
+				
 				// 파일을 첨부하는 경우
 				if( image[i] != null && image[i].getSize() > 0 ) {
 					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
+					System.out.println("변경한파일"+i+" : " + imageVo.getImagepath());
 					service.image_insert(imageVo);
+					
+					String imgUuid = ss.getServletContext().getRealPath("resources") + oldImg.get(i).getImagepath();
+					
+					File f = new File( imgUuid );							// 원래 첨부된 파일 - 물리적 위치에서 삭제
+					if ( f.exists() ) f.delete();
 //				}else {
 //					 // 파일을 첨부하지 않을 경우 - 1. 기존 파일 사용
 //					oldImg.set(i, element)
@@ -123,9 +145,7 @@ public class ProductController {
 //					
 //					imageVo.setProduct_no( old.getProduct_no() );
 				}
-			
 			}
-			
 		}
 		
 		return "redirect:list.pd";
