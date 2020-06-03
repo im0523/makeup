@@ -51,7 +51,6 @@ public class ProductController {
 			for( int i=0; i<image.length; i++ ) {
 				if(image[i] != null && image[i].getSize() > 0 ) {
 					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );
-//					imageVo.setProduct_no(productVo.getProduct_no());
 					service.image_insert(imageVo);
 				}
 			}

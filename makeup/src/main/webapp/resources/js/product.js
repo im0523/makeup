@@ -1,8 +1,4 @@
 $(function(){
-	//
-//	$('.image_add').attr('src', 'resources/' + )
-	
-	
 	// thumbNail 변경 유무 - delete 파라미터
 	$('#thumbNail').change(function(){
 		$('#delete').val(1);
@@ -29,7 +25,21 @@ function go_submit(){
 	
 	$('#product_price').val(result);
 	
-	$('form').submit();
+	if( $('#delete').val() == 0 ){
+		alert('대표사진을 넣어주세요');
+		return false;
+	}
+	if( $('#product_name').val() == '' ){
+		alert('상품명을 입력해주세요');
+		$('#product_name').focus();
+		return false;
+	}
+	if( price_c == '' ){
+		alert('가격을 입력해주세요');
+		$('#product_price_c').focus();
+		return false;
+	}
+//	$('form').submit();
 }
 
 // 수량 증가버튼

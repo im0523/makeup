@@ -23,13 +23,13 @@
 		<div style="width: 130px; height: 130px;">
 			<label>
 				<img class="image_add" id="image0" src="img/image_add.png"/>
-				<input type="file" name="thumbNail" class="file-attach"/>
+				<input type="file" id="thumbNail" name="thumbNail" class="file-attach"/>
 			</label>
 		</div>
 		
 		<div class="seqBox" style="margin-top: 20px;">
 			<div class="product_name">상품명</div>
-				<input class="pd_nameInput" type="text" name="product_name"/>
+				<input class="pd_nameInput" type="text" id="product_name" name="product_name"/>
 		</div>
 		<div class="seqBox">
 			<div class="product_category">카테고리</div>
@@ -72,6 +72,9 @@
 		<a class="btn-fill" onclick="go_submit();">등록</a>
 		<a class="btn-empty" onclick="location='list.pd'">취소</a>
 	</div>
+	
+	<input type="hidden" id="delete" name="delete" value="0"/>
+	
 </form>
 
 <script type="text/javascript" src="js/product.js" charset="UTF-8"></script>

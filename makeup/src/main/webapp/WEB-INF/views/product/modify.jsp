@@ -38,7 +38,7 @@
 			
 			<div class="seqBox" style="margin-top: 20px;">
 				<div class="product_name">상품명</div>
-					<input class="pd_nameInput" type="text" name="product_name" value="${vo.product_name }"/>
+					<input class="pd_nameInput" type="text" id="product_name" name="product_name" value="${vo.product_name }"/>
 			</div>
 			<div class="seqBox">
 				<div class="product_category">카테고리</div>
