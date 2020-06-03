@@ -26,13 +26,13 @@
 				<label>
 				<c:choose>
 					<c:when test="${!empty vo.product_thumbNail }">
-						<img class="image_add" id="image0" src="${vo.product_thumbNail }"/>
+						<img class="image_add" id="image0" src="resources/${vo.product_thumbNail }"/>
 					</c:when>
 					<c:otherwise>
 						<img class="image_add" id="image0" src="img/image_add.png"/>
 					</c:otherwise>
 				</c:choose>
-					<input type="file" id="thumbNail" name="product_thumbNailName" class="file-attach"/>
+					<input type="file" id="thumbNail" name="thumbNail" class="file-attach"/>
 				</label>
 			</div>
 			
@@ -68,7 +68,7 @@
 						<label>
 						<c:choose>
 							<c:when test="${!empty img.imagepath}">
-								<img class="image_add" id="image${status.count }" src="${img.imagepath }"/>
+								<img class="image_add" id="image${status.count }" src="resources/${img.imagepath }"/>
 								<input class="file-attach" type="file" name="image"/>
 							</c:when>						
 							<c:otherwise>

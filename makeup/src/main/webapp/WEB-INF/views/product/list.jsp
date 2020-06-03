@@ -40,7 +40,7 @@
 	<div class="content">
 		<c:forEach items="${page.list }" var="vo">
 			<div class="item_box">
-				<div class="thumbnail"><a onclick="go_detail(${vo.product_no})"><img src="${vo.product_thumbNail }" class="thumbnail"/></a></div>
+				<div class="thumbnail"><a onclick="go_detail(${vo.product_no})"><img src="resources/${vo.product_thumbNail }" class="thumbnail"/></a></div>
 				<div class="name"><a onclick="go_detail(${vo.product_no})">${vo.product_name }</a></div>
 				<div class="price"><h5><a onclick="go_detail(${vo.product_no})">KRW <fmt:formatNumber value="${vo.product_price}" pattern="#,###"/></a></h5></div>
 			</div>

@@ -43,7 +43,8 @@ public class CommonServiceImpl implements CommonService {
 		}
 		// /upload/product/2019/11/22/ff2332.abc.txt 내가 필요한 건 upload부터니까
 //		return "http://localhost/makeup" + folder.substring( resources.length() ) + File.separator + uuid;
-		return "http://localhost:8080/makeup" + folder.substring( resources.length() ) + "/" + uuid;
+//		return "http://localhost:8080/makeup" + folder.substring( resources.length() ) + "/" + uuid;
+		return folder.substring( resources.length() ) + "/" + uuid;
 		
 	}
 	

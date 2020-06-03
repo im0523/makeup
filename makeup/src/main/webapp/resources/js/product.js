@@ -1,4 +1,8 @@
 $(function(){
+	//
+//	$('.image_add').attr('src', 'resources/' + )
+	
+	
 	// thumbNail 변경 유무 - delete 파라미터
 	$('#thumbNail').change(function(){
 		$('#delete').val(1);

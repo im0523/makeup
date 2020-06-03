@@ -1,11 +1,8 @@
 package product;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class ProductVO {
 	private int product_no;
 	private String product_thumbNail;
-	private MultipartFile product_thumbNailName;
 	private String product_name;
 	private String product_explanation;
 	private String product_price;
@@ -23,12 +20,6 @@ public class ProductVO {
 	}
 	public void setProduct_thumbNail(String product_thumbNail) {
 		this.product_thumbNail = product_thumbNail;
-	}
-	public MultipartFile getProduct_thumbNailName() {
-		return product_thumbNailName;
-	}
-	public void setProduct_thumbNailName(MultipartFile product_thumbNailName) {
-		this.product_thumbNailName = product_thumbNailName;
 	}
 	public String getProduct_name() {
 		return product_name;

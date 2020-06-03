@@ -15,7 +15,7 @@
 	<input type="hidden" id="product_price" value="${vo.product_price }"/>
 
 	<div class="header">
-		<div class="imagepath"><img src="${vo.product_thumbNail }" /></div>
+		<div class="imagepath"><img src="resources/${vo.product_thumbNail }" /></div>
 		<div class="detail_infoArea">
 			<p class="detail_name">${vo.product_name }</p>
 			<p class="detail_price">KRW <fmt:formatNumber value="${vo.product_price}" pattern="#,###"/></p>
@@ -53,7 +53,7 @@
 	
 	<div class="img-box">
 		<c:forEach items="${imageList }" var="img">
-			<div><img src="${img.imagepath }" class="detail_image"/></div>
+			<div><img src="resources/${img.imagepath }" class="detail_image"/></div>
 		</c:forEach>	
 	</div>
 </body>
