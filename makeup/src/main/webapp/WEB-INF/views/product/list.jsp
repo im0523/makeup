@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 .main { height: 50px; text-align: center; font-size: 30px; font-weight: bold;}
-.menu {width: 1000px; height: 50px; margin: 50px auto; }
+.menu {width: 1080px; height: 50px; margin: 50px auto; }
 .menu li { list-style: none; float: left; color: lightslategray; font-size: 15px; padding: 10px 27px; border: 1px solid #bdbdbd; margin: 0 4px;}
 .item_box { width: 280px; height: 390px; float: left; margin: 22px;}
 .thumbnail { width: 280px; height: 270px; margin: 0;}
@@ -20,17 +20,13 @@
 <body>
 <form method="post" id="list">
 <p class="main">PRODUCT</p>
-	<ul class="menu">
-		<li>new</li>
-		<li>best seller</li>
-		<li>all</li>
-		<li>face</li>
-		<li>lips</li>
-		<li>eye</li>
-		<li>multi</li>
-		<li>cleansing</li>
-		<li>gifting</li>
-		<li>acc</li>
+	<ul class="menu" id="cate_name">
+		<li>NEW</li>
+		<li>BEST SELLER</li>
+		<li>ALL</li>
+		<c:forEach var="code" items="${codeList }">
+			<li>${code.code_name }</li>
+		</c:forEach>
 	</ul>
 	
 <%-- 	<c:if test="${login_info.customer_name == '관리자' }"> --%>
@@ -47,7 +43,9 @@
 		</c:forEach>
 	</div>
 	<input type="hidden" name="product_no"/>
+	<input type="hidden" name="cate_val" id="cate_val" />
 </form>
+<script type="text/javascript" src="js/product.js" charset="UTF-8">></script>
 <script type="text/javascript">
 function go_detail(no){
 	$('[name=product_no]').val(no);

@@ -9,6 +9,15 @@ $(function(){
 		var value = $('#hiddenCat').val();		// hidden 값에 DB에 저장 된 값을 넣어놓고
 		$('#product_category').val(value);		// 실제 DB에 저장 할 값에 넣어줘서 select option 에 선택되게 한다
 	}
+
+	$('#list ul li').on('click', function(){
+	var cate_val = $(this).text();
+	
+	$('#cate_val').val(cate_val);
+	$('#list').attr('action', 'list.pd');
+	$('#list').submit();
+	
+	})
 })
 
 
@@ -39,7 +48,7 @@ function go_submit(){
 		$('#product_price_c').focus();
 		return false;
 	}
-//	$('form').submit();
+	$('form').submit();
 }
 
 // 수량 증가버튼

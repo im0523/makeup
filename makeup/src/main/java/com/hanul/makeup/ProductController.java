@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import common.CommonService;
@@ -25,7 +26,9 @@ public class ProductController {
 
 	//상품 목록화면 요청
 	@RequestMapping("/list.pd")
-	public String list(Model model) {
+	public String list(Model model, @RequestParam( defaultValue = "") String cate_val) {
+		page.setCate_val(cate_val);
+		model.addAttribute("codeList", common.codeNameList("category"));
 		model.addAttribute("page", service.product_list(page));
 		return "product/list";
 	}

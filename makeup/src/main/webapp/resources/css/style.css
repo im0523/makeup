@@ -19,6 +19,15 @@
 	cursor: pointer;
 }
 
+#list ul li{
+	cursor: pointer;
+}
+
+#list ul li:hover{
+	color: white;
+	background-color: black;
+}
+
 h2 {
 	text-align: center;
 	margin: 50px;

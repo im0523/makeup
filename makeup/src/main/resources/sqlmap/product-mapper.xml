@@ -10,6 +10,17 @@
 			, PRODUCT_PRICE
 		FROM
 			PRODUCT
+		<if test="cate_val != null and cate_val != ''">
+			WHERE
+				PRODUCT_CATEGORY = (
+									SELECT
+										CODE_ID
+									FROM
+										COM_CODE
+									WHERE
+										CODE_NAME = #{cate_val}
+									)
+		</if>
 		ORDER BY
 			PRODUCT_NO DESC
 	</select>
