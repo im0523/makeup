@@ -34,7 +34,7 @@ function go_submit(){
 	
 	$('#product_price').val(result);
 	
-	if( $('#delete').val() == 0 ){
+	if( $('#delete').val() == 0 && $('#thumbNail').val() == null ){
 		alert('대표사진을 넣어주세요');
 		return false;
 	}
