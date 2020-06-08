@@ -10,7 +10,7 @@
 			, PRODUCT_PRICE
 		FROM
 			PRODUCT
-		<if test="cate_val != null and cate_val != ''">
+		<if test="cate_val != null and cate_val != '' and cate_val != 'ALL'">
 			WHERE
 				PRODUCT_CATEGORY = (
 									SELECT
