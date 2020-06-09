@@ -10,20 +10,38 @@
 			, PRODUCT_PRICE
 		FROM
 			PRODUCT
-		<if test="cate_val != null and cate_val != '' and cate_val != 'ALL'">
-			WHERE
-				PRODUCT_CATEGORY = (
-									SELECT
-										CODE_ID
-									FROM
-										COM_CODE
-									WHERE
-										CODE_NAME = #{cate_val}
-									)
-		</if>
+		<include refid="category"/>
 		ORDER BY
 			PRODUCT_NO DESC
 	</select>
+	
+	<sql id="category">
+		<where>
+			<if test="cate_val != null and cate_val != ''">
+				<choose>
+					<when test="cate_val != 'ALL' and cate_val != 'NEW' and cate_val != 'BEST SELLER'">
+						PRODUCT_CATEGORY = (
+											SELECT
+												CODE_ID
+											FROM
+												COM_CODE
+											WHERE
+												CODE_NAME = #{cate_val}
+											)
+					</when>
+					<when test="cate_val == 'NEW'">
+						AND REGISTDATE >= (SYSDATE - 61)
+					</when>
+				</choose>
+			</if>
+<!-- 			<if test="cate_val != null and cate_val != ''"> -->
+<!-- 				<if test="cate_val == 'NEW'"> -->
+<!-- 					AND product_no = 1 -->
+<!-- 				</if> -->
+<!-- 			</if> -->
+		</where>
+		
+	</sql>
 	
 	<insert id="insert">
 		INSERT INTO PRODUCT

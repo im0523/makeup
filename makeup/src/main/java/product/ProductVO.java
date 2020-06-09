@@ -1,5 +1,7 @@
 package product;
 
+import java.util.Date;
+
 public class ProductVO {
 	private int product_no;
 	private String product_thumbNail;
@@ -8,6 +10,7 @@ public class ProductVO {
 	private String product_price;
 	private String product_category;
 	private String product_context;
+	private Date registdate;
 	
 	public int getProduct_no() {
 		return product_no;
@@ -50,5 +53,11 @@ public class ProductVO {
 	}
 	public void setProduct_context(String product_context) {
 		this.product_context = product_context;
+	}
+	public Date getRegistdate() {
+		return registdate;
+	}
+	public void setRegistdate(Date registdate) {
+		this.registdate = registdate;
 	}
 }
