@@ -32,7 +32,7 @@
 						<img class="image_add" id="image0" src="img/image_add.png"/>
 					</c:otherwise>
 				</c:choose>
-					<input type="file" id="thumbNail" name="thumbNail" class="file-attach"/>
+					<input type="file" id="thumbNailMo" name="thumbNail" class="file-attach"/>
 				</label>
 			</div>
 			
@@ -97,7 +97,7 @@
 		</div>
 		
 		<input type="hidden" name="product_no" value="${vo.product_no }"/>
-		<input type="hidden" id="delete" name="delete" value="0"/>
+		<input type="hidden" id="delete" name="delete" value="1"/>
 		
 		<div style="width: 95px; height: 50px; margin: 0 auto;">
 			<a class="btn-fill" onclick="go_submit();">수정</a>

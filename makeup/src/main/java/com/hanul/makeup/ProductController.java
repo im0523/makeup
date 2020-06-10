@@ -71,7 +71,19 @@ public class ProductController {
 	
 	//상품 삭제처리 요청
 	@RequestMapping("/delete.pd")
-	public String delete(int product_no) {
+	public String delete(int product_no, HttpSession ss) {
+		ProductVO file = service.product_detail(product_no);
+		List<ImageVO> files = service.image_detail(product_no);
+		
+		String uuid = ss.getServletContext().getRealPath("resources") + file.getProduct_thumbNail();
+		for( int i=0; i<files.size(); i++ ) {
+			String imgUuid = ss.getServletContext().getRealPath("resources") + files.get(i).getImagepath();
+			File f = new File(imgUuid);
+			if( f.exists() ) f.delete();
+		}
+		
+		File f = new File(uuid);
+		f.delete();
 		service.product_delete(product_no);
 		return "redirect:list.pd";
 	}
@@ -96,7 +108,7 @@ public class ProductController {
 		String uuid = ss.getServletContext().getRealPath("resources") + old.getProduct_thumbNail();
 		
 		// thumbNail 변경 없이 기존 이미지 사용할 경우
-		if( delete == 0 ) {
+		if( delete == 1 ) {
 			productVo.setProduct_thumbNail( old.getProduct_thumbNail() );
 		}else {
 			// thumbNail을 변경해서 수정 저장 할 경우

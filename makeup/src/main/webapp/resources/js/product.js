@@ -4,6 +4,10 @@ $(function(){
 		$('#delete').val(1);
 	})
 	
+	$('#thumbNailMo').change(function(){
+		$('#delete').val(2);
+	})
+	
 	// 수정화면에서 DB에 저장된 카테고리 불러오기
 	if ( $('#product_category').val() != null ){
 		var value = $('#hiddenCat').val();		// hidden 값에 DB에 저장 된 값을 넣어놓고
@@ -34,7 +38,7 @@ function go_submit(){
 	
 	$('#product_price').val(result);
 	
-	if( $('#delete').val() == 0 && $('#thumbNail').val() == null ){
+	if( $('#delete').val() == 0 ){
 		alert('대표사진을 넣어주세요');
 		return false;
 	}
