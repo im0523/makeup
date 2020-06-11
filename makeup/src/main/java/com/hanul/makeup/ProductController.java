@@ -122,6 +122,29 @@ public class ProductController {
 		
 		int result = service.product_update(productVo);
 		
+//		if( result == 1 ) {
+////			System.err.println("oldImg size : " +oldImg.size());
+//			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
+//			
+//			for(int i=0; i<image.length; i++) {
+//				//새로운 파일을 첨부 할 경우
+//				if(image[i] != null && image[i].getSize() > 0 ) {
+//					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
+//					service.image_insert(imageVo);
+//				}else {
+//					//파일을 첨부하지 않는 경우
+//					if( oldImg.size() > 0 ) {	//기존 이미지를 그대로 첨부 할 경우
+//						imageVo.setImagepath( oldImg.get(i).getImagepath() );
+////						System.err.println("oldImg size 1 : " +oldImg.size());
+////						service.image_insert(imageVo);
+//					}else {
+//						imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
+////						service.image_insert(imageVo);
+//					}
+//				}
+//			}
+//		}
+		
 		if( result == 1 ) {
 			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
 			int imgSize = oldImg.size();
