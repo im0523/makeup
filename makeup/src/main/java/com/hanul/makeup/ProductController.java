@@ -117,69 +117,75 @@ public class ProductController {
 			
 			productVo.setProduct_thumbNail( common.fileUpload(thumbNail, ss, "product") );	// 물리적 위치에 파일 저장
 		}
-//		System.out.println("thumbNail : " + productVo.getProduct_thumbNail());
-//		System.out.println("uuid : " + uuid);
 		
 		int result = service.product_update(productVo);
 		
-//		if( result == 1 ) {
-////			System.err.println("oldImg size : " +oldImg.size());
-//			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
-//			
-//			for(int i=0; i<image.length; i++) {
-//				//새로운 파일을 첨부 할 경우
-//				if(image[i] != null && image[i].getSize() > 0 ) {
-//					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
-//					service.image_insert(imageVo);
-//				}else {
-//					//파일을 첨부하지 않는 경우
-//					if( oldImg.size() > 0 ) {	//기존 이미지를 그대로 첨부 할 경우
-//						imageVo.setImagepath( oldImg.get(i).getImagepath() );
-////						System.err.println("oldImg size 1 : " +oldImg.size());
-////						service.image_insert(imageVo);
-//					}else {
-//						imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
-////						service.image_insert(imageVo);
-//					}
-//				}
-//			}
-//		}
-		
 		if( result == 1 ) {
 			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
-			int imgSize = oldImg.size();
 			
-			for( int i=0; i<image.length; i++ ) {
-//				System.out.println( "size : "+imgSize );
-//				System.out.println( "i : "+i );
-				if( imgSize > i ) {
-//					System.out.println("기존파일"+i+" : " + oldImg.get(i).getImagepath());
-					imageVo.setImagepath(oldImg.get(i).getImagepath());
-					if (image[i].getSize() == 0) {
+			for(int i=0; i<image.length; i++) {
+				// 파일을 첨부 할 경우
+				if(image[i] != null && image[i].getSize() > 0 ) {
+					try {
+						// 새롭게 첨부 할 이미지 넣는 처리
+						imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
 						service.image_insert(imageVo);
+						
+						// 기존에 있던 파일을 물리적 위치에서 삭제하는 처리
+						String imgUuid = ss.getServletContext().getRealPath("resources") + oldImg.get(i).getImagepath();
+						File f = new File(imgUuid);
+						if( f.exists() ) f.delete();
+					} catch (Exception e) {
 					}
-				}
-				
-				// 파일을 첨부하는 경우
-				if( image[i] != null && image[i].getSize() > 0 ) {
-					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
-//					System.out.println("변경한파일"+i+" : " + imageVo.getImagepath());
-					service.image_insert(imageVo);
-					
-					String imgUuid = ss.getServletContext().getRealPath("resources") + oldImg.get(i).getImagepath();
-					
-					File f = new File( imgUuid );							// 원래 첨부된 파일 - 물리적 위치에서 삭제
-					if ( f.exists() ) f.delete();
-//				}else {
-//					 // 파일을 첨부하지 않을 경우 - 1. 기존 파일 사용
-//					oldImg.set(i, element)
-//					
-//					service.image_insert(imageVo);
-//					
-//					imageVo.setProduct_no( old.getProduct_no() );
+				}else {
+					//파일을 첨부하지 않는 경우
+					if( oldImg.size() > i ) {	//기존 이미지를 그대로 첨부 할 경우
+						imageVo.setImagepath( oldImg.get(i).getImagepath() );
+						service.image_insert(imageVo);
+						
+//					}else {
+//						imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
+//						service.image_insert(imageVo);
+					}
 				}
 			}
 		}
+		
+//		if( result == 1 ) {
+//			service.image_delete(productVo.getProduct_no());	// 먼저 image Table data들 일괄 삭제
+//			int imgSize = oldImg.size();
+//			
+//			for( int i=0; i<image.length; i++ ) {
+////				System.out.println( "size : "+imgSize );
+////				System.out.println( "i : "+i );
+//				if( imgSize > i ) {
+////					System.out.println("기존파일"+i+" : " + oldImg.get(i).getImagepath());
+//					imageVo.setImagepath(oldImg.get(i).getImagepath());
+//					if (image[i].getSize() == 0) {
+//						service.image_insert(imageVo);
+//					}
+//				}
+//				
+//				// 파일을 첨부하는 경우
+//				if( image[i] != null && image[i].getSize() > 0 ) {
+//					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
+////					System.out.println("변경한파일"+i+" : " + imageVo.getImagepath());
+//					service.image_insert(imageVo);
+//					
+//					String imgUuid = ss.getServletContext().getRealPath("resources") + oldImg.get(i).getImagepath();
+//					
+//					File f = new File( imgUuid );							// 원래 첨부된 파일 - 물리적 위치에서 삭제
+//					if ( f.exists() ) f.delete();
+////				}else {
+////					 // 파일을 첨부하지 않을 경우 - 1. 기존 파일 사용
+////					oldImg.set(i, element)
+////					
+////					service.image_insert(imageVo);
+////					
+////					imageVo.setProduct_no( old.getProduct_no() );
+//				}
+//			}
+//		}
 		
 		return "redirect:list.pd";
 	}

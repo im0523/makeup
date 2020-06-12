@@ -12,14 +12,7 @@
 		VALUES
 			(
 			  (SELECT MAX(PRODUCT_NO) FROM PRODUCT)
-			  <choose>
-			  	<when test="product_no != null">
-				  	, #{product_no}
-			  	</when>
-			  	<otherwise>
-					, (SELECT NVL(MAX(IMAGE_NO), 0)+1 IMAGE_NO FROM IMAGE)
-			  	</otherwise>
-			  </choose>
+			, (SELECT NVL(MAX(IMAGE_NO), 0)+1 IMAGE_NO FROM IMAGE)
 			, #{imagepath, jdbcType=VARCHAR}
 			)
 	</insert>
