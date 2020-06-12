@@ -65,19 +65,22 @@
 				<div style="width: 150px; height: 100px; margin-top: 0; float: left;">이미지 등록</div>
 				<div class="imagefiles">
 					<c:forEach var="img" items="${imageList }" varStatus="status" begin="0" end="5">
-						<label>
 						<c:choose>
 							<c:when test="${!empty img.imagepath}">
-								<img class="image_add" id="image${status.count }" src="resources/${img.imagepath }"/>
-								<input class="file-attach" type="file" name="image"/>
+								<label>
+									<img class="image_add" id="image${status.count }" src="resources/${img.imagepath }"/>
+									<input class="file-attach" type="file" name="image"/>
+								</label>
+									<img class="delete-img" src="img/cancel.PNG" onclick="deleteImg(this)"/>
 							</c:when>						
 							<c:otherwise>
-								<img class="image_add" id="image${status.count }" src="img/image_add.png"/>
-								<input class="file-attach" type="file" name="image"/>
+								<label>
+									<img class="image_add" id="image${status.count }" src="img/image_add.png"/>
+									<input class="file-attach" type="file" name="image"/>
+								</label>
 							</c:otherwise>
 						</c:choose>
 						
-						</label>
 					</c:forEach>
 	<!-- 				imageList 갯수가 6개보다 적으면 기본 이미지로 총 6개라는 갯수를 맞춰주는 처리 -->
 					<c:if test="${fn:length(imageList) < 6 }">

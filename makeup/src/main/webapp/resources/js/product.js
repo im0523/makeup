@@ -126,3 +126,7 @@ function removeComma(str) {
     str = String(str);
     return str.replace(/[^\d]+/g, '');
 }
+
+function deleteImg(o){
+	alert($(o).closest('img').attr('src'));
+}

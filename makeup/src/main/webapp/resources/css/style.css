@@ -449,3 +449,9 @@ select {
     font-weight: bold;
     font-size: medium;
 }
+
+.delete-img{
+	width: 20px;
+    position: relative;
+    left: -20px;
+}
