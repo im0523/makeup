@@ -6,7 +6,8 @@ CREATE TABLE PRODUCT(
 	product_explanation	VARCHAR2(2000),
 	product_price		NUMBER NOT NULL,
 	product_category	VARCHAR2(200),
-	product_context		VARCHAR2(4000)
+	product_context		VARCHAR2(4000),
+	registdate		DATE DEFAULT SYSDATE
 );
 
 --image table 생성
