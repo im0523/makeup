@@ -128,5 +128,5 @@ function removeComma(str) {
 }
 
 function deleteImg(o){
-	alert($(o).closest('img').attr('src'));
+//	alert($(o).closest('img').attr('src'));
 }
