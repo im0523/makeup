@@ -1,3 +1,6 @@
+// 상품 이미지 첨부 시 미리보기
+$(document).on("change", ".file-attach", handleImgFileSelect);
+
 $(function(){
 	// thumbNail 변경 유무 - delete 파라미터
 	$('#thumbNail').change(function(){
@@ -24,6 +27,30 @@ $(function(){
 	})
 })
 
+// 상품 이미지 첨부 시 미리보기
+function readURL(value, tag){
+	if(value.files && value.files[0]){
+		var reader = new FileReader();
+		reader.onload = function (e){
+			$(tag).attr('src', e.target.result);
+		}
+		reader.readAsDataURL(value.files[0]);
+	}
+}
+
+//상품 이미지 첨부 시 미리보기
+function handleImgFileSelect(e){
+	var id = $(this).parent().parent().attr('id');
+	var num = id.split('imageBox');
+//	var seq = $('.file-attach').index(this)
+	var files = e.target.files;
+	var filesArr = Array.prototype.slice.call(files);
+	
+	console.log('상품', this);
+	readURL(this, '#image'+num[1]);
+// 	$('#image'+seq).removeClass('image_add');
+	$('#imageDel'+num[1]).css('display', 'block');
+}
 
 // 등록, 수정처리
 function go_submit(){
@@ -128,5 +155,21 @@ function removeComma(str) {
 }
 
 function deleteImg(o){
-//	alert($(o).closest('img').attr('src'));
+	$(o).parent().remove();
+}
+
+var img = 4;
+function imgAddBtn(){
+//	var value = $('');
+	$('.imagefiles').append(
+			'<div class="imageBox" id="imageBox'+img+'">'
+				+ '<label>'
+					+ '<img class="image_add" id="image'+img+'" src="img/image_add.png"/>'
+					+ '<input class="file-attach" type="file" name="image"/>'
+				+ '</label>'
+					+ '<img class="delete-img" id="imageDel'+img+'" src="img/cancel.PNG"'
+						+ 'style="display: none;" onclick="deleteImg(this)"/>'
+		+ '</div>'
+	);
+	img++;
 }

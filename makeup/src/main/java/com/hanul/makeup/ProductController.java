@@ -142,8 +142,14 @@ public class ProductController {
 					if( oldImg.size() > i ) {	//기존 이미지를 그대로 첨부 할 경우
 						imageVo.setImagepath( oldImg.get(i).getImagepath() );
 						service.image_insert(imageVo);
+						System.out.println("뭐가 : " + oldImg.get(i).getImagepath());
 						
-//					}else {
+					}else {
+						String imgUuid = ss.getServletContext().getRealPath("resources") + oldImg.get(i).getImagepath();
+						File f = new File(imgUuid);
+						if( f.exists() ) f.delete();
+						System.out.println("여기는 언제탈까 : " + oldImg.get(i).getImagepath());
+						
 //						imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );	// 물리적 위치에 파일 저장
 //						service.image_insert(imageVo);
 					}

@@ -11,8 +11,7 @@
 .product_price, .product_image { width: 150px; height: 60px; margin: 0; line-height: 30px; float: left; }
 .product_price{ height: 30px;}
 .file-attach { float: left; display:none;}
-#image0 { width: 130px; height: 130px;}
-#image1, #image2, #image3, #image4, #image5, #image6 { width: 90px; height: 90px; padding: 0 5px;}
+.image_add { width: 90px; height: 90px;}
 .context { width: 150px; height: 30px; line-height: 30px; float: left; margin: 0;}
 </style>
 </head>
@@ -20,9 +19,9 @@
 <h2>상품등록</h2>
 <form action="insert.pd" method="post" enctype="multipart/form-data">
 	<div class="content" style="width: 900px; margin: 0 auto; border: 1px solid gray;">
-		<div style="width: 130px; height: 130px;">
+		<div style="width: 130px; height: 130px;" id="imageBox0">
 			<label>
-				<img class="image_add" id="image0" src="img/image_add.png"/>
+				<img class="image_add" id="image0" src="img/image_add.png" style="width: 130px; height: 130px;"/>
 				<input type="file" id="thumbNail" name="thumbNail" class="file-attach"/>
 			</label>
 		</div>
@@ -47,25 +46,32 @@
 					   onkeyup="autoComma(this);" maxlength="11"/>
 				<input type="hidden" id="product_price" name="product_price"/>
 		</div>
-		<div class="seqBox" style="height: 80px;">
+		<div class="seqBox" style="height: 70px;">
 			<div class="product_explanation">상품설명</div>
 				<textarea style="width: 605px;" name="product_explanation"></textarea>
 		</div>
-		<div class="seqBox" style="height: 90px;">
-			<div style="width: 150px; height: 100px; margin-top: 0; float: left;">이미지 등록</div>
-			<div class="imagefiles">
-				<c:forEach begin="1" end="6" varStatus="status">
-					<label>
-						<img class="image_add" id="image${status.count }" src="img/image_add.png"/>
-						<input class="file-attach" type="file"  name="image"/>
-					</label>
-				</c:forEach>
-			</div>
-		</div>
-		<div class="seqBox" style="height: 100px;">
+		<div class="seqBox" style="height: 70px;">
 			<div class="context">내용</div>
 				<textarea style="width: 605px;" name="product_context"></textarea>
 		</div>
+		<div class="seqBox" style="height: 30px;">
+			<div style="width: 150px; height: 30px; margin-top: 0; float: left; line-height: 30px;">이미지 등록</div>
+			<a class="btn-fill-s" onclick="imgAddBtn()" style="float: left; height: 20px; line-height: 20px; margin-top: 4px;
+									background-color: gray;">이미지 추가하기</a>
+			<div class="imagefiles">
+				<c:forEach begin="1" end="3" varStatus="status">
+					<div class="imageBox" id="imageBox${status.count }">
+						<label>
+							<img class="image_add" id="image${status.count }" src="img/image_add.png"/>
+							<input class="file-attach" type="file" name="image"/>
+						</label>
+						<img class="delete-img" id="imageDel${status.count }" src="img/cancel.PNG"
+							 style="display: none;" onclick="deleteImg(this)"/>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+		
 	</div>
 	
 	<div style="width: 95px; height: 50px; margin: 0 auto;">
@@ -78,29 +84,5 @@
 </form>
 
 <script type="text/javascript" src="js/product.js" charset="UTF-8"></script>
-<script type="text/javascript">
-$(document).on("change", ".file-attach", handleImgFileSelect);		
-
-function readURL(value, tag){
-	if(value.files && value.files[0]){
-		var reader = new FileReader();
-		reader.onload = function (e){
-			$(tag).attr('src', e.target.result);
-		}
-		reader.readAsDataURL(value.files[0]);
-	}
-}
-
-function handleImgFileSelect(e){
-	var id = $(this).attr('id');
-	var seq = $('.file-attach').index(this)
-	var files = e.target.files;
-	var filesArr = Array.prototype.slice.call(files);
-	
-	console.log('상품', this);
-	readURL(this, '#image'+seq);
-	$('#image'+seq).removeClass('image_add');
-}
-</script>		     	
 </body>
 </html>
