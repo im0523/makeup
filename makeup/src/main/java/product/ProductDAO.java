@@ -46,12 +46,18 @@ public class ProductDAO implements ProductService {
 		sql.insert("image.mapper.insert", vo);
 	}
 
-	// 상품수정
+	// 상품 수정
 	@Override
 	public int product_update(ProductVO productVo) {
 		return sql.update("product.mapper.update", productVo);
 	}
 
+	// 상품 수정 - 이미지
+	@Override
+	public int image_update(ImageVO imageVo) {
+		return sql.update("image.mapper.update", imageVo);
+	}
+	
 	// 상품 삭제
 	@Override
 	public void product_delete(int product_no) {
@@ -69,5 +75,6 @@ public class ProductDAO implements ProductService {
 	public List<ComCodeVO> codeNameList(String code_type) {
 		return sql.selectList("product.mapper.codeNameList", code_type);
 	}
+
 
 }

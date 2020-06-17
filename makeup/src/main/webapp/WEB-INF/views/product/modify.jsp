@@ -72,9 +72,9 @@
 					<c:forEach var="img" items="${imageList }" varStatus="status">
 						<div class="imageBox" id="imageBox${status.count }">
 							<c:choose>
-								<c:when test="${!empty img.imagepath}">
+								<c:when test="${!empty img}">
 									<label>
-										<img class="image_add" id="image${status.count }" src="resources/${img.imagepath }"/>
+										<img class="image_add" id="image${status.count }" src="resources/${img }"/>
 										<input class="file-attach" type="file" name="image"/>
 									</label>
 										<img class="delete-img" id="imageDel${status.count }" src="img/cancel.PNG"

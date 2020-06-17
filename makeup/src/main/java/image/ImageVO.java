@@ -1,10 +1,20 @@
 package image;
 
+import java.util.List;
+
 public class ImageVO {
 	private int product_no;
 	private int image_no;
 	private String imagepath;
+	private List<ImageVO> imgList;
 	
+	
+	public List<ImageVO> getImgList() {
+		return imgList;
+	}
+	public void setImgList(List<ImageVO> imgList) {
+		this.imgList = imgList;
+	}
 	public int getProduct_no() {
 		return product_no;
 	}
@@ -20,7 +30,7 @@ public class ImageVO {
 	public String getImagepath() {
 		return imagepath;
 	}
-	public void setImagepath(String imagepath) {
-		this.imagepath = imagepath;
+	public String setImagepath(String imagepath) {
+		return this.imagepath = imagepath;
 	}
 }

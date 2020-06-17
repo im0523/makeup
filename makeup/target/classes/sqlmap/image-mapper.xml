@@ -28,6 +28,15 @@
 			IMAGE_NO ASC
 	</select>
 
+	<update id="update">
+		UPDATE
+			IMAGE
+		SET
+			IMAGEPATH = #{imagepath, jdbcType=VARCHAR}
+		WHERE
+			PRODUCT_NO = #{product_no}
+	</update>
+
 	<delete id="delete">
 		DELETE FROM
 			IMAGE

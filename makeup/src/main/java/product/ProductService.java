@@ -14,6 +14,7 @@ public interface ProductService {
 	void image_insert(ImageVO imageVo);			// 상품등록
 	
 	int product_update(ProductVO productVo);	// 상품수정
+	int image_update(ImageVO imageVo);			// 상품수정 - 이미지
 	
 	void product_delete(int product_no);		// 상품 삭제
 	int image_delete(int product_no);			// 상품 삭제 - 이미지

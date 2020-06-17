@@ -53,7 +53,7 @@
 	
 	<div class="img-box">
 		<c:forEach items="${imageList }" var="img">
-			<div><img src="resources/${img.imagepath }" class="detail_image"/></div>
+			<div><img src="resources/${img }" class="detail_image"/></div>
 		</c:forEach>	
 	</div>
 </body>
