@@ -51,32 +51,18 @@ public class ProductController {
 		
 		int result = service.product_insert(productVo);		// 상품 등록처리
 
-		String abc = "";
-		for( int i=0; i<image.length; i++ ) {
-			if(image[i] != null && image[i].getSize() > 0 ) {
-//				if( i == image.length ) {
-//					abc += imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );
-//				}else {
+		if( result == 1 ) {
+			String abc = "";
+			for( int i=0; i<image.length; i++ ) {
+				if(image[i] != null && image[i].getSize() > 0 ) {
 					abc += imageVo.setImagepath( common.fileUpload(image[i], ss, "product") + "," );
-//				}
-//				imageVo.setImage( common.fileUpload(image[i], ss, "product") );
-				
-//				abc += ima + ",";
+				}
 			}
+			abc = abc.substring(0, abc.length()-1);		// 마지막에 들어가는 , 없애기
+			imageVo.setImagepath(abc);
 		}
-		abc = abc.substring(0, abc.length()-1);		// 마지막에 들어가는 , 없애기
-		System.out.println("찍기 : "+ abc);
-		imageVo.setImagepath(abc);
-//		System.out.println("abc 출력11 : " +abc);
+		service.image_insert(imageVo);
 		
-//		if( result == 1 ) {
-//			for( int i=0; i<image.length; i++ ) {
-//				if(image[i] != null && image[i].getSize() > 0 ) {
-//					imageVo.setImagepath( common.fileUpload(image[i], ss, "product") );
-//				}
-//			}
-			service.image_insert(imageVo);
-//		}
 		return "redirect:list.pd";
 	}
 	
@@ -88,20 +74,16 @@ public class ProductController {
 		List<ImageVO> vo = service.image_detail(product_no);
 		
 //		System.out.println("가져온다 : " +vo.get(0).getImagepath());
-		
-		String str = vo.get(0).getImagepath(); 
-		String[] imageList = str.split(",");
-//		List<ImageVO> imgList = new ArrayList<>();
-//		for(int i=0; i<imageList.length; i++) {
-//			imgList = imageList[i];
-//			
-//		}
-		
-//		for(int i=0; i<imageList.length; i++) {
-//			System.out.println("i번째 : "+imageList[i]);
-//			
-//		}
-		model.addAttribute("imageList", imageList);
+		if( vo.size() > 0 ) {
+			String str = vo.get(0).getImagepath(); 
+			String[] imageList = str.split(",");
+//			for(int i=0; i<imageList.length; i++) {
+//				System.out.println("i번째 : "+imageList[i]);
+//				
+//			}
+			model.addAttribute("imageList", imageList);
+		}
+	
 		
 		return "product/detail";
 	}
@@ -133,14 +115,18 @@ public class ProductController {
 		model.addAttribute("codeList", common.codeNameList("category"));
 		model.addAttribute("vo", service.product_detail(productVo.getProduct_no()));
 //		model.addAttribute("imageList", service.image_detail(product_no));
-		String str = oldImg.get(0).getImagepath(); 
-		String[] imageList = str.split(",");
+		if( oldImg.size() > 0 ) {
+			String str = oldImg.get(0).getImagepath(); 
+			String[] imageList = str.split(",");
+			
+//			for(int i=0; i<imageList.length; i++) {
+//				System.out.println("i번째 : "+imageList[i]);
+//				
+//			}
+			model.addAttribute("imageList", imageList);
+			
+		}
 		
-//		for(int i=0; i<imageList.length; i++) {
-//			System.out.println("i번째 : "+imageList[i]);
-//			
-//		}
-		model.addAttribute("imageList", imageList);
 
 		return "product/modify";
 	}
@@ -166,8 +152,12 @@ public class ProductController {
 		}
 		
 		int result = service.product_update(productVo);
-		System.out.println("올드 이미지 : " +oldImg.get(0).getImagepath());
-		imageVo.setImagepath(oldImg.get(0).getImagepath());
+		if( oldImg.size() > 0 ) {
+
+			System.out.println("올드 이미지 : " +oldImg.get(0).getImagepath());
+			imageVo.setImagepath(oldImg.get(0).getImagepath());
+			
+		}
 //		service.image_update(imageVo);
 		
 //		if( result == 1) {
@@ -175,6 +165,7 @@ public class ProductController {
 			for( int i=0; i<image.length; i++ ) {
 				if(image[i] != null && image[i].getSize() > 0 ) {
 					System.out.println("이미지 "+i+ "번째 : "+ image[i]);
+//					abc += imageVo.setImagepath(oldImg.get(0).getImagepath()+","+ common.fileUpload(image[i], ss, "product") + "," );
 					abc += imageVo.setImagepath( common.fileUpload(image[i], ss, "product") + "," );
 				}
 			}
