@@ -158,9 +158,9 @@ function deleteImg(o){
 	$(o).parent().remove();
 }
 
-var img = 4;
 function imgAddBtn(){
-//	var value = $('');
+	var img = parseInt($('#imgLength').val())+1;
+
 	$('.imagefiles').append(
 			'<div class="imageBox" id="imageBox'+img+'">'
 				+ '<label>'
@@ -171,5 +171,6 @@ function imgAddBtn(){
 						+ 'style="display: none;" onclick="deleteImg(this)"/>'
 		+ '</div>'
 	);
-	img++;
+
+	$('#imgLength').val(img);
 }

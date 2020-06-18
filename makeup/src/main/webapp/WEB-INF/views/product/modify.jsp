@@ -18,7 +18,6 @@
 <h2>상품수정</h2>
 <%-- ${fn:length(imageList) } --%>
 <%-- ${6-(fn:length(imageList))} --%>
-<%-- ${fn:length(imageList) } --%>
 	<form action="update.pd" method="post" enctype="multipart/form-data">
 		<div class="content" style="width: 900px; margin: 0 auto; border: 1px solid gray;">
 			<div style="width: 130px; height: 130px;" id="imageBox0">
@@ -103,7 +102,8 @@
 											 style="display: none;" onclick="deleteImg(this)"/>
 								</div>
 							</c:forEach>
-						</c:if>
+					</c:if>
+					<input type="hidden" id="imgLength" value="${fn:length(imageList) <= 3 ? 3 : fn:length(imageList) }"/>
 				</div>
 			</div>
 			

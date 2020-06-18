@@ -175,7 +175,7 @@ public class ProductController {
 			for( int i=0; i<image.length; i++ ) {
 				if(image[i] != null && image[i].getSize() > 0 ) {
 					System.out.println("이미지 "+i+ "번째 : "+ image[i]);
-					abc += imageVo.setImagepath(oldImg.get(0).getImagepath()+","+ common.fileUpload(image[i], ss, "product") + "," );
+					abc += imageVo.setImagepath( common.fileUpload(image[i], ss, "product") + "," );
 				}
 			}
 			abc = abc.substring(0, abc.length()-1);		// 마지막에 들어가는 , 없애기
