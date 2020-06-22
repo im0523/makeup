@@ -51,15 +51,18 @@ public class ProductController {
 		int result = service.product_insert(productVo);		// 상품 등록처리
 
 		if( result == 1 ) {
-			String abc = "";
+			String realImg = "";
 			for( int i=0; i<image.length; i++ ) {
 				if(image[i] != null && image[i].getSize() > 0 ) {
-					abc += imageVo.setImagepath( common.fileUpload(image[i], ss, "product") + "," );
+					realImg += imageVo.setImagepath( common.fileUpload(image[i], ss, "product") + "," );
 				}
 			}
-			if( abc != "" ) {
-				abc = abc.substring(0, abc.length()-1);		// 마지막에 들어가는 , 없애기
-				imageVo.setImagepath(abc);
+			
+			// 상세 이미지를 넣었을 경우에  마지막에 들어가는 , 없애기
+			if( realImg.isEmpty() == false ) {
+				realImg = realImg.substring(0, realImg.length()-1);
+				imageVo.setImagepath(realImg);
+				
 			}
 		}
 		service.image_insert(imageVo);
@@ -73,7 +76,7 @@ public class ProductController {
 		model.addAttribute("vo", service.product_detail(product_no));
 		List<ImageVO> vo = service.image_detail(product_no);
 		
-		if( vo.get(0).getImagepath() != null && vo.size() > 0 ) {
+		if( vo.size() > 0 ) {
 			String str = vo.get(0).getImagepath(); 
 			String[] imageList = str.split(",");
 //			for(int i=0; i<imageList.length; i++) {
@@ -114,7 +117,7 @@ public class ProductController {
 		model.addAttribute("codeList", common.codeNameList("category"));
 		model.addAttribute("vo", service.product_detail(productVo.getProduct_no()));
 //		model.addAttribute("imageList", service.image_detail(product_no));
-		if( oldImg.get(0).getImagepath() != null && oldImg.size() > 0 ) {
+		if( oldImg.size() > 0 ) {
 			String str = oldImg.get(0).getImagepath(); 
 			String[] imageList = str.split(",");
 			
@@ -158,17 +161,17 @@ public class ProductController {
 			
 		}
 		if( result == 1) {
-			String abc = "";
+			String realImg = "";
 			for( int i=0; i<image.length; i++ ) {
 				if(image[i] != null && image[i].getSize() > 0 ) {
 					System.out.println("이미지 "+i+ "번째 : "+ image[i]);
-//					abc += imageVo.setImagepath(oldImg.get(0).getImagepath()+","+ common.fileUpload(image[i], ss, "product") + "," );
-					abc += imageVo.setImagepath( common.fileUpload(image[i], ss, "product") + "," );
+//					realImg += imageVo.setImagepath(oldImg.get(0).getImagepath()+","+ common.fileUpload(image[i], ss, "product") + "," );
+					realImg += imageVo.setImagepath( common.fileUpload(image[i], ss, "product") + "," );
 				}
 			}
-			if( abc != "" ) {
-				abc = abc.substring(0, abc.length()-1);		// 마지막에 들어가는 , 없애기
-				imageVo.setImagepath(abc);
+			if( realImg != "" ) {
+				realImg = realImg.substring(0, realImg.length()-1);		// 마지막에 들어가는 , 없애기
+				imageVo.setImagepath(realImg);
 			}
 			service.image_update(imageVo);
 		}
