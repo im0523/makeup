@@ -34,10 +34,22 @@
 		                <span class="totalStr"> (<span id="totalCnt">1</span>개)
 		                </span>
 		            </div>
+				<div id="myModal" class="modal">
+				
+				  <div class="modal-content">
+<!-- 				    <span class="close">&times;</span> -->
+				    <p class="cartFont">장바구니에 상품이 담겼습니다</p>
+				    <div class="cartNoti">
+						<div class="go_cart"><a>장바구니로 이동</a></div>
+						<div class="go_shopping" onclick="go_shopping();"><a>계속 쇼핑하기</a></div>
+					</div>
+				  </div>
+				
+				</div>
 	        </div>
 	        
 			<div class="cartBox">
-				<a onclick="add_wishlist_nologin('/member/login.html');" class="wish-btn">ADD CART</a>
+				<a onclick="insert_cart();" id="addCart" class="wish-btn">ADD CART</a>
 				<a onclick="location='buy.pd?no=${vo.product_no}'" class="buy-btn">BUY NOW</a>
 			</div>
 			
@@ -59,5 +71,4 @@
 </body>
 
 <script type="text/javascript" src="js/product.js" charset="UTF-8"></script>
-
 </html>
