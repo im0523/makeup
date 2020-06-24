@@ -2,7 +2,7 @@ package cart;
 
 public class CartVO {
 	private int cart_id;
-	private int product_id;
+	private int product_no;
 	private int amount;
 	private String customer_id;
 
@@ -12,11 +12,11 @@ public class CartVO {
 	public void setCart_id(int cart_id) {
 		this.cart_id = cart_id;
 	}
-	public int getProduct_id() {
-		return product_id;
+	public int getProduct_no() {
+		return product_no;
 	}
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
+	public void setProduct_no(int product_no) {
+		this.product_no = product_no;
 	}
 	public int getAmount() {
 		return amount;

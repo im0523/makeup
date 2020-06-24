@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cart.mapper">
+
+	<insert id="insert">
+		INSERT INTO CART
+			(
+			  CART_ID
+			<if test="customer_id != null">, CUSTOMER_ID</if>
+			, PRODUCT_NO
+			, AMOUNT
+			)
+		VALUES
+			(
+			    CART_SEQ.NEXTVAL
+			<if test="customer_id != null">, #{customer_id}</if>
+			, #{product_no}
+			, #{amount}
+			)
+	</insert>
+
+</mapper>

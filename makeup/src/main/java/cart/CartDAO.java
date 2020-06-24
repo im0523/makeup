@@ -6,11 +6,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class CartDAO implements CartService {
-	@Autowired private SqlSession sql;
+	@Autowired SqlSession sql;
 
 	@Override
 	public int cart_insert(CartVO cartVo) {
-		return 0;
+		return sql.insert("cart.mapper.insert", cartVo);
 	}
 
 }
