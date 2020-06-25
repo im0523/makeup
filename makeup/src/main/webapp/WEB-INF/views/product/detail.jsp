@@ -13,8 +13,9 @@
 </head>
 <body>
 	<form id="insertForm" method="post">
+		<input type="hidden" id="customer_id" name="customer_id" value="${login_info.customer_id }"/>
 		<input type="hidden" id="product_price" value="${vo.product_price }"/>
-		<input type="hidden" id="product_no" value="${vo.product_no }"/>
+		<input type="hidden" id="product_no" name="product_no" value="${vo.product_no }"/>
 	
 		<div class="header">
 			<div class="imagepath"><img src="resources/${vo.product_thumbNail }" /></div>
@@ -25,7 +26,7 @@
 					<span class="detail_exp_name">${vo.product_name }</span>
 	                    <div class="quantity">
 				      		<a><img src="img/btn_count_down.gif" onclick="quantityDown()" class="QuantityDown down"/></a>
-	                    	<input id="quantity" name="quantity_name" value="1" type="text" readonly="readonly" /> 
+	                    	<input id="quantity" name="amount" value="1" type="text" readonly="readonly" /> 
 	                    	<a><img src="img/btn_count_up.gif" onclick="quantityUp()" class="QuantityUp up"/></a>
 	                    </div>
 					<span class="detail_exp_price">KRW <fmt:formatNumber value="${vo.product_price }" pattern="#,###"/></span>

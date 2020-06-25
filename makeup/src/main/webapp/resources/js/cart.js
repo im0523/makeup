@@ -1,20 +1,15 @@
 // 장바구니 추가
 function insert_cart(){
-	$('#addCart').css('display', 'block');
-	$('#myModal').css('display', 'block');
-	
 	var form = $('#insertForm').serialize();
 
 	$.ajax({
 		url: '/makeup/insert.ct',
-		dataType: 'text',
+		dataType: 'json',
 		type: 'post',
 		data: form,
 		success: function(data){
-			alert(data);
-//			alert(data.product_no);
-//			alert(data.amount);
-//			alert(data.cart_id);
+			$('#addCart').css('display', 'block');
+			$('#myModal').css('display', 'block');
 		},error: function(jqXHR, textStatus, errorThrown){
 			alert('실패');
 		}

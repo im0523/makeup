@@ -12,7 +12,7 @@
 			)
 		VALUES
 			(
-			    CART_SEQ.NEXTVAL
+			  CART_SEQ.NEXTVAL
 			<if test="customer_id != null">, #{customer_id}</if>
 			, #{product_no}
 			, #{amount}
