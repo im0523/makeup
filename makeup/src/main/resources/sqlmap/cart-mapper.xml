@@ -2,6 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cart.mapper">
 
+	<select id="list" resultType="cart.CartVO">
+		SELECT
+			*
+		FROM
+			CART
+		WHERE
+			CUSTOMER_ID = #{customer_id}
+		AND
+			PRODUCT_NO = #{product_no}
+	</select>
+
 	<insert id="insert">
 		INSERT INTO CART
 			(
@@ -18,5 +29,21 @@
 			, #{amount}
 			)
 	</insert>
+	
+	<update id="update">
+		UPDATE
+			CART
+			(
+			  CUSTOMER_ID
+			, PRODUCT_NO
+			, AMOUNT
+			)
+		SET
+			(
+			  #{customer_id}
+			, #{product_no}
+			, #{amount}
+			)
+	</update>
 
 </mapper>
