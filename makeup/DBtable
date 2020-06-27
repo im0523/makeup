@@ -52,7 +52,7 @@ CREATE TABLE CUSTOMER(
 -- cart table 생성
 CREATE TABLE CART(
 	cart_id		NUMBER NOT NULL PRIMARY KEY,
-	customer_id	VARCHAR2(500) NOT NULL,
+	customer_id	VARCHAR2(500),
 	product_no	NUMBER NOT NULL,
 	amount		NUMBER DEFAULT 0,
 
