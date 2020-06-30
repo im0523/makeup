@@ -10,7 +10,7 @@ public class CartDAO implements CartService {
 
 	// 장바구니 리스트 가져오기
 	@Override
-	public int cart_select(CartVO cartVo) {
+	public CartVO cart_select(CartVO cartVo) {
 		return sql.selectOne("cart.mapper.list", cartVo);
 	}
 
