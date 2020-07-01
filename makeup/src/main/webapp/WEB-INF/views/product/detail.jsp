@@ -39,14 +39,13 @@
 			            </div>
 					<div id="myModal" class="modal">
 					
-					  <div class="modal-content">
-	<!-- 				    <span class="close">&times;</span> -->
-					    <p class="cartFont">장바구니에 상품이 담겼습니다</p>
-					    <div class="cartNoti">
-							<div class="go_cart"><a>장바구니로 이동</a></div>
-							<div class="go_shopping" onclick="go_shopping();"><a>계속 쇼핑하기</a></div>
+						<div class="modal-content">
+							<p class="cartFont">장바구니에 상품이 담겼습니다</p>
+							<div class="cartNoti">
+								<div class="go_cart" onclick="location='list.ct?customer_id=${login_info.customer_id}'"><a>장바구니로 이동</a></div>
+								<div class="go_shopping" onclick="go_shopping();"><a>계속 쇼핑하기</a></div>
+							</div>
 						</div>
-					  </div>
 					
 					</div>
 		        </div>
@@ -56,12 +55,12 @@
 					<a onclick="location='buy.pd?no=${vo.product_no}'" class="buy-btn">BUY NOW</a>
 				</div>
 				
-	<%-- 		<c:if test="${login_info.customer_name == '관리자' }"> --%>
+			<c:if test="${login_info.customer_name == '관리자' }">
 				<div class="btn-box">
 					<a class="btn-fill" onclick="location='modify.pd?product_no=${vo.product_no}'">상품수정</a>
 					<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.pd?product_no=${vo.product_no}' }">상품삭제</a>
 				</div>
-	<%-- 		</c:if> --%>
+			</c:if>
 			
 			</div>
 		</div>

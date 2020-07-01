@@ -9,8 +9,19 @@
 			CART
 		WHERE
 			CUSTOMER_ID = #{customer_id}
+		<if test="product_no != null">
 		AND
 			PRODUCT_NO = #{product_no}
+		</if>
+	</select>
+	
+	<select id="userCartList" resultType="cart.CartVO">
+		SELECT
+			*
+		FROM
+			CART
+		WHERE
+			CUSTOMER_ID = #{customer_id}
 	</select>
 
 	<insert id="insert">
@@ -33,17 +44,12 @@
 	<update id="update">
 		UPDATE
 			CART
-			(
-			  CUSTOMER_ID
-			, PRODUCT_NO
-			, AMOUNT
-			)
 		SET
-			(
-			  #{customer_id}
-			, #{product_no}
-			, #{amount}
-			)
+			AMOUNT = #{amount}
+		WHERE
+			CUSTOMER_ID = #{customer_id}
+		AND
+			PRODUCT_NO = #{product_no}
 	</update>
 
 </mapper>

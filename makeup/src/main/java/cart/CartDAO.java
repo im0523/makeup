@@ -1,5 +1,7 @@
 package cart;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,6 +16,12 @@ public class CartDAO implements CartService {
 		return sql.selectOne("cart.mapper.list", cartVo);
 	}
 
+	// 로그인 한 사람의 장바구니 목록 가져오기
+	@Override
+	public List<CartVO> cart_select(String customer_id) {
+		return sql.selectList("cart.mapper.userCartList", customer_id);
+	}
+	
 	// 장바구니 추가
 	@Override
 	public int cart_insert(CartVO cartVo) {
@@ -25,4 +33,6 @@ public class CartDAO implements CartService {
 	public int cart_update(CartVO cartVo) {
 		return sql.update("cart.mapper.update", cartVo);
 	}
+
+	
 }

@@ -1,9 +1,11 @@
 package com.hanul.makeup;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,39 +21,27 @@ public class CartController {
 	public HashMap<String, Integer> cart_insert(CartVO cartVo, String customer_id) {
 		HashMap<String, Integer> map = new HashMap<>();
 
-		System.out.println("customer_Id : "+ customer_id);
 		if( !customer_id.isEmpty() ) {		// 로그인을 했을 때
 			CartVO result = service.cart_select(cartVo);
 			
 			if( result != null ) {
-				System.out.println("찍어보기 1");
 				service.cart_update(cartVo);
 			}else {
 				// 로그인 한 사용자가 해당 물품을 장바구니에 담은 적이 없을 경우
-				System.out.println("찍어보기 2");
 				service.cart_insert(cartVo);
 			}
 		}else {								// 로그인 한 상태가 아니면
-			System.out.println("찍어보기 3");
 			service.cart_insert(cartVo);	// insert
 		}
 		
-//		if( !customer_id.equals("")) {		// 로그인을 했을 때
-//			System.out.println("조건문 안의 customer_Id : "+ customer_id);
-			// 로그인 한 사용자가 해당 물건을 장바구니에 넣은적이 있을 경우
-//			if( result > 0 ) {
-//				System.out.println("찍어보기 1");
-//				service.cart_update(cartVo);
-//			}else {
-//				// 로그인 한 사용자가 해당 물품을 장바구니에 담은 적이 없을 경우
-//				System.out.println("찍어보기 2");
-//				service.cart_insert(cartVo);
-//			}
-//		}else {								// 로그인 한 상태가 아니면
-//			System.out.println("찍어보기 3");
-//			service.cart_insert(cartVo);	// insert
-//		}
-		
 		return map;
+	}
+	
+	// 장바구니 리스트 출력
+	@RequestMapping("/list.ct")
+	public String cart_list(Model model, String customer_id) {
+		List<CartVO> list = service.cart_select(customer_id);
+		model.addAttribute("list", list);
+		return "cart/list";
 	}
 }
