@@ -17,11 +17,17 @@
 	
 	<select id="userCartList" resultType="cart.CartVO">
 		SELECT
-			*
+			  C.*
+			, P.PRODUCT_THUMBNAIL
+			, P.PRODUCT_NAME
+			, P.PRODUCT_PRICE
 		FROM
-			CART
+			  CART C
+			, PRODUCT P
 		WHERE
 			CUSTOMER_ID = #{customer_id}
+		AND
+			C.PRODUCT_NO = P.PRODUCT_NO
 	</select>
 
 	<insert id="insert">

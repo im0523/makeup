@@ -42,7 +42,7 @@
 						<div class="modal-content">
 							<p class="cartFont">장바구니에 상품이 담겼습니다</p>
 							<div class="cartNoti">
-								<div class="go_cart" onclick="location='list.ct?customer_id=${login_info.customer_id}'"><a>장바구니로 이동</a></div>
+								<div class="go_cart" onclick="go_cartList('${login_info.customer_id}');"><a>장바구니로 이동</a></div>
 								<div class="go_shopping" onclick="go_shopping();"><a>계속 쇼핑하기</a></div>
 							</div>
 						</div>

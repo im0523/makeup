@@ -44,4 +44,5 @@ public class CartController {
 		model.addAttribute("list", list);
 		return "cart/list";
 	}
+	
 }

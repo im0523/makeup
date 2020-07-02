@@ -20,3 +20,9 @@ function insert_cart(){
 function go_shopping(){
 	$('#myModal').css('display', 'none');
 }
+
+// 로그인 한 사용자의 장바구니 목록 출력
+function go_cartList(id){
+	$('#insertForm').attr('action', 'list.ct');
+	$('#insertForm').submit();
+}
