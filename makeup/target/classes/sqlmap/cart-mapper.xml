@@ -28,6 +28,8 @@
 			CUSTOMER_ID = #{customer_id}
 		AND
 			C.PRODUCT_NO = P.PRODUCT_NO
+		ORDER BY
+			CART_ID DESC
 	</select>
 
 	<insert id="insert">

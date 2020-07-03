@@ -25,9 +25,9 @@
 				<div class="detail_explanation">
 					<span class="detail_exp_name">${vo.product_name }</span>
 	                    <div class="quantity">
-				      		<a><img src="img/btn_count_down.gif" onclick="quantityDown()" class="QuantityDown down"/></a>
+				      		<a><img src="img/btn_count_down.gif" onclick="quantityDown(this);" class="QuantityDown down"/></a>
 	                    	<input id="quantity" name="amount" value="1" type="text" readonly="readonly" /> 
-	                    	<a><img src="img/btn_count_up.gif" onclick="quantityUp()" class="QuantityUp up"/></a>
+	                    	<a><img src="img/btn_count_up.gif" onclick="quantityUp(this);" class="QuantityUp up"/></a>
 	                    </div>
 					<span class="detail_exp_price">KRW <fmt:formatNumber value="${vo.product_price }" pattern="#,###"/></span>
 	                    <div id="totalPrice" class="totalPrice">
