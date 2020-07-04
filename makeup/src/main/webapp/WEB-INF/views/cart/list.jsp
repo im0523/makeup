@@ -14,7 +14,7 @@ table img{ width: 80px;}
 <body>
 <h2>장바구니</h2>
 
-<table style="width: 70%">
+<table>
 	<tr>
 		<th style="width: 35px;"><input type="checkbox" class="list-allCheck" id="list-allCheck"/></th>
 		<th style="width: 90px;">이미지</th>
@@ -23,26 +23,28 @@ table img{ width: 80px;}
 		<th style="width: 83px;">수량</th>
 		<th style="width: 70px;">적립금</th>
 		<th>합계</th>
-		<th style="width: 80px;">선택</th>
 	</tr>
 	
 	<c:forEach var="vo" items="${list }">
-	<tr>
-		<td><input type="checkbox" class="list-checkBox"/></td>
-		<td><img src="resources/${vo.product_thumbNail }"/></td>
-		<td style="text-align: left; font-weight: bold;">${vo.product_name }</td>
-		<td>
-			<fmt:formatNumber value="${vo.product_price }"/>
-		</td>
-		<td>
-			<div class="quantity">
-	      		<a><img src="img/btn_count_down.gif" onclick="quantityDown(this);" class="QuantityDown down"/></a>
-	               <input id="quantity" name="amount" value="${vo.amount }" type="text" readonly="readonly" /> 
-	           	<a><img src="img/btn_count_up.gif" onclick="quantityUp(this);" class="QuantityUp up"/></a>
-	        </div>
-		</td>
-		<td>-</td>
-	</tr>
+		<tr>
+			<td><input type="checkbox" class="list-checkBox"/></td>
+			<td><img src="resources/${vo.product_thumbNail }"/></td>
+			<td style="text-align: left; font-weight: bold;">${vo.product_name }</td>
+			<td>
+				<fmt:formatNumber value="${vo.product_price }"/>
+			</td>
+			<td>
+				<div class="quantity">
+		      		<a><img src="img/btn_count_down.gif" onclick="quantityDown(this);" class="QuantityDown down"/></a>
+		               <input id="quantity" name="amount" value="${vo.amount }" type="text" readonly="readonly" /> 
+		           	<a><img src="img/btn_count_up.gif" onclick="quantityUp(this);" class="QuantityUp up"/></a>
+		        </div>
+			</td>
+			<td>-</td>
+			<td>
+				<fmt:formatNumber value="${vo.product_price * vo.amount }"/>
+			</td>
+		</tr>
 	</c:forEach>
 
 </table>
