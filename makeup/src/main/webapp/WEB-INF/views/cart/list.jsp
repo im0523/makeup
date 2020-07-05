@@ -42,11 +42,16 @@ table img{ width: 80px;}
 			</td>
 			<td>-</td>
 			<td>
-				<fmt:formatNumber value="${vo.product_price * vo.amount }"/>
+				<span id="totalVal"><fmt:formatNumber value="${vo.product_price * vo.amount }"/></span>
 			</td>
 		</tr>
 	</c:forEach>
 
+	<tr>
+		<td colspan="7" style="text-align: right;">
+			<span style="text-align: right;">상품가격 + 배송비 = 총 주문금액 :</span> 
+		</td>
+	</tr>
 </table>
 
 <script type="text/javascript" src="js/product.js" charset="UTF-8"></script>
