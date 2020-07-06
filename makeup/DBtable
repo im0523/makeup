@@ -71,6 +71,7 @@ CREATE TABLE COM_CODE(
 
 
 
+
 -- image sequence 생성
 CREATE SEQUENCE IMAGE_SEQ
 START WITH 1
