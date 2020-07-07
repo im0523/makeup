@@ -35,9 +35,9 @@ table img{ width: 80px;}
 			</td>
 			<td>
 				<div class="quantity">
-		      		<a><img src="img/btn_count_down.gif" onclick="quantityDown(this);" class="QuantityDown down"/></a>
+		      		<a><img src="img/btn_count_down.gif" onclick="ct_quantityDown(this);" class="QuantityDown down"/></a>
 		               <input id="quantity" name="amount" value="${vo.amount }" type="text" readonly="readonly" /> 
-		           	<a><img src="img/btn_count_up.gif" onclick="quantityUp(this);" class="QuantityUp up"/></a>
+		           	<a><img src="img/btn_count_up.gif" onclick="ct_quantityUp(this);" class="QuantityUp up"/></a>
 		        </div>
 			</td>
 			<td>-</td>
@@ -55,5 +55,6 @@ table img{ width: 80px;}
 </table>
 
 <script type="text/javascript" src="js/product.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/cart.js" charset="UTF-8"></script>
 </body>
 </html>
