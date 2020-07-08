@@ -13,6 +13,7 @@ table img{ width: 80px;}
 </head>
 <body>
 <h2>장바구니</h2>
+<!-- 	<input type="hidden" id="totalPrice"/> -->
 
 <table>
 	<tr>
@@ -42,14 +43,14 @@ table img{ width: 80px;}
 			</td>
 			<td>-</td>
 			<td>
-				<span id="totalVal"><fmt:formatNumber value="${vo.product_price * vo.amount }"/></span>
+				<span class="totalVal"><fmt:formatNumber value="${vo.product_price * vo.amount }"/></span>
 			</td>
 		</tr>
 	</c:forEach>
 
 	<tr>
 		<td colspan="7" style="text-align: right;">
-			<span style="text-align: right;">상품가격 + 배송비 = 총 주문금액 :</span> 
+			<span style="text-align: right;">상품가격 </span><span id="productPr"></span><span>+ 배송비 = 총 주문금액 :</span> 
 		</td>
 	</tr>
 </table>
