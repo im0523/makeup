@@ -1,11 +1,26 @@
 $(document).ready(function(){
 	$('#list-allCheck').click();	// 장바구니 전체 선택
 	
-//	alert($('.totalVal').text());
-//	
-//	$('.totalVal').each(function(){
-//		alert($('.totalVal').text())
-//	})
+	var a = '';
+	var c = 0;
+	$('.totalVal').each(function(idx){
+		a = $('.totalVal:eq('+idx+')').text().split(',');
+		var b = ''; 
+		
+		for( var i=0; i<a.length; i++){
+			b += a[i];
+		}
+
+		var c1 = parseInt(b);
+		c += c1;
+	})
+	$('#pdPrice').text(c);		//총 주문금액 출력
+
+	// total 금액 콤마(,) 찍기
+	var pdPrice = $('#pdPrice').text();
+	var split = pdPrice.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
+	pdPrice = $('#pdPrice').text(split);
+	
 })
 
 // 장바구니 추가
@@ -58,6 +73,8 @@ function ct_quantityUp(o){
 	var split = money.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
 	money = $(o).parent().parent().parent().next().next().children().text(split);
 //	alert(money.text());
+	
+//	alert($(o).parent().parent().parent().prev().text());
 	
 //	$('.totalVal').text($('.totalVal').text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(','));		// 위 세줄을 이렇게 한줄로도 표현 가능
 }
