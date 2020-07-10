@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$('#list-allCheck').click();	// 장바구니 전체 선택
 	
+	// 상품 총 합계 구하기
 	var a = '';
 	var c = 0;
 	$('.totalVal').each(function(idx){
@@ -21,6 +22,12 @@ $(document).ready(function(){
 	var split = pdPrice.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
 	pdPrice = $('#pdPrice').text(split);
 	
+	// 50,000원 이상 배송비 무료
+	if( c > 50000 ){
+		$('#deliveryFee').text('0');
+	}else{
+		$('#deliveryFee').text('2500');
+	}
 })
 
 // 장바구니 추가
@@ -75,30 +82,33 @@ function ct_quantityUp(o){
 	
 //	$('.totalVal').text($('.totalVal').text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(','));		// 위 세줄을 이렇게 한줄로도 표현 가능
 	
-	// 상품들의 총 합계 금액 변경
-	var addPrice = $(o).parent().parent().parent().prev().text().split(',');		// 더하려는 금액 찾아서 콤마 없애기
-	var addPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
-	
-	for(var i=0; i<addPrice.length; i++){
-		addPriceSpl += addPrice[i];
+	// 해당 물품을 선택하지 않은 상태에서 수량증가 버튼을 눌렀을 경우, 개당 총 금액은 변하지만 총 상품금액 합계는 변하지 않는다
+	var state = $(o).parent().parent().parent().prev().prev().prev().prev().children();
+	if( state.is(':checked') ){
+		// 상품들의 총 합계 금액 변경
+		var addPrice = $(o).parent().parent().parent().prev().text().split(',');		// 더하려는 금액 찾아서 콤마 없애기
+		var addPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
+		
+		for(var i=0; i<addPrice.length; i++){
+			addPriceSpl += addPrice[i];
+		}
+		var addPriceVal = parseInt(addPriceSpl);		// String 타입의 금액을 int형으로 변환
+		
+		var pdPrice =$('#pdPrice').text().split(',');	// 기존 상품들의 총 합계 금액 찾아서 콤마 없애기
+		var pdPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
+		
+		for(var i=0; i<pdPrice.length; i++){
+			pdPriceSpl += pdPrice[i];
+		}
+		var pdPriceVal = parseInt(pdPriceSpl);			// String 타입의 금액을 int형으로 변환
+		
+		var TotalValStr = pdPriceVal + addPriceVal;		// 총 합계 + 수량증가 한 상품 1개 가격을 더하는 처리
+		
+		$('#pdPrice').text(TotalValStr);				// 총 합계 금액 바꿔주는 처리
+		var realTotalVal = $('#pdPrice').text();		// 총 합계 금액을 찾아서
+		var TotalPriceSpl = realTotalVal.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');	// 숫자 3개 단위로 콤마 넣는 정규식
+		$('#pdPrice').text(TotalPriceSpl);				// 합계 금액에 콤마 삽입
 	}
-	var addPriceVal = parseInt(addPriceSpl);		// String 타입의 금액을 int형으로 변환
-	
-	var pdPrice =$('#pdPrice').text().split(',');	// 기존 상품들의 총 합계 금액 찾아서 콤마 없애기
-	var pdPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
-	
-	for(var i=0; i<pdPrice.length; i++){
-		pdPriceSpl += pdPrice[i];
-	}
-	var pdPriceVal = parseInt(pdPriceSpl);			// String 타입의 금액을 int형으로 변환
-	
-	var TotalValStr = pdPriceVal + addPriceVal;		// 총 합계 + 수량증가 한 상품 1개 가격을 더하는 처리
-	
-	$('#pdPrice').text(TotalValStr);				// 총 합계 금액 바꿔주는 처리
-	var realTotalVal = $('#pdPrice').text();		// 총 합계 금액을 찾아서
-	var TotalPriceSpl = realTotalVal.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');	// 숫자 3개 단위로 콤마 넣는 정규식
-	$('#pdPrice').text(TotalPriceSpl);				// 합계 금액에 콤마 삽입
-	
 	
 }
 
@@ -128,16 +138,45 @@ function ct_quantityDown(o){
 	var split = money.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');						// 숫자 3개 단위로 콤마 넣는 정규식
 	money = $(o).parent().parent().parent().next().next().children().text(split);		// 합계 금액에 콤마 삽입
 	
-//	$('#totalVal').text($('#totalVal').text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(','));		// 위 세줄을 이렇게 한줄로도 표현 가능
+//$('#totalVal').text($('#totalVal').text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(','));		// 위 세줄을 이렇게 한줄로도 표현 가능
 	
-	// 상품들의 총 합계 금액 변경
-	var minPrice = $(o).parent().parent().parent().prev().text().split(',');		// 빼려는 금액 찾아서 콤마 없애기
-	var minPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
-	
-	for(var i=0; i<minPrice.length; i++){
-		minPriceSpl += minPrice[i];
+	// 해당 물품을 선택하지 않은 상태에서 수량감소 버튼을 눌렀을 경우, 개당 총 금액은 변하지만 총 상품금액 합계는 변하지 않는다
+	var state = $(o).parent().parent().parent().prev().prev().prev().prev().children();
+	if( state.is(':checked') ){
+		// 상품들의 총 합계 금액 변경
+		var minPrice = $(o).parent().parent().parent().prev().text().split(',');		// 빼려는 금액 찾아서 콤마 없애기
+		var minPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
+		
+		for(var i=0; i<minPrice.length; i++){
+			minPriceSpl += minPrice[i];
+		}
+		var minPriceVal = parseInt(minPriceSpl);		// String 타입의 금액을 int형으로 변환
+		
+		var pdPrice =$('#pdPrice').text().split(',');	// 기존 상품들의 총 합계 금액 찾아서 콤마 없애기
+		var pdPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
+		
+		for(var i=0; i<pdPrice.length; i++){
+			pdPriceSpl += pdPrice[i];
+		}
+		var pdPriceVal = parseInt(pdPriceSpl);			// String 타입의 금액을 int형으로 변환
+		
+		var TotalValStr = pdPriceVal - minPriceVal;		// 총 합계 - 수량감소 한 상품 1개 가격을 빼는 처리
+		
+		$('#pdPrice').text(TotalValStr);				// 총 합계 금액 바꿔주는 처리
+		var realTotalVal = $('#pdPrice').text();		// 총 합계 금액을 찾아서
+		var TotalPriceSpl = realTotalVal.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');	// 숫자 3개 단위로 콤마 넣는 정규식
+		$('#pdPrice').text(TotalPriceSpl);				// 합계 금액에 콤마 삽입
 	}
-	var minPriceVal = parseInt(minPriceSpl);		// String 타입의 금액을 int형으로 변환
+}
+
+function go_selectPd(o){
+	var selectPrice = $(o).parent().next().next().next().next().next().next().children().text().split(',');
+	var selectPriceSpl = '';
+	
+	for(var i=0; i<selectPrice.length; i++){
+		selectPriceSpl += selectPrice[i];
+	}
+	var selectPrVal = parseInt(selectPriceSpl);
 	
 	var pdPrice =$('#pdPrice').text().split(',');	// 기존 상품들의 총 합계 금액 찾아서 콤마 없애기
 	var pdPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
@@ -147,10 +186,43 @@ function ct_quantityDown(o){
 	}
 	var pdPriceVal = parseInt(pdPriceSpl);			// String 타입의 금액을 int형으로 변환
 	
-	var TotalValStr = pdPriceVal - minPriceVal;		// 총 합계 - 수량감소 한 상품 1개 가격을 빼는 처리
+	var realPrice = 0;
+	if( $(o).is(':checked') ){		// 클릭한 체크박스가 체크 되어 있을 경우
+		realPrice = pdPriceVal + selectPrVal;		// 총 합계금액에서 선택한 상품 총 금액만큼 더하는 처리
+	}else{							// 클릭한 체크박스가 체크 해제 되어 있을 경우
+		realPrice = pdPriceVal - selectPrVal;		// 총 합계금액에서 선택한 상품 총 금액만큼 빼는 처리
+	}
 	
-	$('#pdPrice').text(TotalValStr);				// 총 합계 금액 바꿔주는 처리
+	$('#pdPrice').text(realPrice);					// 총 합계 금액 바꿔주는 처리
 	var realTotalVal = $('#pdPrice').text();		// 총 합계 금액을 찾아서
 	var TotalPriceSpl = realTotalVal.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');	// 숫자 3개 단위로 콤마 넣는 정규식
 	$('#pdPrice').text(TotalPriceSpl);				// 합계 금액에 콤마 삽입
+//	alert($(o).parent().next().next().next().next().next().next().children().text());
+}
+
+function go_selectPdAll(){
+	if( $('#list-allCheck').is(':checked') ){		// 전체선택 되어 있을 경우
+		// 총 상품가격 구하는 처리
+		var a = '';
+		var c = 0;
+		$('.totalVal').each(function(idx){
+			a = $('.totalVal:eq('+idx+')').text().split(',');
+			var b = ''; 
+			
+			for( var i=0; i<a.length; i++){
+				b += a[i];
+			}
+
+			var c1 = parseInt(b);
+			c += c1;
+		})
+		$('#pdPrice').text(c);		//총 주문금액 출력
+
+		// total 금액 콤마(,) 찍기
+		var pdPrice = $('#pdPrice').text();
+		var split = pdPrice.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
+		pdPrice = $('#pdPrice').text(split);
+	}else{
+		$('#pdPrice').text('0');		// 전체선택 해제 되어 있을 경우
+	}
 }

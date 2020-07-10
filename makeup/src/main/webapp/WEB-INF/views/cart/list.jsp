@@ -15,7 +15,7 @@ table img{ width: 80px;}
 <h2>장바구니</h2>
 <table>
 	<tr>
-		<th style="width: 35px;"><input type="checkbox" class="list-allCheck" id="list-allCheck"/></th>
+		<th style="width: 35px;"><input type="checkbox" class="list-allCheck" id="list-allCheck" onclick="go_selectPdAll();"/></th>
 		<th style="width: 90px;">이미지</th>
 		<th style="width: 230px;">상품정보</th>
 		<th>판매가</th>
@@ -26,7 +26,7 @@ table img{ width: 80px;}
 	
 	<c:forEach var="vo" items="${list }">
 		<tr>
-			<td><input type="checkbox" class="list-checkBox"/></td>
+			<td><input type="checkbox" class="list-checkBox" onclick="go_selectPd(this);"/></td>
 			<td><img src="resources/${vo.product_thumbNail }"/></td>
 			<td style="text-align: left; font-weight: bold;">${vo.product_name }</td>
 			<td>
@@ -48,7 +48,8 @@ table img{ width: 80px;}
 
 	<tr>
 		<td colspan="7" style="text-align: right;">
-			<span style="text-align: right;">상품가격 </span><span id="pdPrice"></span> <span>+ 배송비 = 총 주문금액 : </span> 
+			<span style="text-align: right;">상품가격 </span><span id="pdPrice"></span>
+			<span>+ 배송비 <span id="deliveryFee"></span>= 총 주문금액 : </span> 
 		</td>
 	</tr>
 </table>
