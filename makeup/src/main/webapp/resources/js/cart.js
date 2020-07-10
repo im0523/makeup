@@ -68,15 +68,38 @@ function ct_quantityUp(o){
 	$(o).parent().prev().attr('value', cntAdd );		// + 버튼 누를 시 수량 증가
 	$(o).parent().parent().parent().next().next().children().text( priceSpl * cntAdd );	// total 가격 변경해주는 처리
 
-//	// total 금액 콤마(,) 찍기
-	var money = $(o).parent().parent().parent().next().next().children().text();
-	var split = money.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
-	money = $(o).parent().parent().parent().next().next().children().text(split);
-//	alert(money.text());
-	
-//	alert($(o).parent().parent().parent().prev().text());
+	// 물품 하나에 대한 개별 물품당 합계 금액 콤마(,) 찍기
+	var money = $(o).parent().parent().parent().next().next().children().text();	// 현재 입력 되어 있는 합계금액 찾기
+	var split = money.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');					// 숫자 3개 단위로 콤마 넣는 정규식
+	money = $(o).parent().parent().parent().next().next().children().text(split);	// 합계 금액에 콤마 삽입
 	
 //	$('.totalVal').text($('.totalVal').text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(','));		// 위 세줄을 이렇게 한줄로도 표현 가능
+	
+	// 상품들의 총 합계 금액 변경
+	var addPrice = $(o).parent().parent().parent().prev().text().split(',');		// 더하려는 금액 찾아서 콤마 없애기
+	var addPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
+	
+	for(var i=0; i<addPrice.length; i++){
+		addPriceSpl += addPrice[i];
+	}
+	var addPriceVal = parseInt(addPriceSpl);		// String 타입의 금액을 int형으로 변환
+	
+	var pdPrice =$('#pdPrice').text().split(',');	// 기존 상품들의 총 합계 금액 찾아서 콤마 없애기
+	var pdPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
+	
+	for(var i=0; i<pdPrice.length; i++){
+		pdPriceSpl += pdPrice[i];
+	}
+	var pdPriceVal = parseInt(pdPriceSpl);			// String 타입의 금액을 int형으로 변환
+	
+	var TotalValStr = pdPriceVal + addPriceVal;		// 총 합계 + 수량증가 한 상품 1개 가격을 더하는 처리
+	
+	$('#pdPrice').text(TotalValStr);				// 총 합계 금액 바꿔주는 처리
+	var realTotalVal = $('#pdPrice').text();		// 총 합계 금액을 찾아서
+	var TotalPriceSpl = realTotalVal.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');	// 숫자 3개 단위로 콤마 넣는 정규식
+	$('#pdPrice').text(TotalPriceSpl);				// 합계 금액에 콤마 삽입
+	
+	
 }
 
 //수량 감소버튼
@@ -100,10 +123,34 @@ function ct_quantityDown(o){
 	$(o).parent().next().attr('value', cntMin );				// - 버튼 누를 시 수량 감소
 	$(o).parent().parent().parent().next().next().children().text( priceSpl * cntMin );	// total 가격 변경해주는 처리
 	
-	// total 금액 콤마(,) 찍기
-	var money = $(o).parent().parent().parent().next().next().children().text();
-	var split = money.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
-	money = $(o).parent().parent().parent().next().next().children().text(split);
+	// 물품 하나에 대한 개별 물품당 합계 금액 콤마(,) 찍기
+	var money = $(o).parent().parent().parent().next().next().children().text();		// 현재 입력 되어 있는 합계금액 찾기
+	var split = money.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');						// 숫자 3개 단위로 콤마 넣는 정규식
+	money = $(o).parent().parent().parent().next().next().children().text(split);		// 합계 금액에 콤마 삽입
 	
 //	$('#totalVal').text($('#totalVal').text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(','));		// 위 세줄을 이렇게 한줄로도 표현 가능
+	
+	// 상품들의 총 합계 금액 변경
+	var minPrice = $(o).parent().parent().parent().prev().text().split(',');		// 빼려는 금액 찾아서 콤마 없애기
+	var minPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
+	
+	for(var i=0; i<minPrice.length; i++){
+		minPriceSpl += minPrice[i];
+	}
+	var minPriceVal = parseInt(minPriceSpl);		// String 타입의 금액을 int형으로 변환
+	
+	var pdPrice =$('#pdPrice').text().split(',');	// 기존 상품들의 총 합계 금액 찾아서 콤마 없애기
+	var pdPriceSpl = '';							// 배열에 담김    ex) 27,000 => ['27', '000']
+	
+	for(var i=0; i<pdPrice.length; i++){
+		pdPriceSpl += pdPrice[i];
+	}
+	var pdPriceVal = parseInt(pdPriceSpl);			// String 타입의 금액을 int형으로 변환
+	
+	var TotalValStr = pdPriceVal - minPriceVal;		// 총 합계 - 수량감소 한 상품 1개 가격을 빼는 처리
+	
+	$('#pdPrice').text(TotalValStr);				// 총 합계 금액 바꿔주는 처리
+	var realTotalVal = $('#pdPrice').text();		// 총 합계 금액을 찾아서
+	var TotalPriceSpl = realTotalVal.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');	// 숫자 3개 단위로 콤마 넣는 정규식
+	$('#pdPrice').text(TotalPriceSpl);				// 합계 금액에 콤마 삽입
 }

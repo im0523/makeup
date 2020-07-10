@@ -48,7 +48,7 @@ table img{ width: 80px;}
 
 	<tr>
 		<td colspan="7" style="text-align: right;">
-			<span style="text-align: right;">상품가격 </span><span id="pdPrice"></span> <span id="productPr"></span><span>+ 배송비 = 총 주문금액 : </span> 
+			<span style="text-align: right;">상품가격 </span><span id="pdPrice"></span> <span>+ 배송비 = 총 주문금액 : </span> 
 		</td>
 	</tr>
 </table>
