@@ -13,7 +13,7 @@ table img{ width: 80px;}
 </head>
 <body>
 <h2>장바구니</h2>
-<table>
+<table class="cartPage">
 	<tr>
 		<th style="width: 35px;"><input type="checkbox" class="list-allCheck" id="list-allCheck" onclick="go_selectPdAll();"/></th>
 		<th style="width: 90px;">이미지</th>
@@ -49,7 +49,7 @@ table img{ width: 80px;}
 	<tr>
 		<td colspan="7" style="text-align: right;">
 			<span style="text-align: right;">상품가격 </span><span id="pdPrice"></span>
-			<span>+ 배송비 <span id="deliveryFee"></span>= 총 주문금액 : </span> 
+			<span>+ 배송비 <span id="deliveryFee"></span> = 총 주문금액 : </span> 
 		</td>
 	</tr>
 </table>
