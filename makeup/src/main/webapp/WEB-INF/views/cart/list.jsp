@@ -25,7 +25,7 @@ table img{ width: 80px;}
 	</tr>
 	
 	<c:forEach var="vo" items="${list }">
-		<tr>
+		<tr> 
 			<td><input type="checkbox" class="list-checkBox" onclick="go_selectPd(this);"/></td>
 			<td><img style="float: none;" src="resources/${vo.product_thumbNail }"/></td>
 			<td style="text-align: left; font-weight: bold;">${vo.product_name }</td>
