@@ -539,3 +539,11 @@ select {
 	border: 1px solid #ccc;
 	margin-left: 10px;
 }
+
+.cartSelectDel{
+	height: 50px;
+    vertical-align: bottom;
+    border-left: hidden;
+    border-right: hidden;
+    border-bottom: hidden;
+}
