@@ -120,4 +120,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# target folder ignore
+./makeup/target/
+
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java,windows
