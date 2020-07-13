@@ -111,6 +111,9 @@ table {
 table th, table td {
 	border-bottom: 1px solid #ececec;
 	padding: 10px;
+}
+
+.cartPage td{
 	text-align: center;
 }
 
@@ -535,4 +538,12 @@ select {
 .go_shopping{
 	border: 1px solid #ccc;
 	margin-left: 10px;
+}
+
+.cartSelectDel{
+	height: 50px;
+    vertical-align: bottom;
+    border-left: hidden;
+    border-right: hidden;
+    border-bottom: hidden;
 }

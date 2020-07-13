@@ -23,10 +23,10 @@ $(document).ready(function(){
 	pdPrice = $('#pdPrice').text(split);
 	
 	// 50,000원 이상 배송비 무료
-	if( c > 50000 ){
+	if( c >= 50000 ){
 		$('#deliveryFee').text('0');
 	}else{
-		$('#deliveryFee').text('2500');
+		$('#deliveryFee').text('2,500');
 	}
 })
 
@@ -108,6 +108,13 @@ function ct_quantityUp(o){
 		var realTotalVal = $('#pdPrice').text();		// 총 합계 금액을 찾아서
 		var TotalPriceSpl = realTotalVal.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');	// 숫자 3개 단위로 콤마 넣는 정규식
 		$('#pdPrice').text(TotalPriceSpl);				// 합계 금액에 콤마 삽입
+		
+		// 50,000원 이상 배송비 무료
+		if( realTotalVal >= 50000 ){
+			$('#deliveryFee').text('0');
+		}else{
+			$('#deliveryFee').text('2,500');
+		}
 	}
 	
 }
@@ -166,6 +173,13 @@ function ct_quantityDown(o){
 		var realTotalVal = $('#pdPrice').text();		// 총 합계 금액을 찾아서
 		var TotalPriceSpl = realTotalVal.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');	// 숫자 3개 단위로 콤마 넣는 정규식
 		$('#pdPrice').text(TotalPriceSpl);				// 합계 금액에 콤마 삽입
+		
+		// 50,000원 이상 배송비 무료
+		if( realTotalVal >= 50000 ){
+			$('#deliveryFee').text('0');
+		}else{
+			$('#deliveryFee').text('2,500');
+		}
 	}
 }
 
@@ -198,6 +212,13 @@ function go_selectPd(o){
 	var TotalPriceSpl = realTotalVal.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');	// 숫자 3개 단위로 콤마 넣는 정규식
 	$('#pdPrice').text(TotalPriceSpl);				// 합계 금액에 콤마 삽입
 //	alert($(o).parent().next().next().next().next().next().next().children().text());
+	
+	// 50,000원 이상 배송비 무료
+	if( realTotalVal >= 50000 ){
+		$('#deliveryFee').text('0');
+	}else{
+		$('#deliveryFee').text('2,500');
+	}
 }
 
 function go_selectPdAll(){
@@ -222,7 +243,15 @@ function go_selectPdAll(){
 		var pdPrice = $('#pdPrice').text();
 		var split = pdPrice.split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
 		pdPrice = $('#pdPrice').text(split);
+		
+		// 50,000원 이상 배송비 무료
+		if( c >= 50000 ){
+			$('#deliveryFee').text('0');
+		}else{
+			$('#deliveryFee').text('2,500');
+		}
 	}else{
 		$('#pdPrice').text('0');		// 전체선택 해제 되어 있을 경우
+		$('#deliveryFee').text('2,500');
 	}
 }
