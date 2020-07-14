@@ -23,10 +23,17 @@ $(document).ready(function(){
 	pdPrice = $('#pdPrice').text(split);
 	
 	// 50,000원 이상 배송비 무료
-	if( c >= 50000 ){
+	if( c >= 50000 ){		// 총 상품 가격이 50,000원 이상일 때
 		$('#deliveryFee').text('0');
-	}else{
+		$('#cartTotalPr').text($('#pdPrice').text());
+	}else if( c == 0 ){		// 총 상품 가격이 0원일 때
+		$('#deliveryFee').text('0');
+	}else{					// 총 상품 가격이 50,000원 미만일 때
 		$('#deliveryFee').text('2,500');
+		
+		$('#cartTotalPr').text(c+2500);	// 총 합계는 = 상품가격 + 배송비
+		var totalSpl = $('#cartTotalPr').text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');		// 총합계에 콤마(,) 삽입
+		$('#cartTotalPr').text(totalSpl);
 	}
 })
 
@@ -112,8 +119,13 @@ function ct_quantityUp(o){
 		// 50,000원 이상 배송비 무료
 		if( realTotalVal >= 50000 ){
 			$('#deliveryFee').text('0');
+			$('#cartTotalPr').text($('#pdPrice').text());
 		}else{
 			$('#deliveryFee').text('2,500');
+			
+			$('#cartTotalPr').text(parseInt(realTotalVal)+2500);	// 총 합계는 = 상품가격 + 배송비
+			var totalSpl = $('#cartTotalPr').text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');		// 총합계에 콤마(,) 삽입
+			$('#cartTotalPr').text(totalSpl);
 		}
 	}
 	
@@ -177,8 +189,13 @@ function ct_quantityDown(o){
 		// 50,000원 이상 배송비 무료
 		if( realTotalVal >= 50000 ){
 			$('#deliveryFee').text('0');
+			$('#cartTotalPr').text($('#pdPrice').text());
 		}else{
 			$('#deliveryFee').text('2,500');
+			
+			$('#cartTotalPr').text(parseInt(realTotalVal)+2500);	// 총 합계는 = 상품가격 + 배송비
+			var totalSpl = $('#cartTotalPr').text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');		// 총합계에 콤마(,) 삽입
+			$('#cartTotalPr').text(totalSpl);
 		}
 	}
 }
@@ -213,11 +230,19 @@ function go_selectPd(o){
 	$('#pdPrice').text(TotalPriceSpl);				// 합계 금액에 콤마 삽입
 //	alert($(o).parent().next().next().next().next().next().next().children().text());
 	
-	// 50,000원 이상 배송비 무료
+	// 총 상품 가격 : 50,000원 이상 배송비 무료
 	if( realTotalVal >= 50000 ){
 		$('#deliveryFee').text('0');
-	}else{
-		$('#deliveryFee').text('2,500');
+		$('#cartTotalPr').text($('#pdPrice').text());
+	}else if( realTotalVal == 0 ){
+		$('#deliveryFee').text('0');
+		$('#cartTotalPr').text('0');
+	}else{			// 총 상품 가격 : 50,000원 이하일 경우
+		$('#deliveryFee').text('2,500');	// 배송비 2500원
+		
+		$('#cartTotalPr').text(parseInt(realTotalVal)+2500);	// 총 합계는 = 상품가격 + 배송비
+		var totalSpl = $('#cartTotalPr').text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');		// 총합계에 콤마(,) 삽입
+		$('#cartTotalPr').text(totalSpl);
 	}
 }
 
@@ -247,11 +272,22 @@ function go_selectPdAll(){
 		// 50,000원 이상 배송비 무료
 		if( c >= 50000 ){
 			$('#deliveryFee').text('0');
+			$('#cartTotalPr').text($('#pdPrice').text());
 		}else{
 			$('#deliveryFee').text('2,500');
 		}
 	}else{
 		$('#pdPrice').text('0');		// 전체선택 해제 되어 있을 경우
-		$('#deliveryFee').text('2,500');
+		$('#cartTotalPr').text('0');
 	}
+}
+
+// 장바구니의 선택상품 삭제
+function go_delCart(){
+	var arr = new Array();
+	$('[name="cart_id"]:checked').each(function(){
+		var test = $(this).val();
+		alert(test);
+	})
+	
 }

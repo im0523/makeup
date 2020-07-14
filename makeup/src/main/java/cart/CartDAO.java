@@ -34,5 +34,11 @@ public class CartDAO implements CartService {
 		return sql.update("cart.mapper.update", cartVo);
 	}
 
+	// 장바구니의 선택상품 삭제
+	@Override
+	public int cart_delete(int cart_id) {
+		return sql.delete("cart.mapper.delete", cart_id);
+	}
+
 	
 }

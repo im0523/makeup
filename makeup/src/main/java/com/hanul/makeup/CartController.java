@@ -45,4 +45,12 @@ public class CartController {
 		return "cart/list";
 	}
 	
+	// 장바구니의 선택상품 삭제
+	@ResponseBody @RequestMapping("/delete.ct")
+	public String cart_delete(int cart_id) {
+//		System.out.println("찍  : "+ cart_id);
+//		service.cart_delete(cart_id);
+//		System.out.println("찍  : "+ cart_id);
+		return "redirect:cart/list";
+	}
 }

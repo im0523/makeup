@@ -32,6 +32,12 @@ public class CartServiceImpl implements CartService {
 		
 	}
 
+	// 장바구니의 선택상품 삭제
+	@Override
+	public int cart_delete(int cart_id) {
+		return dao.cart_delete(cart_id);
+	}
+
 	
 
 }

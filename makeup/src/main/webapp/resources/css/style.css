@@ -541,9 +541,29 @@ select {
 }
 
 .cartSelectDel{
-	height: 50px;
+	height: 40px;
     vertical-align: bottom;
     border-left: hidden;
     border-right: hidden;
     border-bottom: hidden;
+}
+
+.btnBorder{
+	border: 1px solid #ddd;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.cartBuyBtn{
+	width: 200px;
+    float: left;
+    border: 1px solid #ddd;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btnBorder:hover, .cartBuyBtn:hover {
+	cursor: pointer;
 }

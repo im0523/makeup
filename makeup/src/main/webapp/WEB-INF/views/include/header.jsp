@@ -13,12 +13,17 @@ ul li a { cursor: pointer;}
 </head>
 <body>
 <div>
+<form id="headerForm">
+	<input type="hidden" name="customer_id" value="${login_info.customer_id }"/>	<!-- 내 장바구니 목록 리스트 보기 위한 form 태그 -->
+</form>
+
 	<input type="hidden" id="adminCheck" value="${login_info.customer_id }"/>
 
 	<a onclick="location='/makeup'"><img src="img/logo.PNG" /></a>
 	<div class="position">
 	
 	<ul>
+		<li class="list-s"><img src="img/basket.JPG" style="width: 30px; margin-top: 23px;" onclick="go_cartList('${login_info.customer_id}');"/></li>
 		<li class="list-s">COMMUNITY</li>
 		
 		<c:if test="${empty login_info.customer_id }">
@@ -54,5 +59,11 @@ ul li a { cursor: pointer;}
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/customer.js" charset="UTF-8"></script>
+<script type="text/javascript">
+function go_cartList(id){
+	$('#headerForm').attr('action', 'list.ct');
+	$('#headerForm').submit();
+}
+</script>
 </body>
 </html>

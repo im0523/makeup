@@ -42,23 +42,31 @@ table img{ width: 80px;}
 			<td>-</td>
 			<td>
 				<span class="totalVal"><fmt:formatNumber value="${vo.product_price * vo.amount }"/></span>
+				<input type="hidden" name="cart_id" value="${vo.cart_id }"/>
 			</td>
 		</tr>
 	</c:forEach>
 
 	<tr>
 		<td colspan="7" style="text-align: right;">
-			<span style="text-align: right;">상품가격 </span><span id="pdPrice"></span>
-			<span>+ 배송비 <span id="deliveryFee"></span> = 총 주문금액 : <span></span></span> 
+			<span style="text-align: right;">상품가격 </span><span id="pdPrice"></span>원
+			<span> + 배송비 </span><span id="deliveryFee">0</span>원
+			<span> = 총 합계 : </span><span id="cartTotalPr" style="font-weight: bold;">0</span><span>원</span>
 		</td>
 	</tr>
 	
 	<tr>
 		<td colspan="7" style="text-align: left;" class="cartSelectDel">
-			선택 상품을 삭제하기
+			<span style="font-size: 14px; font-weight: bold; margin-right: 5px;">선택 상품 </span>
+			<a class="btnBorder" onclick="go_delCart();">삭제하기</a>
 		</td>
 	</tr>
 </table>
+
+<div style="width: 415px;">
+	<div class="cartBuyBtn" onclick="location='list.pd'">계속 쇼핑하기</div>
+	<div class="cartBuyBtn" style="margin-left: 10px; color: white; background-color: black;">구매하기</div>
+</div>
 
 <script type="text/javascript" src="js/product.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/cart.js" charset="UTF-8"></script>
