@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cart.CartServiceImpl;
@@ -47,10 +48,11 @@ public class CartController {
 	
 	// 장바구니의 선택상품 삭제
 	@ResponseBody @RequestMapping("/delete.ct")
-	public String cart_delete(int cart_id) {
-//		System.out.println("찍  : "+ cart_id);
-//		service.cart_delete(cart_id);
-//		System.out.println("찍  : "+ cart_id);
-		return "redirect:cart/list";
+	public String cart_delete(@RequestParam(value="cart_id[]") List<Integer> cart_id) {
+		for(int i=0; i<cart_id.size(); i++) {
+			service.cart_delete(cart_id.get(i));
+		}
+		return String.valueOf(cart_id);
 	}
+		
 }

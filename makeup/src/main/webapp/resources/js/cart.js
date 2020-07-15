@@ -284,10 +284,31 @@ function go_selectPdAll(){
 
 // 장바구니의 선택상품 삭제
 function go_delCart(){
-	var arr = new Array();
-	$('[name="cart_id"]:checked').each(function(){
-		var test = $(this).val();
-		alert(test);
-	})
-	
+	var checkLength = $('.list-checkBox:checked').length;
+
+	if( checkLength > 0 ){
+		if( confirm('선택한 상품을 삭제하시겠습니까?') ){ 
+			// name이 같은 체크박스의 값들을 배열에 담는다
+			var checkArr = [];
+			$('.list-checkBox:checked').each(function(idx){
+				checkArr.push($('.list-checkBox:checked:eq('+idx+')').next().val());
+			})
+			
+			$.ajax({
+				url: 'delete.ct',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					cart_id : checkArr
+				},
+				success:function(data){
+					location.reload();
+				},error:function(jqXHR, textStatus, errorThrown){
+					alert('실패' + textStatus + ' : ' + errorThrown);
+				}
+			})
+		}
+	}else if( checkLength == 0 ){
+		alert('삭제할 상품을 선택해주세요');
+	}
 }

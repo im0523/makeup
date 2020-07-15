@@ -26,7 +26,10 @@ table img{ width: 80px;}
 	
 	<c:forEach var="vo" items="${list }">
 		<tr>
-			<td><input type="checkbox" class="list-checkBox" onclick="go_selectPd(this);"/></td>
+			<td>
+				<input type="checkbox" class="list-checkBox" onclick="go_selectPd(this);"/>
+				<input type="hidden" name="cart_id" value="${vo.cart_id }"/>
+			</td>
 			<td><img style="float: none;" src="resources/${vo.product_thumbNail }"/></td>
 			<td style="text-align: left; font-weight: bold;">${vo.product_name }</td>
 			<td>
@@ -42,7 +45,6 @@ table img{ width: 80px;}
 			<td>-</td>
 			<td>
 				<span class="totalVal"><fmt:formatNumber value="${vo.product_price * vo.amount }"/></span>
-				<input type="hidden" name="cart_id" value="${vo.cart_id }"/>
 			</td>
 		</tr>
 	</c:forEach>
@@ -58,7 +60,7 @@ table img{ width: 80px;}
 	<tr>
 		<td colspan="7" style="text-align: left;" class="cartSelectDel">
 			<span style="font-size: 14px; font-weight: bold; margin-right: 5px;">선택 상품 </span>
-			<a class="btnBorder" onclick="go_delCart();">삭제하기</a>
+			<a class="btnBorder" onclick="go_delCart(this);">삭제하기</a>
 		</td>
 	</tr>
 </table>

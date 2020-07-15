@@ -60,4 +60,10 @@
 			PRODUCT_NO = #{product_no}
 	</update>
 
+	<delete id="delete">
+		DELETE FROM
+			CART
+		WHERE
+			CART_ID = #{cart_id}
+	</delete>
 </mapper>
