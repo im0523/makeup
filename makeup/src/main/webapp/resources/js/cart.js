@@ -299,8 +299,8 @@ function go_delCart(){
 				type: 'post',
 				dataType: 'json',
 				data: {
-					cart_id : checkArr
-				},
+					cart_id : checkArr				// cart_id : Controller에서 받는 Key 값
+				},									// checkArr : 내가 위에서 선언하고 값을 담았던 배열의 Value 값
 				success:function(data){
 					location.reload();
 				},error:function(jqXHR, textStatus, errorThrown){
