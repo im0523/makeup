@@ -18,12 +18,12 @@
 <body>
 <h2>상품구매</h2>
 <div class="header">
-	<div class="imagepath"><img style="width: 200px; height: 200px;" src="${vo.imagepath }" /></div>
+	<div class="imagepath"><img style="width: 200px; height: 200px;" src="${vo.product_thumbNail }" /></div>
 		<div class="infoArea">
 			<p class="value">상품명</p>
-				<p class="value1">${vo.name }
+				<p class="value1">${vo.product_name }
 			<p class="value">가격</p>
-				<p class="value1">${vo.price }
+				<p class="value1">${vo.product_price }
 		</div>
 	
 </div>
