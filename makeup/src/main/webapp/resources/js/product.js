@@ -172,3 +172,13 @@ function imgAddBtn(){
 
 	$('#imgLength').val(img);
 }
+
+// 상품 상세화면에서 구매버튼 눌렀을 시
+function go_buyPage(no){
+	if( $('#customer_id').val() == '' ){	// 로그인 되어 있지 않을 때
+		location.href='login';
+		alert('아이디 없음');
+	}else{
+		alert('아이디 있음');
+	}
+}

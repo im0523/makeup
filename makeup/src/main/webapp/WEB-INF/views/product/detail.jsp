@@ -13,7 +13,7 @@
 </head>
 <body>
 	<form id="insertForm" method="post">
-		<input type="hidden" name="customer_id" value="${login_info.customer_id }"/>
+		<input type="hidden" id="customer_id" name="customer_id" value="${login_info.customer_id }"/>
 		<input type="hidden" id="product_price" value="${vo.product_price }"/>
 		<input type="hidden" name="product_no" value="${vo.product_no }"/>
 	
@@ -52,7 +52,7 @@
 		        
 				<div class="cartBox">
 					<a onclick="insert_cart();" id="addCart" class="wish-btn">ADD CART</a>
-					<a onclick="location='buy.pd?product_no=${vo.product_no}'" class="buy-btn">BUY NOW</a>
+					<a onclick="go_buyPage(${vo.product_no});" class="buy-btn">BUY NOW</a>
 				</div>
 				
 			<c:if test="${login_info.customer_name == '관리자' }">
