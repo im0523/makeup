@@ -98,6 +98,7 @@ textarea {
 	height: 50px;
 	text-align: center;
 	font-size: 30px;
+	font-weight: bold;
 }
 
 table {
@@ -113,7 +114,7 @@ table th, table td {
 	padding: 10px;
 }
 
-.cartPage td{
+.cartPage td {
 	text-align: center;
 }
 
@@ -505,65 +506,86 @@ select {
 	cursor: pointer;
 }
 
-.cartFont{
+.cartFont {
 	font-size: 15px;
 	font-weight: 600;
-    text-align: center;
-    line-height: 15px;
+	text-align: center;
+	line-height: 15px;
 }
 
-.cartNoti{
+.cartNoti {
 	width: 300px;
 	height: 50px;
-    line-height: 50px;
+	line-height: 50px;
 }
-.go_cart, .go_shopping{
+
+.go_cart, .go_shopping {
 	float: left;
-    border: 1px solid;
-    width: 140px;
-    height: 40px;
-    line-height: 40px;
-    margin-top: 10px;
-    text-align: center;
-    font-size: small;
-    font-weight: 600;
-    cursor: pointer;
+	border: 1px solid;
+	width: 140px;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 10px;
+	text-align: center;
+	font-size: small;
+	font-weight: 600;
+	cursor: pointer;
 }
 
-.go_cart{
+.go_cart {
 	background: #000000;
-    color: #ffffff;
+	color: #ffffff;
 }
 
-.go_shopping{
+.go_shopping {
 	border: 1px solid #ccc;
 	margin-left: 10px;
 }
 
-.cartSelectDel{
+.cartSelectDel {
 	height: 40px;
-    vertical-align: bottom;
-    border-left: hidden;
-    border-right: hidden;
-    border-bottom: hidden;
+	vertical-align: bottom;
+	border-left: hidden;
+	border-right: hidden;
+	border-bottom: hidden;
 }
 
-.btnBorder{
+.btnBorder {
 	border: 1px solid #ddd;
-    padding: 5px;
-    font-size: 14px;
+	padding: 5px;
+	font-size: 14px;
 }
 
-.cartBuyBtn{
+.cartBuyBtn {
 	width: 200px;
-    float: left;
-    border: 1px solid #ddd;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
+	float: left;
+	border: 1px solid #ddd;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
 }
 
 .btnBorder:hover, .cartBuyBtn:hover {
 	cursor: pointer;
+}
+
+.orderCustomerInfo {
+	margin-bottom: 20px;
+}
+
+.orderCustomer{
+    font-weight: bold;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    font-size: 20px;
+}
+
+.orderCustomerDetail{
+	font-weight: bold;
+	font-size: 14px;
+    width: 15%;
+	background-color: #ededed;
+	border-bottom: 1px solid #dbdbdb;
 }

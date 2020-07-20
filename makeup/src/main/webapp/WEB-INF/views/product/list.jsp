@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.main { height: 50px; text-align: center; font-size: 30px; font-weight: bold;}
+
 .menu {width: 1080px; height: 50px; margin: 50px auto; }
 .menu li { list-style: none; float: left; color: lightslategray; font-size: 15px; padding: 10px 27px; border: 1px solid #bdbdbd; margin: 0 4px;}
 .item_box { width: 280px; height: 390px; float: left; margin: 22px;}

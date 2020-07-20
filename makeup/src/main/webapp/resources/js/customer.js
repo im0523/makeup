@@ -160,7 +160,7 @@ function go_login(){
 //				window.location=document.referrer;	// 이전 화면으로 가는 처리
 //				history.back();
 				location.reload();
-				location.href='/makeup';
+				location.href='/makeup/list.pd';
 			}else{
 				alert('비밀번호가 맞지 않습니다');
 			}
