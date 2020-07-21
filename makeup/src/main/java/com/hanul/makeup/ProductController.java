@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import common.CommonService;
+import customer.CustomerServiceImpl;
+import customer.CustomerVO;
 import image.ImageVO;
 import product.ProductPageVO;
 import product.ProductServiceImpl;
@@ -180,7 +182,9 @@ public class ProductController {
 	
 	//상품 구매화면 요청
 	@RequestMapping("/buy.pd")
-	public String buy(Model model, int product_no) {
+	public String buy(Model model, int product_no, ProductVO productVo, CustomerVO customerVo) {
+//		CustomerServiceImpl cusService = new CustomerServiceImpl();
+//		model.addAttribute("customerVo", cusService.customer_detail(customerVo.getCustomer_id()));
 		model.addAttribute("vo", service.product_detail(product_no));
 		return "product/buy";
 	}

@@ -570,7 +570,7 @@ select {
 	cursor: pointer;
 }
 
-.orderCustomerInfo {
+.orderCustomerInfo, .recipientInfo {
 	margin-bottom: 20px;
 }
 

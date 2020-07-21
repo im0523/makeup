@@ -35,6 +35,24 @@
 			<td>휴대폰번호</td>
 		</tr>
 	</table>
+	
+	<table class="recipientInfo">
+		<tr>
+			<td colspan="7" class="orderCustomer">배송지 정보</td>
+		</tr>
+		<tr>
+			<td class="orderCustomerDetail">이름</td>
+			<td>이름</td>
+		</tr>
+		<tr>
+			<td class="orderCustomerDetail">이메일</td>
+			<td>이메일</td>
+		</tr>
+		<tr>
+			<td class="orderCustomerDetail">휴대폰번호</td>
+			<td>휴대폰번호</td>
+		</tr>
+	</table>
 
 	<table class="orderPage">
 		<tr>
@@ -46,17 +64,9 @@
 			<th style="width: 70px;">적립금</th>
 			<th>합계</th>
 		</tr>
-<!-- 		<div class="imagepath"> -->
-<%-- 			<img style="width: 200px; height: 200px;" src="resources//${vo.product_thumbNail }" /> --%>
-<!-- 		</div> -->
-<!-- 		<div class="infoArea"> -->
-<!-- 			<p class="value">상품명</p> -->
-<%-- 			<p class="value1">${vo.product_name } --%>
-<!-- 			<p class="value">가격</p> -->
-<%-- 			<p class="value1">${vo.product_price } --%>
-<!-- 		</div> -->
-
 	</table>
+	
+	
 	<div style="width: 116px;">
 		<a class="btn-fill" onclick="">주문하기</a> <a class="btn-fill" onclick="history.back();">취소</a>
 	</div>
