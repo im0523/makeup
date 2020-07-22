@@ -178,6 +178,7 @@ function go_buyPage(no){
 	if( $('#customer_id').val() == '' ){	// 로그인 되어 있지 않을 때
 		location.href='login';
 	}else{	// 로그인 되어있을 때
-		location.href='buy.pd?product_no='+no;
+//		location.href='buy.pd?product_no='+no;
+		
 	}
 }

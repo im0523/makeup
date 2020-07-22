@@ -182,9 +182,9 @@ public class ProductController {
 	
 	//상품 구매화면 요청
 	@RequestMapping("/buy.pd")
-	public String buy(Model model, int product_no, ProductVO productVo, CustomerVO customerVo) {
-//		CustomerServiceImpl cusService = new CustomerServiceImpl();
-//		model.addAttribute("customerVo", cusService.customer_detail(customerVo.getCustomer_id()));
+	public String buy(Model model, int product_no, ProductVO productVo, String customer_id) {
+		CustomerServiceImpl cusService = new CustomerServiceImpl();
+		model.addAttribute("customerVo", cusService.customer_detail(customer_id));
 		model.addAttribute("vo", service.product_detail(product_no));
 		return "product/buy";
 	}
