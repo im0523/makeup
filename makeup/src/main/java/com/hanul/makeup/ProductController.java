@@ -10,11 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import common.CommonService;
 import customer.CustomerServiceImpl;
-import customer.CustomerVO;
 import image.ImageVO;
 import product.ProductPageVO;
 import product.ProductServiceImpl;
@@ -24,6 +24,7 @@ import product.ProductVO;
 public class ProductController {
 	@Autowired private ProductPageVO page;
 	@Autowired private ProductServiceImpl service;
+	@Autowired private CustomerServiceImpl cusService;
 	@Autowired private CommonService common;
 
 	//상품 목록화면 요청
@@ -181,11 +182,14 @@ public class ProductController {
 	}
 	
 	//상품 구매화면 요청
-	@RequestMapping("/buy.pd")
-	public String buy(Model model, int product_no, ProductVO productVo, String customer_id) {
-		CustomerServiceImpl cusService = new CustomerServiceImpl();
+	@ResponseBody @RequestMapping("/buy.pd")
+	public String buy(Model model, int product_no, String customer_id) {
+		
+		System.out.println(customer_id);
+		System.out.println(product_no);
+		
 		model.addAttribute("customerVo", cusService.customer_detail(customer_id));
-		model.addAttribute("vo", service.product_detail(product_no));
+		model.addAttribute("productVo", service.product_detail(product_no));
 		return "product/buy";
 	}
 	
