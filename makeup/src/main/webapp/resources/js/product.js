@@ -189,8 +189,8 @@ function go_buyPage(no){
 				customer_id : customer_id,
 				product_no : product_no
 			},success: function(data){
-				location.replace='/makeup';
 				alert('성공');
+				location.href='/makeup';
 			},error: function(jqXHR, textStatus, errorThrown){
 				alert('실패'+ jqXHR+ "," + textStatus+ ",  " + errorThrown);
 			}
