@@ -1,6 +1,7 @@
 package com.hanul.makeup;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -79,7 +80,7 @@ public class ProductController {
 		model.addAttribute("vo", service.product_detail(product_no));
 		List<ImageVO> vo = service.image_detail(product_no);
 		
-		if( vo.size() > 0 ) {
+		if( vo.get(0).getImagepath() != null ) {
 			String str = vo.get(0).getImagepath(); 
 			String[] imageList = str.split(",");
 //			for(int i=0; i<imageList.length; i++) {
@@ -87,6 +88,9 @@ public class ProductController {
 //				
 //			}
 			model.addAttribute("imageList", imageList);
+		}else {
+			String str = vo.get(0).getImagepath();
+			model.addAttribute("imageList", str);
 		}
 	
 		
@@ -182,14 +186,15 @@ public class ProductController {
 	}
 	
 	//상품 구매화면 요청
-	@ResponseBody @RequestMapping("/buy.pd")
-	public String buy(Model model, int product_no, String customer_id) {
-		
+	@RequestMapping("/buy.pd")
+	public String buy(Model model, int product_no, String customer_id, int amount) {
 		System.out.println(customer_id);
 		System.out.println(product_no);
+		System.out.println(amount);
 		
 		model.addAttribute("customerVo", cusService.customer_detail(customer_id));
 		model.addAttribute("productVo", service.product_detail(product_no));
+		model.addAttribute("amount", amount);
 		return "product/buy";
 	}
 	

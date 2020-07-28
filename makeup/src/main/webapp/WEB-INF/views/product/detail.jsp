@@ -52,7 +52,8 @@
 		        
 				<div class="cartBox">
 					<a onclick="insert_cart();" id="addCart" class="wish-btn">ADD CART</a>
-					<a onclick="go_buyPage();" class="buy-btn">BUY NOW</a>
+<%-- 					<a onclick="location='buy.pd?product_no=${vo.product_no}'" class="buy-btn">BUY NOW</a> --%>
+					<a onclick="go_buyPage()" class="buy-btn">BUY NOW</a>
 				</div>
 				
 			<c:if test="${login_info.customer_name == '관리자' }">

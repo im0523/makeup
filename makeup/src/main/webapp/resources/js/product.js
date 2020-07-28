@@ -174,28 +174,29 @@ function imgAddBtn(){
 }
 
 // 상품 상세화면에서 구매버튼 눌렀을 시
-function go_buyPage(no){
+function go_buyPage(){
 	if( $('#customer_id').val() == '' ){	// 로그인 되어 있지 않을 때
 		location.href='login';
 	}else{	// 로그인 되어있을 때
-		var customer_id = $('#customer_id').val();
-		var product_no = $('#product_no').val();
-		
-		$.ajax({
-			url: 'buy.pd',
-			dataType: 'text',
-			type: 'post',
-			data: {
-				customer_id : customer_id,
-				product_no : product_no
-			},success: function(data){
-				alert('성공');
-				location.href='/makeup';
-			},error: function(jqXHR, textStatus, errorThrown){
-				alert('실패'+ jqXHR+ "," + textStatus+ ",  " + errorThrown);
-			}
-		})
-		
-		
+		$('#insertForm').attr('action', 'buy.pd');
+		$('#insertForm').submit();
 	}
+	
+//		var customer_id = $('#customer_id').val();
+//		var product_no = $('#product_no').val();
+//		
+//		$.ajax({
+//			url: 'buy.pd',
+//			dataType: 'text',
+//			type: 'post',
+//			data: {
+//				customer_id : customer_id,
+//				product_no : product_no
+//			},success: function(data){
+//				alert('성공');
+//				location.href='/makeup';
+//			},error: function(jqXHR, textStatus, errorThrown){
+//				alert('실패'+ jqXHR+ "," + textStatus+ ",  " + errorThrown);
+//			}
+//		})
 }
