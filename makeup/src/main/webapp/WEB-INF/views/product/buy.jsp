@@ -1,11 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <title>Insert title here</title>
+<style type="text/css">
+.buy-btn{ margin-top: 100px; width: 200px;}
+</style>
 </head>
 <body>
 	<p class="main">주문/결제</p>
@@ -53,25 +57,51 @@
 	<table class="orderPage">
 		<tr>
 			<th style="width: 90px;">이미지</th>
-			<th style="width: 230px;">상품정보</th>
-			<th>판매가</th>
+			<th style="width: 300px;">상품정보</th>
 			<th style="width: 83px;">수량</th>
-			<th style="width: 70px;">적립금</th>
-			<th>합계</th>
 		</tr>
 		<tr>
-			<th style="width: 90px;"><img src="resources/${productVo.product_thumbNail }" style="width: 80px;"/></th>
-			<th style="width: 230px;">${productVo.product_name }</th>
-			<th>${productVo.product_price }</th>
-			<th style="width: 83px;">${amount }개</th>
-			<th style="width: 70px;">적립금</th>
-			<th>합계</th>
+			<th style="width: 90px;"><img src="resources/${productVo.product_thumbNail }" style="width: 80px; float: none;"/></th>
+			<th style="width: 300px; text-align: left; font-weight: bold; font-size: 16px;">${productVo.product_name }</th>
+			<th style="width: 83px; font-weight: bold; font-size: 16px;">${amount }개</th>
+		</tr>
+	</table>
+	
+	<table class="payInfo">
+		<tr>
+			<td colspan="7" class="orderCustomer">결제 정보</td>
+		</tr>
+		<tr>
+			<td class="orderCustomerDetail">총 상품가격</td>
+			<td>
+<%-- 			<fmt:formatNumber value="${productVo.product_price * amount }"/> --%>
+				<span class="totalVal"><fmt:formatNumber value="${productVo.product_price * amount }"/></span>원</td>
+		</tr>
+		<tr>
+			<td class="orderCustomerDetail">배송비</td>
+			<td><span id="deliveryFee">0</span>원
+<%-- 				<c:choose> --%>
+<%-- 					<c:when test="${productVo.product_price * amount < 50000} "> --%>
+<%-- 						<fmt:formatNumber>2500</fmt:formatNumber> --%>
+<%-- 					</c:when> --%>
+<%-- 					<c:otherwise>0</c:otherwise> --%>
+<%-- 				</c:choose> --%>
+			</td>
+		</tr>
+		<tr>
+			<td class="orderCustomerDetail">총 결제금액</td>
+			<td><span id="cartTotalPr" style="font-weight: bold;">0</span><span>원</span></td>
+		</tr>
+		<tr>
+			<td class="orderCustomerDetail">결제방법</td>
+			<td></td>
 		</tr>
 	</table>
 	
 	
-	<div style="width: 116px;">
-		<a class="btn-fill" onclick="">주문하기</a> <a class="btn-fill" onclick="history.back();">취소</a>
+	<div style="width: 200px;">
+		<a class="buy-btn" onclick="">결제하기</a>
 	</div>
+<script type="text/javascript" src="js/cart.js"></script>
 </body>
 </html>

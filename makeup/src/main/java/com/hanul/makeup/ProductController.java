@@ -188,10 +188,6 @@ public class ProductController {
 	//상품 구매화면 요청
 	@RequestMapping("/buy.pd")
 	public String buy(Model model, int product_no, String customer_id, int amount) {
-		System.out.println(customer_id);
-		System.out.println(product_no);
-		System.out.println(amount);
-		
 		model.addAttribute("customerVo", cusService.customer_detail(customer_id));
 		model.addAttribute("productVo", service.product_detail(product_no));
 		model.addAttribute("amount", amount);
