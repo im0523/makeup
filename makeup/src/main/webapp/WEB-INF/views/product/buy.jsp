@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 .buy-btn{ margin-top: 100px; width: 200px;}
+table tr td{ font-size: 14px;}
 </style>
 </head>
 <body>
@@ -94,7 +95,12 @@
 		</tr>
 		<tr>
 			<td class="orderCustomerDetail">결제방법</td>
-			<td></td>
+			<td>
+				<label><input type="radio" name="payMethod" class="payMethod"/>계좌이체</label>
+				<label><input type="radio" name="payMethod" class="payMethod"/>신용/체크카드</label>
+				<label><input type="radio" name="payMethod" class="payMethod"/>휴대폰</label>
+				<label><input type="radio" name="payMethod" class="payMethod"/>무통장입금</label>
+			</td>
 		</tr>
 	</table>
 	

@@ -589,3 +589,8 @@ select {
 	background-color: #ededed;
 	border-bottom: 1px solid #dbdbdb;
 }
+
+.payMethod{
+	width: 10px;
+    height: 10px;
+}
