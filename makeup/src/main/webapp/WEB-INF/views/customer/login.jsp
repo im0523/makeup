@@ -9,6 +9,11 @@
 table { width: 360px ;}
 table th, table td { border-bottom: none;}
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#customer_id').focus();
+	})
+</script>
 </head>
 <body>
 <h2>로그인</h2>

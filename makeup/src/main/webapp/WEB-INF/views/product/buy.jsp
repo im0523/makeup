@@ -75,7 +75,6 @@ table tr td{ font-size: 14px;}
 		<tr>
 			<td class="orderCustomerDetail">총 상품가격</td>
 			<td>
-<%-- 			<fmt:formatNumber value="${productVo.product_price * amount }"/> --%>
 				<span class="totalVal" id="pdPrice"><fmt:formatNumber value="${productVo.product_price * amount }"/></span>원</td>
 		</tr>
 		<tr>
