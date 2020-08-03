@@ -76,17 +76,12 @@ table tr td{ font-size: 14px;}
 			<td class="orderCustomerDetail">총 상품가격</td>
 			<td>
 <%-- 			<fmt:formatNumber value="${productVo.product_price * amount }"/> --%>
-				<span class="totalVal"><fmt:formatNumber value="${productVo.product_price * amount }"/></span>원</td>
+				<span class="totalVal" id="pdPrice"><fmt:formatNumber value="${productVo.product_price * amount }"/></span>원</td>
 		</tr>
 		<tr>
 			<td class="orderCustomerDetail">배송비</td>
-			<td><span id="deliveryFee">0</span>원
-<%-- 				<c:choose> --%>
-<%-- 					<c:when test="${productVo.product_price * amount < 50000} "> --%>
-<%-- 						<fmt:formatNumber>2500</fmt:formatNumber> --%>
-<%-- 					</c:when> --%>
-<%-- 					<c:otherwise>0</c:otherwise> --%>
-<%-- 				</c:choose> --%>
+			<td>
+				<span id="deliveryFee">0</span>원
 			</td>
 		</tr>
 		<tr>
