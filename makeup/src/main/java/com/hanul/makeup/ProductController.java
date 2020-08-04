@@ -193,5 +193,4 @@ public class ProductController {
 		model.addAttribute("amount", amount);
 		return "product/buy";
 	}
-	
 }
