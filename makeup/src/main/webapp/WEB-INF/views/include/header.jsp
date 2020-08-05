@@ -23,7 +23,7 @@ ul li a { cursor: pointer;}
 	<div class="position">
 	
 	<ul>
-		<li class="list-s"><img src="img/basket.JPG" style="width: 30px; margin-top: 23px;" onclick="go_cartList('${login_info.customer_id}');"/></li>
+		<li class="list-s"><img src="img/basket.PNG" style="width: 20px; margin-top: 26px;" onclick="go_cartList('${login_info.customer_id}');"/></li>
 		<li class="list-s">COMMUNITY</li>
 		
 		<c:if test="${empty login_info.customer_id }">
