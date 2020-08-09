@@ -92,7 +92,6 @@ MAXVALUE 99999999999999999999;
 
 
 
-
 -- test 데이터 삽입
 INSERT INTO STORE(id, no, title, content, writer)
 VALUES (1, 1, '제목', '이곳은 입니다', '작성자');
