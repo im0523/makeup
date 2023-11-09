@@ -66,5 +66,4 @@ public class ProductServiceImpl implements ProductService {
 		return dao.image_delete(product_no);
 	}
 
-
 }
